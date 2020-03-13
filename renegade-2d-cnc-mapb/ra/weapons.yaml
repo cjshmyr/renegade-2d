@@ -1,0 +1,10 @@
+Repair:
+	Range: 1c0
+
+25mm: # For debug purposes
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+
+Dragon:
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000

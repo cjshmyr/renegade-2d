@@ -1,0 +1,14 @@
+TRAN-AI:
+	Inherits: TRAN
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	WithFacingSpriteBody:
+
+TRAN: # TODO: Fix defaults.
+	Health:
+		HP: 18000
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		PipCount: 4
+		EjectOnDeath: true

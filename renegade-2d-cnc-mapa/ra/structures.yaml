@@ -1,0 +1,18 @@
+APWR:
+	Power: # "Unlimited" power for AI buildings.
+		Amount: 999999
+
+PROC:
+	StoresResources: # "Unlimited" $ for AI buildings.
+		PipCount: 0
+		Capacity: 999999
+	FreeActor: # Use the AI specific harvester.
+		Actor: HARV-AI
+
+GUN:
+	Power: # Powered defense
+		Amount: -1
+
+TSLA:
+	Power: # Powered defense
+		Amount: -1

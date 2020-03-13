@@ -1,0 +1,626 @@
+MapFormat: 11
+RequiresMod: cnc
+Title: Renegade 2D (C&C 0.95) - Alpha
+Author: hamb
+Tileset: TEMPERAT
+MapSize: 98,50
+Bounds: 1,1,96,48
+Visibility: Lobby
+Categories: Renegade 2D
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		Spectating: True # HACK: Lets us enter neutral actors, and we don't see them under fog. Side effect: Warhead damage types think we are targeting an Ally.
+		NonCombatant: True
+		Faction: gdi
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: gdi
+		Enemies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@GDI:
+		Name: GDI
+		Faction: gdi
+		Color: F5D378
+		Team: 1
+		Allies: A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@Nod:
+		Name: Nod
+		Faction: nod
+		Color: FE1100
+		Team: 2
+		Allies: B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@A0:
+		Name: A0
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A1:
+		Name: A1
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A2:
+		Name: A2
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A3:
+		Name: A3
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A4:
+		Name: A4
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A5:
+		Name: A5
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A6:
+		Name: A6
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A7:
+		Name: A7
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A8:
+		Name: A8
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A9:
+		Name: A9
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A10:
+		Name: A10
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A11:
+		Name: A11
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: gdi
+		LockColor: True
+		Color: F5D378
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@B0:
+		Name: B0
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B1:
+		Name: B1
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B2:
+		Name: B2
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B3:
+		Name: B3
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B4:
+		Name: B4
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B5:
+		Name: B5
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B6:
+		Name: B6
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B7:
+		Name: B7
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B8:
+		Name: B8
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B9:
+		Name: B9
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B10:
+		Name: B10
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B11:
+		Name: B11
+		AllowBots: False
+		Playable: True
+		LockFaction: True
+		Faction: nod
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+Actors:
+	Actor0: splitblue
+		Owner: Neutral
+		Location: 48,11
+	Actor1: pyle
+		Owner: GDI
+		Location: 10,16
+	Actor2: hq
+		Owner: GDI
+		Location: 21,16
+	Actor3: hq
+		Owner: Nod
+		Location: 76,16
+	Actor4: hand
+		Owner: Nod
+		Location: 87,16
+	Actor5: fact
+		Owner: GDI
+		Location: 5,20
+	Actor6: afld
+		Owner: Nod
+		Location: 81,20
+	Actor7: fact
+		Owner: Nod
+		Location: 91,20
+	Actor8: weap
+		Owner: GDI
+		Location: 15,21
+	Actor9: nuk2
+		Owner: GDI
+		Location: 10,25
+	Actor10: fix
+		Owner: GDI
+		Location: 21,25
+	Actor11: fix
+		Owner: Nod
+		Location: 75,25
+	Actor12: nuk2
+		Owner: Nod
+		Location: 87,25
+	Actor13: proc
+		Owner: GDI
+		Location: 15,29
+	Actor14: proc
+		Owner: Nod
+		Location: 81,29
+	Actor15: split2
+		Owner: Neutral
+		Location: 45,39
+	Actor16: split2
+		Owner: Neutral
+		Location: 51,39
+	Actor17: atwr
+		Owner: GDI
+		Location: 25,29
+		TurretFacing: 92
+	Actor18: atwr
+		Owner: GDI
+		Location: 7,29
+		TurretFacing: 92
+	Actor19: atwr
+		Owner: GDI
+		Location: 7,15
+		TurretFacing: 92
+	Actor20: atwr
+		Owner: GDI
+		Location: 25,15
+		TurretFacing: 92
+	Actor21: gtwr
+		Owner: GDI
+		Location: 12,34
+		TurretFacing: 92
+	Actor22: gtwr
+		Owner: GDI
+		Location: 22,31
+		TurretFacing: 92
+	Actor23: gtwr
+		Owner: GDI
+		Location: 13,10
+		TurretFacing: 92
+	Actor24: gtwr
+		Owner: GDI
+		Location: 18,11
+		TurretFacing: 92
+	Actor25: gtwr
+		Owner: GDI
+		Location: 13,21
+		TurretFacing: 92
+	Actor26: gtwr
+		Owner: GDI
+		Location: 19,21
+		TurretFacing: 92
+	Actor28: gun
+		Owner: Nod
+		Location: 86,35
+		TurretFacing: 92
+	Actor29: gun
+		Owner: Nod
+		Location: 80,10
+		TurretFacing: 92
+	Actor30: gun
+		Owner: Nod
+		Location: 86,9
+		TurretFacing: 92
+	Actor31: gun
+		Owner: Nod
+		Location: 79,21
+		TurretFacing: 92
+	Actor32: gun
+		Owner: Nod
+		Location: 86,21
+		TurretFacing: 92
+	Actor33: obli
+		Owner: Nod
+		Location: 73,29
+	Actor34: obli
+		Owner: Nod
+		Location: 90,29
+	Actor35: obli
+		Owner: Nod
+		Location: 90,14
+	Actor36: obli
+		Owner: Nod
+		Location: 74,14
+	Actor37: t16
+		Owner: Neutral
+		Location: 43,3
+	Actor38: t16
+		Owner: Neutral
+		Location: 53,6
+	Actor39: t16
+		Owner: Neutral
+		Location: 42,15
+	Actor40: t16
+		Owner: Neutral
+		Location: 58,22
+	Actor41: t16
+		Owner: Neutral
+		Location: 32,21
+	Actor42: t16
+		Owner: Neutral
+		Location: 34,34
+	Actor44: t16
+		Owner: Neutral
+		Location: 6,40
+	Actor46: t16
+		Owner: Neutral
+		Location: 59,35
+	Actor47: t16
+		Owner: Neutral
+		Location: 61,45
+	Actor48: t16
+		Owner: Neutral
+		Location: 74,46
+	Actor49: t16
+		Owner: Neutral
+		Location: 91,41
+	Actor50: t16
+		Owner: Neutral
+		Location: 65,19
+	Actor51: t16
+		Owner: Neutral
+		Location: 68,10
+	Actor52: t16
+		Owner: Neutral
+		Location: 64,5
+	Actor53: t16
+		Owner: Neutral
+		Location: 92,4
+	Actor54: t16
+		Owner: Neutral
+		Location: 74,1
+	Actor55: t14
+		Owner: Neutral
+		Location: 68,11
+	Actor56: t07
+		Owner: Neutral
+		Location: 35,35
+	Actor57: t07
+		Owner: Neutral
+		Location: 30,42
+	Actor58: t05
+		Owner: Neutral
+		Location: 30,43
+	Actor59: t07
+		Owner: Neutral
+		Location: 62,44
+	Actor60: t08
+		Owner: Neutral
+		Location: 54,8
+	Actor61: t05
+		Owner: Neutral
+		Location: 42,4
+	Actor62: t05
+		Owner: Neutral
+		Location: 43,17
+	Actor63: t05
+		Owner: Neutral
+		Location: 31,19
+	Actor64: t05
+		Owner: Neutral
+		Location: 24,6
+	Actor65: t05
+		Owner: Neutral
+		Location: 7,9
+	Actor66: t05
+		Owner: Neutral
+		Location: 5,41
+	Actor67: t05
+		Owner: Neutral
+		Location: 76,45
+	Actor68: t07
+		Owner: Neutral
+		Location: 60,34
+	Actor69: t07
+		Owner: Neutral
+		Location: 58,23
+	Actor70: t07
+		Owner: Neutral
+		Location: 91,5
+	Actor71: t05
+		Owner: Neutral
+		Location: 72,2
+	Actor72: t11
+		Owner: Neutral
+		Location: 34,22
+	Actor73: t13
+		Owner: Neutral
+		Location: 41,6
+	Actor74: t10
+		Owner: Neutral
+		Location: 53,15
+	Actor75: t15
+		Owner: Neutral
+		Location: 54,42
+	Actor76: t17
+		Owner: Neutral
+		Location: 42,43
+	Actor77: t05
+		Owner: Neutral
+		Location: 15,45
+	Actor78: t03
+		Owner: Neutral
+		Location: 17,44
+	Actor79: t03
+		Owner: Neutral
+		Location: 24,8
+	Actor80: t03
+		Owner: Neutral
+		Location: 64,20
+	Actor81: gun
+		Owner: Nod
+		TurretFacing: 92
+		Location: 76,32
+	Actor82: t12
+		Owner: Neutral
+		Location: 70,33
+	Actor83: t07
+		Owner: Neutral
+		Location: 71,35
+	Actor84: t11
+		Owner: Neutral
+		Location: 3,2
+	Actor85: waypoint
+		Owner: GDI
+		Location: 35,38
+	Actor86: waypoint
+		Owner: Nod
+		Location: 62,38
+	Actor87: hpad
+		Owner: GDI
+		Location: 25,20
+	Actor88: hpad
+		Owner: Nod
+		Location: 72,20
+Rules: cnc/rules.yaml,cnc/renegade.yaml,cnc/defaults.yaml,cnc/infantry.yaml,cnc/vehicles.yaml,cnc/aircraft.yaml,cnc/structures.yaml
+Sequences: cnc/sequences.yaml
+Weapons: cnc/weapons.yaml
+Notifications: cnc/notifications.yaml

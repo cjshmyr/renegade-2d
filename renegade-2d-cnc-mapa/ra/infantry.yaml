@@ -1,0 +1,29 @@
+E6:
+	-EngineerRepair:
+	-RepairsBridges:
+	-CaptureManager:
+	-Captures:
+	-Captures@REUSABLE:
+	AttackFrontal:
+		Voice: Action
+	Armament:
+		Weapon: Repair
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+		ForceTargetStances: None
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Building, Vehicle, Ship
+	WithInfantryBody:
+		DefaultAttackSequence: idle1
+
+MECH:
+	-CaptureManager:
+	-Captures:
+	-Infiltrates:
+	-AutoTargetPriority@DEFAULT:
+	AttackFrontal:
+		Voice: Action
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Building, Vehicle, Ship

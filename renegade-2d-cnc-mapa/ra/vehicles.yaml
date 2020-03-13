@@ -1,0 +1,99 @@
+# AI specific harvester
+HARV-AI:
+	Inherits: HARV
+	-Cargo:
+
+HARV:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		EjectOnDeath: true
+	Harvester:
+		SearchOnCreation: false
+
+MNLY:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		EjectOnDeath: true
+
+JEEP:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 2
+		PipCount: 2
+		EjectOnDeath: true
+
+APC:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		PipCount: 4
+		EjectOnDeath: true
+
+1TNK:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		EjectOnDeath: true
+
+2TNK:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 2
+		PipCount: 2
+		EjectOnDeath: true
+
+ARTY:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		EjectOnDeath: true
+
+CTNK:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		EjectOnDeath: true
+	PortableChrono:
+		KillCargo: false
+
+V2RL:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		EjectOnDeath: true
+
+FTRK:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		EjectOnDeath: true
+
+3TNK:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 2
+		PipCount: 2
+		EjectOnDeath: true
+
+4TNK:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 2
+		PipCount: 2
+		EjectOnDeath: true
+
+TTNK:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		EjectOnDeath: true

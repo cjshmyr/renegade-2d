@@ -1,0 +1,199 @@
+^RenegadeBaseBuilding:
+	Health:
+		HP: 200000
+	Armor:
+		Type: Wood
+
+^RenegadeSmallBuilding:
+	Health:
+		HP: 100000
+	Armor:
+		Type: Woood
+
+FACT:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+PROC:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	StoresResources: # "Unlimited" $ for AI buildings.
+		PipCount: 0
+		Capacity: 999999
+	FreeActor: # Use the AI specific harvester.
+		Actor: HARV-AI
+
+NUK2:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	Power: # "Unlimited" power for AI buildings.
+		Amount: 999999
+
+HQ:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	-DetectCloaked: # Only defenses should detect cloaked.
+	-RenderDetectionCircle:
+	-AirstrikePower: # No airstrike power
+
+WEAP:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+AFLD:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+PYLE:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+HAND:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+FIX:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+HPAD:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+GUN:
+	Inherits@Renegade: ^RenegadeSmallBuilding
+	DetectCloaked:
+		Range: 6c0
+
+OBLI:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	DetectCloaked:
+		Range: 6c0
+	Power: # Powered defense
+		Amount: -1
+
+GTWR:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	DetectCloaked:
+		Range: 6c0
+
+ATWR:
+	Inherits@Renegade: ^RenegadeSmallBuilding
+	DetectCloaked:
+		Range: 6c0
+	Power: # Powered defense
+		Amount: -1
+
+#Husks
+FACT.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Construction Yard (Destroyed)
+	RenderSprites:
+		Image: fact.destroyed
+
+PROC.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: _x_ xxx === ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Tiberium Refinery (Destroyed)
+	RenderSprites:
+		Image: proc.destroyed
+
+NUK2.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xX xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Advanced Power Plant (Destroyed)
+	RenderSprites:
+		Image: nuk2.destroyed
+
+HQ.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: X_ xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Communications Center (Destroyed)
+	RenderSprites:
+		Image: hq.destroyed
+
+WEAP.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xxx === ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Weapons Factory (Destroyed)
+	RenderSprites:
+		Image: weap.destroyed
+
+AFLD.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: XXXX xxxx ====
+		Dimensions: 4,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Airstrip (Destroyed)
+	RenderSprites:
+		Image: afld.destroyed
+
+PYLE.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Barracks (Destroyed)
+	RenderSprites:
+		Image: pyle.destroyed
+
+HAND.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: hand of Nod (Destroyed)
+	RenderSprites:
+		Image: hand.destroyed
+
+FIX.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: _X_ xxx _X_
+		Dimensions: 3,3
+	Tooltip:
+		Name: Repair Facility (Destroyed)
+	RenderSprites:
+		Image: fix.destroyed
+
+HPAD.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Helipad (Destroyed)
+	RenderSprites:
+		Image: hpad.destroyed
+
+ATWR.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Tooltip:
+		Name: Advanced Guard Tower (Destroyed)
+	RenderSprites:
+		Image: atwr.destroyed
+
+OBLI.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Tooltip:
+		Name: Obelisk of Light (Destroyed)
+	RenderSprites:
+		Image: obli.destroyed

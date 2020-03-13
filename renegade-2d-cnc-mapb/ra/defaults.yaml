@@ -1,0 +1,38 @@
+# Allow engi/mech to repair buildings.
+^Building:
+	ProximityExternalCondition:
+		Condition: nearallybuilding
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: Repair
+
+# Allow infantry to auto-heal close enough to base buildings
+^Infantry:
+	ExternalCondition@NEARALLYBUILDING:
+		Condition: nearallybuilding
+	GrantCondition@INBASE:
+		RequiresCondition: nearallybuilding
+		Condition: inbase
+	-SelfHealing@HOSPITAL:
+	-WithDecoration@REDCROSS:
+	SelfHealing@DAMAGEDINBASE:
+		Step: 500
+		Delay: 100
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: damaged && inbase
+	WithDecoration@DAMAGEDINBASE:
+		Image: pips
+		Sequence: medic
+		ReferencePoint: Bottom, Right
+		RequiresCondition: damaged && inbase
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+
+# AI's purchased vehicles cost nothing.
+^Vehicle:
+	Valued:
+		Cost: 0

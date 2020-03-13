@@ -1,0 +1,369 @@
+World:
+	LuaScript:
+		Scripts: renegade.lua
+	-SpawnMPUnits:
+	-MPStartLocations:
+	CrateSpawner:
+		CheckboxLocked: true
+		CheckboxEnabled: false
+	MapOptions:
+		TechLevel: unrestricted
+		TechLevelDropdownLocked: true
+		TechLevelDropdownEnabled: false
+		TechLevelDropdownVisible: false
+		ShortGameCheckboxLocked: true
+		ShortGameCheckboxEnabled: false
+		ShortGameCheckboxVisible: false
+	MapBuildRadius:
+		BuildRadiusCheckboxLocked: true
+		BuildRadiusCheckboxEnabled: false
+		BuildRadiusCheckboxVisible: false
+		AllyBuildRadiusCheckboxLocked: true
+		AllyBuildRadiusCheckboxEnabled: false
+		AllyBuildRadiusCheckboxVisible: false
+	ResourceType@ore:
+		ValuePerUnit: 15 # 300 per load
+	ResourceType@gem:
+		ValuePerUnit: 30 # 600 per load
+
+Player:
+	-ConquestVictoryConditions:
+	-AllyRepair:
+	Shroud:
+		FogCheckboxLocked: true
+		FogCheckboxEnabled: true
+		FogCheckboxVisible: false
+		ExploredMapCheckboxLocked: true
+		ExploredMapCheckboxEnabled: true
+		ExploredMapCheckboxVisible: false
+	PlayerResources:
+		DefaultCashDropdownLocked: true
+		DefaultCashDropdownVisible: false
+		DefaultCash: 800
+	LobbyPrerequisiteCheckbox@GLOBALBOUNTY:
+		Enabled: false
+		Visible: false
+	LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY:
+		Enabled: false
+		Visible: false
+	LobbyPrerequisiteCheckbox@REUSABLEENGINEERS:
+		Enabled: false
+		Visible: false
+
+# These actors are always present in build queue, so get rid of them.
+# Changes to buildings/units are in other files.
+POWR:
+	-Buildable:
+HARV:
+	Buildable:
+		Prerequisites: ~notAI
+TRUK:
+	Buildable:
+		Prerequisites: ~notAI
+MCV:
+	Buildable:
+		Prerequisites: ~notAI
+MNLY:
+	Buildable:
+		Prerequisites: ~notAI
+
+PurchaseTerminal:
+	ScriptTriggers:
+	ConditionManager:
+	RenderSpritesEditorOnly:
+		Image: waypoint
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: false
+	Production:
+		Produces: Building, Vehicle, Infantry
+	Exit:
+	ExternalCondition@canbuy:
+		Condition: canbuy
+	ExternalCondition@building:
+		Condition: building
+	ExternalCondition@vehicle:
+		Condition: vehicle
+	ExternalCondition@infantry:
+		Condition: infantry
+	ExternalCondition@allies:
+		Condition: allies
+	ExternalCondition@soviet:
+		Condition: soviet
+	ExternalCondition@radar:
+		Condition: radar
+	ProvidesPrerequisite@canbuy:
+		Prerequisite: canbuy
+		RequiresCondition: canbuy
+	ProvidesPrerequisite@building:
+		Prerequisite: building
+		RequiresCondition: building
+	ProvidesPrerequisite@vehicle:
+		Prerequisite: vehicle
+		RequiresCondition: vehicle
+	ProvidesPrerequisite@infantry:
+		Prerequisite: infantry
+		RequiresCondition: infantry
+	ProvidesPrerequisite@allies:
+		Prerequisite: allies
+		RequiresCondition: allies
+	ProvidesPrerequisite@soviet:
+		Prerequisite: soviet
+		RequiresCondition: soviet
+	ProvidesRadar:
+		RequiresCondition: radar
+
+^buy.default:
+	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
+	Tooltip:
+		Name: Not Implemented
+	Buildable:
+		BuildPaletteOrder: 1
+		Prerequisites: building
+		Queue: Building
+		BuildDuration: 0
+	Valued:
+		Cost: 0
+
+buy.infantry.e1:
+	Inherits: ^buy.default
+	Tooltip:
+		Name: Rifleman
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~canbuy
+		Queue: Infantry
+	RenderSprites:
+		Image: E1
+
+buy.infantry.e3:
+	Inherits: ^buy.default
+	Tooltip:
+		Name: Rocket Soldier
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~canbuy
+		Queue: Infantry
+	RenderSprites:
+		Image: E3
+
+buy.infantry.e6:
+	Inherits: ^buy.default
+	Tooltip:
+		Name: Engineer
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~canbuy
+		Queue: Infantry
+	RenderSprites:
+		Image: E6
+
+buy.infantry.medi:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Medic
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~canbuy, ~infantry, ~allies
+		Queue: Infantry
+	RenderSprites:
+		Image: MEDI
+
+buy.infantry.mech:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Mechanic
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~canbuy, ~infantry, ~allies
+		Queue: Infantry
+	RenderSprites:
+		Image: MECH
+
+buy.infantry.e2:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Grenadier
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~canbuy, ~infantry, ~soviet
+		Queue: Infantry
+	RenderSprites:
+		Image: E2
+
+buy.infantry.e4:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Flamethrower
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~canbuy, ~infantry, ~soviet
+		Queue: Infantry
+	RenderSprites:
+		Image: E4
+
+buy.vehicle.harv:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Ore Truck
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~canbuy, ~vehicle
+		Queue: Vehicle
+	RenderSprites:
+		Image: harv
+
+buy.vehicle.mnly:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Minelayer
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~notimplemented # Currently disabled
+		Queue: Vehicle
+	RenderSprites:
+		Image: mnly
+
+buy.vehicle.jeep:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Ranger
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~canbuy, ~vehicle, ~allies
+		Queue: Vehicle
+	RenderSprites:
+		Image: jeep
+
+buy.vehicle.apc:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Armored Personnel Carrier
+	Buildable:
+		BuildPaletteOrder: 35
+		Prerequisites: ~canbuy, ~vehicle
+		Queue: Vehicle
+	RenderSprites:
+		Image: apc
+
+buy.vehicle.arty:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Light Tank
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~canbuy, ~vehicle, ~allies
+		Queue: Vehicle
+	RenderSprites:
+		Image: arty
+
+buy.vehicle.1tnk:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Light Tank
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~canbuy, ~vehicle, ~allies
+		Queue: Vehicle
+	RenderSprites:
+		Image: 1tnk
+
+buy.vehicle.2tnk:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Medium Tank
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~canbuy, ~vehicle, ~allies
+		Queue: Vehicle
+	RenderSprites:
+		Image: 2tnk
+
+buy.vehicle.ctnk:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Chrono Tank
+	Buildable:
+		BuildPaletteOrder: 70
+		Prerequisites: ~canbuy, ~vehicle, ~allies
+		Queue: Vehicle
+	RenderSprites:
+		Image: ctnk
+
+buy.vehicle.ftrk:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Mobile Flak
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~canbuy, ~vehicle, ~soviet
+		Queue: Vehicle
+	RenderSprites:
+		Image: ftrk
+
+buy.vehicle.3tnk:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Heavy Tank
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~canbuy, ~vehicle, ~soviet
+		Queue: Vehicle
+	RenderSprites:
+		Image: 3tnk
+
+buy.vehicle.4tnk:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 1700
+	Tooltip:
+		Name: Mammoth Tank
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~canbuy, ~vehicle, ~soviet
+		Queue: Vehicle
+	RenderSprites:
+		Image: 4tnk
+
+buy.vehicle.ttnk:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Tesla Tank
+	Buildable:
+		BuildPaletteOrder: 70
+		Prerequisites: ~canbuy, ~vehicle, ~soviet
+		Queue: Vehicle
+	RenderSprites:
+		Image: ttnk

@@ -1,0 +1,96 @@
+# Buildings provide a proximity condition for being nearby.
+# Buildings have a condition when damaged.
+# Buildings can be repaired by engineers.
+# Buildings (when being repaired by AI) repair rate is adjusted, and costs nothing.
+^Building:
+	ProximityExternalCondition:
+		Condition: nearallybuilding
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: Repair
+	RepairableBuilding:
+		RepairInterval: 50
+		RepairPercent: 0
+
+# Infantry can see cloaked units.
+# Allow infantry to auto-heal close enough to base buildings
+^Infantry:
+	DetectCloaked:
+		Range: 4c0
+	ExternalCondition@NEARALLYBUILDING:
+		Condition: nearallybuilding
+	GrantCondition@INBASE:
+		RequiresCondition: nearallybuilding
+		Condition: inbase
+	SelfHealing@DAMAGEDINBASE:
+		Step: 500
+		Delay: 25
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: damaged && inbase
+	WithDecoration@DAMAGEDINBASE:
+		Image: pips
+		Sequence: pip-heal
+		ReferencePoint: Bottom, Right
+		RequiresCondition: damaged && inbase
+		BlinkInterval: 25
+		BlinkPattern: Off, On
+
+# Vehicles can see cloaked units.
+# AI's purchased vehicles cost nothing.
+# Vehicles have a condition when damaged.
+# Vehicles can be repaired by engineers.
+# All vehicles provide no vision if empty.
+# Vehicles can't move unless they have an 'occupied' or 'brandnew' condition.
+^Vehicle:
+	DetectCloaked:
+		Range: 4c0
+	Valued:
+		Cost: 0
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: Repair
+	Cargo:
+		LoadedCondition: occupied
+	RevealsShroudMultiplier:
+		Modifier: 0
+		RequiresCondition: !occupied
+	ExternalCondition@BRANDNEW:
+		Condition: brandnew
+	Mobile:
+		RequiresCondition: occupied || brandnew
+
+# Helicopters can have conditions.
+# Helicopters can see cloaked units.
+# AI's purchased helicopters cost nothing.
+# Helicopters have a condition when damaged.
+# Helicopters can be repaired by engineers.
+# All Helicopters provide no vision if empty.
+^Helicopter:
+	DetectCloaked:
+		Range: 4c0
+	Valued:
+		Cost: 0
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: Repair
+	Cargo:
+		LoadedCondition: occupied
+	RevealsShroudMultiplier:
+		Modifier: 0
+		RequiresCondition: !occupied
+	ExternalCondition@BRANDNEW:
+		Condition: brandnew
+
+# Hacky, but to satisfy OpenRA's lint
+^CivBuilding:
+	ConditionManager:
