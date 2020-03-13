@@ -412,7 +412,7 @@ Actors:
 		Location: 30,39
 	Actor50: waypoint
 		Owner: Nod
-		Location: 40,36
+		Location: 30,39
 	Actor49: proc
 		Owner: GDI
 		Location: 10,2
@@ -448,7 +448,7 @@ Actors:
 		Location: 13,25
 	Actor48: waypoint
 		Owner: GDI
-		Location: 26,9
+		Location: 36,6
 	Actor38: fact
 		Owner: GDI
 		Location: 10,12
