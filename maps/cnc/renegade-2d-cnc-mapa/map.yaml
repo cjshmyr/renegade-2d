@@ -620,7 +620,3 @@ Actors:
 	Actor88: hpad
 		Owner: Nod
 		Location: 72,20
-Rules: cnc/rules.yaml,cnc/renegade.yaml,cnc/defaults.yaml,cnc/infantry.yaml,cnc/vehicles.yaml,cnc/aircraft.yaml,cnc/structures.yaml
-Sequences: cnc/sequences.yaml
-Weapons: cnc/weapons.yaml
-Notifications: cnc/notifications.yaml

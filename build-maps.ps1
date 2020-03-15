@@ -1,19 +1,32 @@
 # This script copies maps from the `maps` directory into the appropriate OpenRA Windows support directory's map folder.
 # The map will be copied, followed by the Lua script, and the yaml rules for that specific mod.
+# The map will also have references to yaml files added automatically.
 # This allows for one maintained source of Lua scripts & maps, separate from the maps themselves.
-
-# Important:
-# - Maps still have specific yaml file references in them. We can remove them and have the script append them.
 
 # The OpenRA version is set as a script variable.
 $openraVersion = 'release-20200202'
-$scriptName = 'renegade.lua'
 
-$mods = Get-ChildItem -Path "maps\"
-foreach ($mod in $mods)
+# Build yaml custom rule strings.
+function Get-MapYamlRulePaths($mod)
+{
+    $srcYaml = "src\yaml\$($mod)"
+
+    # Hacky.
+    # Instead, loop through subfolders and append appropriately.
+    $yamlRules = 'Rules: ' + (((dir "$($srcYaml)\rules") | %{ "yaml\$($srcYaml)\$($_.Name)" }) -join ',')
+    $yamlSequences = 'Sequences: ' + (((dir "$($srcYaml)\sequences") | %{ "yaml\$($srcYaml)\$($_.Name)" }) -join ',')
+    $yamlWeapons = 'Weapons: ' + (((dir "$($srcYaml)\weapons") | %{ "yaml\$($srcYaml)\$($_.Name)" }) -join ',')
+    $yamlNotifications = 'Notifications: ' + (((dir "$($srcYaml)\notifications") | %{ "yaml\$($srcYaml)\$($_.Name)" }) -join ',') 
+    $yaml = '`n`' + $yamlRules + '`n`' + $yamlSequences + '`n`' + $yamlWeapons + '`n`' + $yamlNotifications
+
+    return $yaml
+}
+
+# Move maps
+foreach ($mod in dir "maps\")
 {
     # Skip directory if empty.
-    $modMapCount = (Get-ChildItem "maps\$($mod)" | Measure-Object).Count
+    $modMapCount = (Get-ChildItem -Path "maps\$($mod)" | Measure-Object).Count
     if ($modMapCount -eq 0) {
         continue;
     }
@@ -39,13 +52,17 @@ foreach ($mod in $mods)
         Copy-Item -Path $mapFromPath -Destination $destination -Recurse -Force
 
         # Copy renegade.lua script.
-        $scriptFromPath = "src\$($scriptName)"
-        $scripttoPath = "$($destination)\$($folder)\$($scriptName)"
-        Copy-Item -Path $scriptFromPath -Destination $scriptToPath -Force
+        $scriptFromPath = "src\lua\"
+        $scripttoPath = "$($destination)\$($folder)\lua"
+        Copy-Item -Path $scriptFromPath -Destination $scriptToPath -Recurse -Force
 
         # Copy rules.
-        $rulesFromPath = "src\$($mod)"
-        $rulesToPath = "$($destination)\$($folder)\$($mod)"
+        $rulesFromPath = "src\yaml\$($mod)"
+        $rulesToPath = "$($destination)\$($folder)\yaml\$($mod)"
         Copy-Item -Path $rulesFromPath -Destination $rulesToPath -Recurse -Force
+
+        # Append any rules to map.yaml.
+        $mod
+        Get-MapYamlRulePaths($mod)
     }
 }

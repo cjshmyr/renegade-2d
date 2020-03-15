@@ -461,7 +461,3 @@ Actors:
 	Actor60: hpad
 		Owner: GDI
 		Location: 3,12
-Rules: cnc/rules.yaml,cnc/renegade.yaml,cnc/defaults.yaml,cnc/infantry.yaml,cnc/vehicles.yaml,cnc/aircraft.yaml,cnc/structures.yaml
-Sequences: cnc/sequences.yaml
-Weapons: cnc/weapons.yaml
-Notifications: cnc/notifications.yaml

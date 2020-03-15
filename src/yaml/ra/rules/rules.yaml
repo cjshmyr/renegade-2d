@@ -1,6 +1,6 @@
 World:
 	LuaScript:
-		Scripts: renegade.lua
+		Scripts: lua/renegade.lua
 	-SpawnMPUnits:
 	-MPStartLocations:
 	CrateSpawner:
