@@ -21,10 +21,13 @@
 		RepairPercent: 0
 
 # Infantry can see cloaked units.
+# Infantry do not automatically evade crushes.
 # Allow infantry to auto-heal close enough to base buildings
 ^Infantry:
 	DetectCloaked:
 		Range: 4c0
+	Crushable:
+		WarnProbability: 0
 	ExternalCondition@NEARALLYBUILDING:
 		Condition: nearallybuilding
 	GrantCondition@INBASE:
