@@ -1,7 +1,0 @@
-Speech:
-	Prefixes:
-		gdi: gdi
-		nod: nod
-	Notifications:
-		KeepEmComin: keepem1
-	DisablePrefixes: KeepEmComin
