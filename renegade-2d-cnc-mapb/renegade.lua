@@ -178,7 +178,6 @@ SetPlayerInfo = function()
 			InfantryConditionToken = -1, -- pt
 			AircraftConditionToken = -1, -- pt
 			RadarConditionToken = -1, -- pt
-			Score = 0,
 			Kills = 0,
 			Deaths = 0,
 			VictoryMissionObjectiveId = -1,
@@ -1058,7 +1057,7 @@ GrantRewardOnDamaged = function(self, attacker)
 			points = math.floor(points + 0.5)
 		end
 
-		attackerpi.Score = attackerpi.Score + points
+		attackerpi.Player.Experience = attackerpi.Player.Experience + points
 		attackerpi.Player.Cash = attackerpi.Player.Cash + points
 	end
 end
@@ -1081,7 +1080,7 @@ GrantRewardOnKilled = function(self, killer, actorCategory)
 		elseif actorCategory == "beacon" then points = 300
 		end
 
-		killerpi.Score = killerpi.Score + points
+		killerpi.Player.Experience = killerpi.Player.Experience + points
 		killerpi.Player.Cash = killerpi.Player.Cash + points
 	end
 end
@@ -1204,24 +1203,24 @@ DrawScoreboard = function()
 	local alphaTeamFaction = AlphaTeamPlayerName:lower()
 	local betaTeamFaction = BetaTeamPlayerName:lower()
 	local teamStats = { }
-	teamStats[alphaTeamFaction] = { Score = 0, Kills = 0, Deaths = 0 }
-	teamStats[betaTeamFaction] = { Score = 0, Kills = 0, Deaths = 0 }
+	teamStats[alphaTeamFaction] = { Experience = 0, Kills = 0, Deaths = 0 }
+	teamStats[betaTeamFaction] = { Experience = 0, Kills = 0, Deaths = 0 }
 
 	Utils.Do(PlayerInfo, function(pi)
 		local ts = teamStats[pi.Player.Faction]
 
-		ts.Score = ts.Score + pi.Score
+		ts.Experience = ts.Experience + pi.Player.Experience
 		ts.Kills = ts.Kills + pi.Kills
 		ts.Deaths = ts.Deaths + pi.Deaths
 	end)
 
-	local alpha = AlphaTeamPlayerName .. ': ' .. tostring(teamStats[alphaTeamFaction].Score) .. ' points - '
+	local alpha = AlphaTeamPlayerName .. ': ' .. tostring(teamStats[alphaTeamFaction].Experience) .. ' points - '
 		.. tostring(teamStats[alphaTeamFaction].Kills) .. '/' .. tostring(teamStats[alphaTeamFaction].Deaths) .. ' K/D'
-	local beta = BetaTeamPlayerName .. ': ' .. tostring(teamStats[betaTeamFaction].Score) .. ' points - '
+	local beta = BetaTeamPlayerName .. ': ' .. tostring(teamStats[betaTeamFaction].Experience) .. ' points - '
 		.. tostring(teamStats[alphaTeamFaction].Kills) .. '/' .. tostring(teamStats[betaTeamFaction].Deaths) .. ' K/D'
 
 	local scoreboard = '\n' .. '\n' .. '\n' .. '\n'
-	if teamStats[alphaTeamFaction].Score >= teamStats[betaTeamFaction].Score then
+	if teamStats[alphaTeamFaction].Experience >= teamStats[betaTeamFaction].Experience then
 		scoreboard = scoreboard .. alpha .. '\n' .. beta
 	else
 		scoreboard = scoreboard .. beta .. '\n' .. alpha
@@ -1230,7 +1229,7 @@ DrawScoreboard = function()
 	if not isSpectating then
 		local pi = LocalPlayerInfo
 		scoreboard = scoreboard .. '\n'
-		.. pi.Player.Name .. ': ' .. tostring(pi.Score) .. ' points - '
+		.. pi.Player.Name .. ': ' .. tostring(pi.Player.Experience) .. ' points - '
 		.. tostring(pi.Kills) .. '/' .. tostring(pi.Deaths) .. ' K/D'
 	end
 

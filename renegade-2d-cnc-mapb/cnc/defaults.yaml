@@ -1,3 +1,8 @@
+# Nothing provides experience points. Experience is handled entirely by Lua script.
+^ExistsInWorld:
+	GivesExperience:
+		PlayerExperienceModifier: 0
+
 # Buildings provide a proximity condition for being nearby.
 # Buildings have a condition when damaged.
 # Buildings can be repaired by engineers.
