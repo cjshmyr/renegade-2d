@@ -48,7 +48,7 @@ foreach ($mod in dir "$($PSScriptRoot)\mods\")
         Remove-Item $existingMapFolder -Recurse -ErrorAction Ignore
 
         # Copy map.
-        $mapFromPath = "$($mapsModFolder)\$($mapFolder)"
+        $mapFromPath = "$($modMapsFolder)\$($mapFolder)"
         Copy-Item -Path $mapFromPath -Destination $destination -Recurse -Force
 
         # Copy lua script(s).
