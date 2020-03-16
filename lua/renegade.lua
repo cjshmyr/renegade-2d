@@ -696,22 +696,6 @@ BindProducedVehicleEvents = function(produced)
 		if transport.PassengerCount == 1 then
 			pi.IsPilot = true
 		end
-
-		-- OpenRA release-20190314 workaround
-		-- It's possible but rare for a unit to simultaneously die and enter a transport. (https://github.com/OpenRA/OpenRA/issues/16405)
-		-- If this happens, unloading the vehicle will crash the game.
-		-- We will remove the vehicle from the world, and respawn any players involved to avoid crashing.
-		if passenger.IsDead then
-			DisplayMessage("CURRENT ENGINE BUG: A dead unit entered a vehicle. This vehicle has been removed to prevent a crash, and occupants respawned.")
-			transport.IsInWorld = false
-			Utils.Do(PlayerInfo, function(workaroundPI)
-				if workaroundPI.PassengerOfVehicle == transport then
-					workaroundPI.IsPilot = false
-					workaroundPI.PassengerOfVehicle = nil
-					SpawnHero(workaroundPI.Player)
-				end
-			end)
-		end
 	end)
 
 	-- If it's empty and alive, transfer ownership back to neutral.
