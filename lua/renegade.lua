@@ -141,6 +141,8 @@ WorldLoaded = function()
 		BindPurchaseTerminals()
 
 		InitializeAiHarvesters()
+
+		TickBots()
 	end)
 
 	-- Tick interval > 1
@@ -185,7 +187,8 @@ SetPlayerInfo = function()
 			IsPilot = false,
 			ProximityEventTokens = { },
 			HealthAfterLastDamageEvent = -1,
-			Surrendered = false
+			Surrendered = false,
+			BotName = "Bot"
 		}
 
 		if p.IsLocalPlayer then	LocalPlayerInfo = PlayerInfo[p.InternalName] end
@@ -527,7 +530,7 @@ CreateBuildingHusk = function(building)
 end
 
 NotifyBuildingDestroyed = function(self, killer)
-	DisplayMessage(self.Owner.Name .. " " .. TypeNameTable[self.Type] .. " was destroyed by " .. killer.Owner.Name .. "!")
+	DisplayMessage(self.Owner.Name .. " " .. TypeNameTable[self.Type] .. " was destroyed by " .. GetDisplayNameForActor(killer) .. "!")
 end
 
 NotifyBaseUnderAttack = function(self)
@@ -590,6 +593,7 @@ SpawnHero = function(player)
 
     FocusLocalCameraOnActor(hero)
 	BindHeroEvents(hero)
+	BindBotEvents(pi)
 end
 
 GetAvailableSpawnPoint = function(pi)
@@ -607,9 +611,9 @@ end
 BindHeroEvents = function(hero)
 	Trigger.OnKilled(hero, function(self, killer)
 		if self.Owner.InternalName == killer.Owner.InternalName then
-			DisplayMessage(self.Owner.Name .. " killed themselves!")
+			DisplayMessage(GetDisplayNameForActor(self) .. " killed themselves!")
 		else
-			DisplayMessage(self.Owner.Name .. " was killed by " .. killer.Owner.Name .. "!")
+			DisplayMessage(GetDisplayNameForActor(self) .. " was killed by " .. GetDisplayNameForActor(killer) .. "!")
 		end
 
 		GrantRewardOnKilled(self, killer, "hero")
@@ -617,6 +621,7 @@ BindHeroEvents = function(hero)
 		-- Increment K/D
 		local selfPi = PlayerInfo[self.Owner.InternalName]
 		local killerPi = PlayerInfo[killer.Owner.InternalName]
+
 		if selfPi ~= nil then
 			selfPi.Deaths = selfPi.Deaths + 1
 		end
@@ -947,7 +952,7 @@ BuildHeroItem = function(pi, actorType)
 		Trigger.OnKilled(beacon, function(actor, killer)
 			if actor.Type ~= killer.Type then
 				GrantRewardOnKilled(actor, killer, "beacon");
-				DisplayMessage(TypeNameTable[beacon.Type] .. ' disarmed by ' .. killer.Owner.Name .. '!')
+				DisplayMessage(TypeNameTable[beacon.Type] .. ' was disarmed by ' .. GetDisplayNameForActor(killer) .. '!')
 			end
 		end)
 
@@ -1266,7 +1271,7 @@ HackyDrawNameTags = function()
 					or GameOver
 
 				if showTag then
-					local name = pi.Player.Name
+					local name = GetDisplayNameForActor(pi.Hero)
 					name = name:sub(0,10) -- truncate to 10 chars
 
 					local pos = WPos.New(pi.Hero.CenterPosition.X, pi.Hero.CenterPosition.Y - 1250, 0)
@@ -1286,7 +1291,7 @@ HackyDrawNameTags = function()
 					local extraOffset = Actor.CruiseAltitude(pi.PassengerOfVehicle.Type)
 					local pos = WPos.New(pi.PassengerOfVehicle.CenterPosition.X, pi.PassengerOfVehicle.CenterPosition.Y - 1250 - extraOffset, 0)
 					local passengerCount = pi.PassengerOfVehicle.PassengerCount
-					local name = pi.Player.Name
+					local name = GetDisplayNameForActor(pi.Hero)
 					name = name:sub(0,10) -- truncate to 10 chars
 					if passengerCount > 1 then
 						name = name .. " (+" .. passengerCount - 1 .. ")"
@@ -1296,6 +1301,18 @@ HackyDrawNameTags = function()
 			end
 		end)
 	end)
+end
+
+GetDisplayNameForActor = function(actor)
+	-- Handles custom bot names
+	local pi = PlayerInfo[actor.Owner.InternalName]
+
+	-- nil if neutral, base defense, etc.
+	if pi ~= nil and pi.Player.IsBot then
+		return pi.BotName
+	else
+		return actor.Owner.Name
+	end
 end
 
 --[[ Misc. ]]--
@@ -1343,6 +1360,45 @@ end
 
 ActorIsNeutral = function(actor)
 	return actor.Owner.InternalName == NeutralPlayerName
+end
+
+-- [[ AI/Bots ]]
+--[[
+	Lazy/hacky bot logic:
+	- On spawn, purchase an anti-infantry or anti-armor unit depending on cash available. Would be better to have an enforced mix.
+	- Hunt every 30 seconds.
+]]
+TickBots = function()
+	Utils.Do(TeamInfo, function(ti)
+		Utils.Do(ti.Players, function(pi)
+			if pi.Player.IsBot then
+				if pi.Hero ~= nil and not pi.Hero.IsDead then
+					pi.Hero.Hunt()
+				end
+			end
+		end)
+	end)
+	Trigger.AfterDelay(DateTime.Seconds(30), TickBots)
+end
+
+BindBotEvents = function(pi)
+	if not pi.Player.IsBot then
+		return
+	end
+
+	-- CNC specific code
+	local purchasePool = { "e1", "e2" }
+	if pi.Player.Cash >= 250 and pi.Player.Cash < 500 then
+		purchasePool = { "e1", "e3" }
+	elseif pi.Player.Cash >= 500 then
+		purchasePool = { "rmbo", "e3" }
+	end
+	local toPurchase = Utils.Random(purchasePool)
+
+	-- HACK: The first time this is called, we don't have a purchase terminal yet.
+	if pi.PurchaseTerminal ~= nil then
+		pi.PurchaseTerminal.Produce('buy.infantry.' .. toPurchase)
+	end
 end
 
 -- [[ Tests ]]
