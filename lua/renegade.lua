@@ -27,6 +27,12 @@ RespawnTime = DateTime.Seconds(3)
 LocalPlayerInfo = nil -- HACK: Used for nametags & scoreboard.
 EnemyNametagsHiddenForTypes = { "stnk" } -- HACK: Used for nametags.
 GameOver = false
+BotNames = {
+	"Plorp", "Gorbel", "Splunch", "Borch", "Big Jeff", "Spurtle", "Gurgis", "Brumpus", "Yurst", "Ol Ginch",
+	"Gurch", "Plape", "Sporf", "Kranch", "Splinch", "Gorpo", "Forpel", "Gromph", "Dorbie", "Jorf", "Splurst",
+	"Shorp", "Bortles", "Bubson", "Plench", "Clorch", "Borth", "Bobson", "Munton", "Plungus", "Brungus", "Dorgel",
+	"Blurp", "Paunch", "Wedge", "Arp 299"
+}
 
 --[[ Mod-specific ]]
 Mod = "cnc"
@@ -122,6 +128,7 @@ WorldLoaded = function()
 
 	SetPlayerInfo()
 	SetTeamInfo()
+	SetBotNames()
 
 	AssignTeamBuildings()
 	AssignSpawnLocations()
@@ -141,8 +148,6 @@ WorldLoaded = function()
 		BindPurchaseTerminals()
 
 		InitializeAiHarvesters()
-
-		TickBots()
 	end)
 
 	-- Tick interval > 1
@@ -163,32 +168,34 @@ end
 
 --[[ World Loaded / Gameplay ]]
 SetPlayerInfo = function()
-	local humanPlayers = Player.GetPlayers(function(p)
-		return PlayerIsHuman(p)
+	local teamPlayers = Player.GetPlayers(function(p)
+		return PlayerIsHumanOrBot(p)
 	end)
 
-	Utils.Do(humanPlayers, function(p)
+	Utils.Do(teamPlayers, function(p)
 		PlayerInfo[p.InternalName] =
 		{
-			Player = p,
-			Team = nil,
-			Hero = nil,
-			PurchaseTerminal = nil,
-			CanBuyConditionToken = -1, -- hero
-			HasBeaconConditionToken = -1, -- hero
-			VehicleConditionToken = -1, -- pt
-			InfantryConditionToken = -1, -- pt
-			AircraftConditionToken = -1, -- pt
-			RadarConditionToken = -1, -- pt
-			Kills = 0,
-			Deaths = 0,
-			VictoryMissionObjectiveId = -1,
-			PassengerOfVehicle = nil,
-			IsPilot = false,
-			ProximityEventTokens = { },
-			HealthAfterLastDamageEvent = -1,
-			Surrendered = false,
-			BotName = "Bot"
+			Player = p, -- Player
+			Team = nil, -- TeamInformation for this player
+			Hero = nil, -- Actor: Hero
+			PurchaseTerminal = nil, -- Actor: Purchase Terminal
+			CanBuyConditionToken = -1, -- Attached to a Hero actor
+			HasBeaconConditionToken = -1, -- Attached to a Hero actor
+			VehicleConditionToken = -1, -- Attached to a Purchase Terminal actor
+			InfantryConditionToken = -1, -- Attached to a Purchase Terminal actor
+			AircraftConditionToken = -1, -- Attached to a Purchase Terminal actor
+			RadarConditionToken = -1, -- Attached to a Purchase Terminal actor
+			Kills = 0, -- Hero kills
+			Deaths = 0, -- Hero deaths
+			PassengerOfVehicle = nil, -- Actor of what vehicle they are a passenger of
+			IsPilot = false, -- Bool indicating if they are piloting a vehicle
+			ProximityEventTokens = { }, -- Conditional tokens used for proximity events
+			HealthAfterLastDamageEvent = -1, -- Amount of health this actor has had since the last time they were damaged
+			VictoryMissionObjectiveId = -1,  -- Conditional token used for victory conditions
+			Surrendered = false, -- Bool if they've surrendered
+			BotState = { -- Used if the player is a bot
+				DisplayName = "" -- Bot's display name
+			}
 		}
 
 		if p.IsLocalPlayer then	LocalPlayerInfo = PlayerInfo[p.InternalName] end
@@ -207,32 +214,44 @@ SetTeamInfo = function()
 		end
 
 		TeamInfo[team.InternalName] = {
-			AiPlayer = team,
-			Players = playersOnTeam,
-			ConstructionYard = nil,
-			Refinery = nil,
-			Barracks = nil,
-			WarFactory = nil,
-			Helipad = nil,
-			Radar = nil,
-			Powerplant = nil,
-			ServiceDepot = nil,
-			AiHarvester = nil,
-			Defenses = {},
-			SpawnLocations = {},
-			LastCheckedResourceAmount = 0,
-			TicksSinceLastBuildingDamage = NotifyBaseUnderAttackInterval,
-			TicksSinceLastHarvesterDamage = NotifyHarvesterUnderAttackInterval,
-			WarFactoryActorLocation = nil,
-			HelipadActorLocation = nil
+			AiPlayer = team, -- The "AI" player of the team
+			Players = playersOnTeam, -- All other Player actors on this team
+			ConstructionYard = nil, -- Actor reference to Construction Yard
+			Refinery = nil, -- Actor reference to Refinery
+			Barracks = nil, -- Actor reference to Barracks
+			WarFactory = nil, -- Actor reference to Vehicle Production
+			Helipad = nil, -- Actor reference to Helipad
+			Radar = nil, -- Actor reference to Radar
+			Powerplant = nil, -- Actor reference to Power Plant
+			ServiceDepot = nil, -- Actor reference to Service Depot
+			AiHarvester = nil, -- Actor reference to the AI-driven team harvester
+			Defenses = {}, -- Actor references to any base defenses
+			SpawnLocations = {}, -- Spawn locations set at the start of the game
+			LastCheckedResourceAmount = 0, -- Used when calculating and distributing shared funds
+			TicksSinceLastBuildingDamage = NotifyBaseUnderAttackInterval, -- Amount of ticks since a building was last damaged
+			TicksSinceLastHarvesterDamage = NotifyHarvesterUnderAttackInterval, -- Amount of ticks since a harvester was last damaged
+			WarFactoryActorLocation = nil, -- Location of where the war factory was, so air drops can be made when it's destroyed
+			HelipadActorLocation = nil -- Location of where the helipad was,  so air drops can be made when it's destroyed
 		}
 	end)
 
-	-- Store a reference to the team on the player.
+	-- Store a reference to the team info on the player.
 	Utils.Do(TeamInfo, function(ti)
 		Utils.Do(ti.Players, function(pi)
 			pi.Team = ti
 		end)
+	end)
+end
+
+SetBotNames = function()
+	-- Assigns bots a random name.
+	BotNames = Utils.Shuffle(BotNames)
+	local index = 1
+	Utils.Do(PlayerInfo, function(pi)
+		if pi.Player.IsBot then
+			pi.BotState.DisplayName = BotNames[index]
+			index = index + 1
+		end
 	end)
 end
 
@@ -593,7 +612,7 @@ SpawnHero = function(player)
 
     FocusLocalCameraOnActor(hero)
 	BindHeroEvents(hero)
-	BindBotEvents(pi)
+	InitializeIfBot(pi)
 end
 
 GetAvailableSpawnPoint = function(pi)
@@ -1256,7 +1275,7 @@ HackyDrawNameTags = function()
 
 				if showTag then
 					local name = GetDisplayNameForActor(pi.Hero)
-					name = name:sub(0,10) -- truncate to 10 chars
+					name = name:sub(0, 14) -- truncate to 14 chars
 
 					local pos = WPos.New(pi.Hero.CenterPosition.X, pi.Hero.CenterPosition.Y - 1250, 0)
 					Media.FloatingText(name, pos, 1, pi.Player.Color)
@@ -1276,7 +1295,7 @@ HackyDrawNameTags = function()
 					local pos = WPos.New(pi.PassengerOfVehicle.CenterPosition.X, pi.PassengerOfVehicle.CenterPosition.Y - 1250 - extraOffset, 0)
 					local passengerCount = pi.PassengerOfVehicle.PassengerCount
 					local name = GetDisplayNameForActor(pi.Hero)
-					name = name:sub(0,10) -- truncate to 10 chars
+					name = name:sub(0, 14) -- truncate to 14 chars
 					if passengerCount > 1 then
 						name = name .. " (+" .. passengerCount - 1 .. ")"
 					end
@@ -1288,12 +1307,10 @@ HackyDrawNameTags = function()
 end
 
 GetDisplayNameForActor = function(actor)
-	-- Handles custom bot names
+	-- Support for bot display names.
 	local pi = PlayerInfo[actor.Owner.InternalName]
-
-	-- nil if neutral, base defense, etc.
-	if pi ~= nil and pi.Player.IsBot then
-		return pi.BotName
+	if pi ~= nil and pi.Player.IsBot then -- nil if neutral, or a team actor.
+		return pi.BotState.DisplayName .. " (bot)"
 	else
 		return actor.Owner.Name
 	end
@@ -1330,7 +1347,7 @@ PlayerIsTeamAi = function(player)
 	return player.InternalName == AlphaTeamPlayerName or player.InternalName == BetaTeamPlayerName
 end
 
-PlayerIsHuman = function(player)
+PlayerIsHumanOrBot = function(player)
 	return player.IsNonCombatant == false and PlayerIsTeamAi(player) == false
 end
 
@@ -1350,39 +1367,36 @@ end
 --[[
 	Lazy/hacky bot logic:
 	- On spawn, purchase an anti-infantry or anti-armor unit depending on cash available. Would be better to have an enforced mix.
-	- Hunt every 30 seconds.
+	- Hunt for things.
 ]]
-TickBots = function()
-	Utils.Do(TeamInfo, function(ti)
-		Utils.Do(ti.Players, function(pi)
-			if pi.Player.IsBot then
-				if pi.Hero ~= nil and not pi.Hero.IsDead then
-					pi.Hero.Hunt()
-				end
-			end
-		end)
-	end)
-	Trigger.AfterDelay(DateTime.Seconds(30), TickBots)
-end
-
-BindBotEvents = function(pi)
+InitializeIfBot = function(pi)
 	if not pi.Player.IsBot then
 		return
 	end
 
-	-- CNC specific code
-	local purchasePool = { "e1", "e2" }
-	if pi.Player.Cash >= 250 and pi.Player.Cash < 500 then
-		purchasePool = { "e1", "e3" }
-	elseif pi.Player.Cash >= 500 then
-		purchasePool = { "rmbo", "e3" }
-	end
-	local toPurchase = Utils.Random(purchasePool)
+	-- Wait a second for a couple reasons:
+	-- Looks more natural.
+	-- Purchase terminals don't exist on first tick anyways (hacky).
+	Trigger.AfterDelay(DateTime.Seconds(1), function()
+		if Mod == "cnc" then
+			local purchasePool = { "e1", "e2" }
+			if pi.Player.Cash >= 250 and pi.Player.Cash < 500 then
+				purchasePool = { "e1", "e3" }
+			elseif pi.Player.Cash >= 500 then
+				purchasePool = { "rmbo", "e3" }
+			end
+			local toPurchase = Utils.Random(purchasePool)
 
-	-- HACK: The first time this is called, we don't have a purchase terminal yet.
-	if pi.PurchaseTerminal ~= nil then
-		pi.PurchaseTerminal.Produce('buy.infantry.' .. toPurchase)
-	end
+			if pi.PurchaseTerminal ~= nil then
+				pi.PurchaseTerminal.Produce('buy.infantry.' .. toPurchase)
+			end
+
+			-- Wait one tick to send the hunt order to the purchased infantry.
+			Trigger.AfterDelay(1, function()
+				pi.Hero.Hunt()
+			end)
+		end
+	end)
 end
 
 -- [[ Tests ]]
