@@ -190,7 +190,6 @@ SetPlayerInfo = function()
 			PassengerOfVehicle = nil, -- Actor of what vehicle they are a passenger of
 			IsPilot = false, -- Bool indicating if they are piloting a vehicle
 			ProximityEventTokens = { }, -- Conditional tokens used for proximity events
-			HealthAfterLastDamageEvent = -1, -- Amount of health this actor has had since the last time they were damaged
 			VictoryMissionObjectiveId = -1,  -- Conditional token used for victory conditions
 			Surrendered = false, -- Bool if they've surrendered
 			BotState = { -- Used if the player is a bot
@@ -632,7 +631,7 @@ BindHeroEvents = function(hero)
 		if self.Owner.InternalName == killer.Owner.InternalName then
 			DisplayMessage(GetDisplayNameForActor(self) .. " killed themselves!")
 		else
-			DisplayMessage(GetDisplayNameForActor(self) .. " was killed by " .. GetDisplayNameForActor(killer) .. "!")
+			DisplayMessage(GetDisplayNameForActor(killer) .. " killed " .. GetDisplayNameForActor(self) .. "!")
 		end
 
 		GrantRewardOnKilled(self, killer, "hero")
@@ -1201,11 +1200,6 @@ CheckVictoryConditions = function()
 end
 
 DrawScoreboard = function()
-	--[[
-		This doesn't rank anyone, or display everyone yet.
-		Displaying everyone would require the position to not be centered on screen, or busier lines.
-	]]
-
 	local isSpectating = LocalPlayerInfo == nil
 
 	local alphaTeamFaction = AlphaTeamPlayerName:lower()
@@ -1223,9 +1217,9 @@ DrawScoreboard = function()
 	end)
 
 	local alpha = AlphaTeamPlayerName .. ': ' .. tostring(teamStats[alphaTeamFaction].Experience) .. ' points - '
-		.. tostring(teamStats[alphaTeamFaction].Kills) .. '/' .. tostring(teamStats[alphaTeamFaction].Deaths) .. ' K/D'
+		.. tostring(teamStats[alphaTeamFaction].Kills) .. '/' .. tostring(teamStats[alphaTeamFaction].Deaths) .. ' k/d'
 	local beta = BetaTeamPlayerName .. ': ' .. tostring(teamStats[betaTeamFaction].Experience) .. ' points - '
-		.. tostring(teamStats[alphaTeamFaction].Kills) .. '/' .. tostring(teamStats[betaTeamFaction].Deaths) .. ' K/D'
+		.. tostring(teamStats[betaTeamFaction].Kills) .. '/' .. tostring(teamStats[betaTeamFaction].Deaths) .. ' k/d'
 
 	local scoreboard = '\n' .. '\n' .. '\n' .. '\n'
 	if teamStats[alphaTeamFaction].Experience >= teamStats[betaTeamFaction].Experience then
@@ -1238,7 +1232,7 @@ DrawScoreboard = function()
 		local pi = LocalPlayerInfo
 		scoreboard = scoreboard .. '\n'
 		.. pi.Player.Name .. ': ' .. tostring(pi.Player.Experience) .. ' points - '
-		.. tostring(pi.Kills) .. '/' .. tostring(pi.Deaths) .. ' K/D'
+		.. tostring(pi.Kills) .. '/' .. tostring(pi.Deaths) .. ' k/d'
 	end
 
 	UserInterface.SetMissionText(scoreboard)
