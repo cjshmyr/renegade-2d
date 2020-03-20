@@ -4,11 +4,31 @@ TRAN-AI:
 	-Targetable@AIRBORNE:
 	WithFacingSpriteBody:
 
-TRAN: # TODO: Fix defaults.
+TRAN:
+	Inherits@Passengers: ^FourPassengers
 	Health:
 		HP: 18000
-	Cargo:
-		Types: Infantry
-		MaxWeight: 4
-		PipCount: 4
-		EjectOnDeath: true
+
+ORCA:
+	Inherits@Passengers: ^OnePassenger
+	Health:
+		HP: 15000
+	Armament@PRIMARY:
+		PauseOnCondition: hack.dontpause
+	Armament@SECONDARY:
+		PauseOnCondition: hack.dontpause
+	-AmmoPool:
+	-ReloadAmmoPool:
+
+HELI:
+	Inherits@Passengers: ^OnePassenger
+	Health:
+		HP: 15000
+	Tooltip:
+		Name: Apache
+	Armament@PRIMARY:
+		PauseOnCondition: hack.dontpause
+	Armament@SECONDARY:
+		PauseOnCondition: hack.dontpause
+	-AmmoPool:
+	-ReloadAmmoPool:

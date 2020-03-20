@@ -472,6 +472,50 @@ buy.vehicle.penalty.harv:
 		BuildPaletteOrder: 100
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
 
+buy.aircraft.orca:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Orca
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~gdi
+		Queue: Aircraft
+		Description: Anti-vehicle, anti-infantry.
+	RenderSprites:
+		Image: orca
+
+buy.aircraft.penalty.orca:
+	Inherits: buy.aircraft.orca
+	Valued:
+		Cost: 1350
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft-penalty, ~gdi
+
+buy.aircraft.heli:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Apache
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~nod
+		Queue: Aircraft
+		Description: Anti-vehicle, anti-infantry.
+	RenderSprites:
+		Image: heli
+
+buy.aircraft.penalty.heli:
+	Inherits: buy.aircraft.heli
+	Valued:
+		Cost: 1350
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft-penalty, ~nod
+
 buy.aircraft.tran:
 	Inherits: ^buy.default
 	Valued:
@@ -479,7 +523,7 @@ buy.aircraft.tran:
 	Tooltip:
 		Name: Transport Helicopter
 	Buildable:
-		BuildPaletteOrder: 10
+		BuildPaletteOrder: 20
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft
 		Queue: Aircraft
 		Description: \nUnarmed.\nHolds 4 passengers.
@@ -491,7 +535,7 @@ buy.aircraft.penalty.tran:
 	Valued:
 		Cost: 1350
 	Buildable:
-		BuildPaletteOrder: 10
+		BuildPaletteOrder: 20
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft-penalty
 
 buy.beacon.ion-beacon:

@@ -134,6 +134,14 @@ BigFlamer: #ftnk (shorter reload, less damage, no burst, more damage done (buff 
 	Warhead@3Eff: CreateEffect
 		Explosions: small_napalm
 
+OrcaAAMissiles: #orca
+
+OrcaAGMissiles: #orca
+
+HeliAGGun: #hind
+
+HeliAAGun: #hind
+
 UnitExplodeSmall: #husks (don't hurt allies)
 	Warhead@1Dam: SpreadDamage
 		ValidStances: Neutral, Enemy
