@@ -44,3 +44,9 @@ Player:
 	LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY:
 		Enabled: false
 		Visible: false
+	-ModularBot@Cabal:
+	-ModularBot@Watson:
+	-ModularBot@HAL9001:
+	DummyBot@RenegadeBot:
+		Name: Renegade Bot
+		Type: renegade2d
