@@ -33,6 +33,11 @@ World:
 		ValuePerUnit: 15 # 300 per load
 	ResourceType@blue-tib:
 		ValuePerUnit: 30 # 600 per load
+	GlobalLightingPaletteEffect:
+		Red: 1.0
+		Blue: 1.0
+		Green: 1.0
+		Ambient: 1.0
 
 Player:
 	-ConquestVictoryConditions:
