@@ -748,7 +748,9 @@ BindBuildingProximityEvent = function(ti, building)
 				local tokenToRevoke = pi.ProximityEventTokens[building.Type]
 
 				if tokenToRevoke ~= nil then
-					pi.Hero.RevokeCondition(tokenToRevoke)
+					if not pi.Hero.IsDead then -- Not dead
+						pi.Hero.RevokeCondition(tokenToRevoke)
+					end
 					pi.ProximityEventTokens[building.Type] = -1
 				end
 			end
@@ -769,7 +771,9 @@ BindBuildingProximityEvent = function(ti, building)
 		local pi = PlayerInfo[actor.Owner.InternalName]
 		if pi ~= nil and pi.PassengerOfVehicle == nil then -- A human player + not in vehicle
 			if pi.Player.Faction == ti.AiPlayer.Faction then -- On same team
-				pi.ProximityEventTokens[building.Type] = pi.Hero.GrantCondition("canbuy") -- e.g. table['fact'] = token
+				if not pi.Hero.IsDead then -- Not dead
+					pi.ProximityEventTokens[building.Type] = pi.Hero.GrantCondition("canbuy") -- e.g. table['fact'] = token
+				end
 			end
 		end
 
