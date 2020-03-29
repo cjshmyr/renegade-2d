@@ -610,10 +610,10 @@ Actors:
 		Location: 3,2
 	Actor85: waypoint
 		Owner: GDI
-		Location: 35,38
+		Location: 45,39
 	Actor86: waypoint
 		Owner: Nod
-		Location: 62,38
+		Location: 51,39
 	Actor87: hpad
 		Owner: GDI
 		Location: 25,20
