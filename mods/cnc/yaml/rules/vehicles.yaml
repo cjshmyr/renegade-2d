@@ -101,7 +101,9 @@ STNK:
 HARV:
 	Inherits@Passengers: ^OnePassenger
 	Health:
-		HP: 80000
+		HP: 100000
+	Mobile:
+		Speed: 50
 	RevealsShroud:
 		Range: 5c0
 	Harvester:
