@@ -57,4 +57,4 @@ This allows for independently developing Lua and custom rules in one location, w
 
 ## Known issues
 0.95 harvesters are busted on release-20200202.
-- Fixed in the Bravo map; Alpha map's harvester waypoint needs to be moved to the tiberium tree.
+- Fixed for the next version.
