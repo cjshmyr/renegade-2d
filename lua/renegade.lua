@@ -124,8 +124,8 @@ WorldLoaded = function()
 	-- Tick interval > 1
 	IncrementPlayerCash()
 	DistributeGatheredResources()
-	CheckVictoryConditions()
 	UpdateTeamStats()
+	CheckVictoryConditions()
 	DrawScoreboard()
 
 	-- Any tests
