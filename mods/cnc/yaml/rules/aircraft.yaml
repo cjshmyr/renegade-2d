@@ -13,10 +13,11 @@ ORCA:
 	Inherits@Passengers: ^OnePassenger
 	Health:
 		HP: 15000
-	Armament@PRIMARY:
-		PauseOnCondition: hack.dontpause
-	Armament@SECONDARY:
-		PauseOnCondition: hack.dontpause
+	-Armament@PRIMARY:
+	-Armament@SECONDARY:
+	Armament@AIRCRAFTMISSILE:
+		Weapon: AircraftMissile
+		LocalOffset: 427,-171,-213, 427,171,-213
 	-AmmoPool:
 	-ReloadAmmoPool:
 
@@ -26,9 +27,10 @@ HELI:
 		HP: 15000
 	Tooltip:
 		Name: Apache
-	Armament@PRIMARY:
-		PauseOnCondition: hack.dontpause
-	Armament@SECONDARY:
-		PauseOnCondition: hack.dontpause
+	-Armament@PRIMARY:
+	-Armament@SECONDARY:
+	Armament@AIRCRAFTMISSILE:
+		Weapon: AircraftMissile
+		LocalOffset: 427,-171,-213, 427,171,-213
 	-AmmoPool:
 	-ReloadAmmoPool:
