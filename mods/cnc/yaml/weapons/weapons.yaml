@@ -187,11 +187,15 @@ IonCannonBeacon: #ion-beacon
 		ImpactActors: false
 		Image: custom_explosion
 
-TurretGun: #gun (reduced vs heavy damage)
+TurretGun: #gun (reduced vs heavy damage, projectile speed matches HighV, added anti-air)
 	ReloadDelay: 20
+	ValidTargets: Ground, Air
+	Projectile: Bullet
+		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 4000
+		ValidTargets: Ground, Air
 		Versus:
 			None: 25
 			Wood: 100
@@ -203,11 +207,13 @@ Laser: #obli (added anti-air)
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Ground, Air
 
-HighV: #gtwr (made similar to TurretGun)
+HighV: #gtwr (made similar to TurretGun, added anti-air)
 	ReloadDelay: 20
+	ValidTargets: Ground, Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 4000
+		ValidTargets: Ground, Air
 		Versus:
 			None: 25
 			Wood: 100
