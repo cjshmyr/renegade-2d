@@ -11,6 +11,8 @@ TRAN:
 
 ORCA:
 	Inherits@Passengers: ^OnePassenger
+	Aircraft:
+		Speed: 150
 	Health:
 		HP: 15000
 	-Armament@PRIMARY:
@@ -23,6 +25,8 @@ ORCA:
 
 HELI:
 	Inherits@Passengers: ^OnePassenger
+	Aircraft:
+		Speed: 150
 	Health:
 		HP: 15000
 	Tooltip:
