@@ -482,7 +482,7 @@ buy.aircraft.orca:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~gdi
 		Queue: Aircraft
-		Description: Anti-vehicle, anti-infantry.
+		Description: Anti-vehicle aircraft.\nHolds 1 passenger.
 	RenderSprites:
 		Image: orca
 
@@ -504,7 +504,7 @@ buy.aircraft.heli:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~nod
 		Queue: Aircraft
-		Description: Anti-vehicle, anti-infantry.
+		Description: Anti-vehicle aircraft.\nHolds 1 passenger.
 	RenderSprites:
 		Image: heli
 
