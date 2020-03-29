@@ -23,6 +23,12 @@ World:
 		AllyBuildRadiusCheckboxLocked: true
 		AllyBuildRadiusCheckboxEnabled: false
 		AllyBuildRadiusCheckboxVisible: false
+	TimeLimitManager:
+		TimeLimitOptions: 0, 1, 10, 15, 20, 30, 45, 60
+		TimeLimitDefault: 30
+		TimeLimitDescription: Team with the highest score after this time wins
+		SkipTimeRemainingNotifications: true
+		SkipTimerExpiredNotification: true
 	ResourceType@green-tib:
 		ValuePerUnit: 15 # 300 per load
 	ResourceType@blue-tib:

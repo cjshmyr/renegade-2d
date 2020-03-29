@@ -7,6 +7,7 @@
 --[[ General ]]
 PlayerInfo = { }
 TeamInfo = { }
+TeamStats = { } -- Updated on an event. Stores total experience, kills, and deaths for the team
 HealthAfterOnDamageEventTable = { } -- HACK: We store damage dealt since last instance, since OnDamage doesn't tell us.
 HarvesterWaypoints = { } -- Waypoints used to guide harvesters near their ore field.
 TypeNameTable = { } -- HACK: We don't have a nice way of getting an actor's name (e.g. hand -> Hand of Nod), except for this.
@@ -27,6 +28,7 @@ RespawnTime = DateTime.Seconds(3)
 LocalPlayerInfo = nil -- HACK: Used for nametags & scoreboard.
 EnemyNametagsHiddenForTypes = { "stnk" } -- HACK: Used for nametags.
 GameOver = false
+TimeLimitExpired = false
 BotNames = {
 	"Plorp", "Gorbel", "Splunch", "Borch", "Big Jeff", "Spurtle", "Gurgis", "Brumpus", "Yurst", "Ol Ginch",
 	"Gurch", "Plape", "Sporf", "Kranch", "Splinch", "Gorpo", "Forpel", "Gromph", "Dorbie", "Jorf", "Splurst",
@@ -138,6 +140,7 @@ WorldLoaded = function()
 	BindBaseEvents()
 	BindVehicleEvents()
 	BindProximityEvents()
+	BindTimeLimitEvents()
 
 	AddPurchaseTerminals()
 
@@ -154,6 +157,7 @@ WorldLoaded = function()
 	IncrementPlayerCash()
 	DistributeGatheredResources()
 	CheckVictoryConditions()
+	UpdateTeamStats()
 	DrawScoreboard()
 
 	-- Any tests
@@ -1162,25 +1166,38 @@ CheckVictoryConditions = function()
 	-- Check for victory
 	local tiWinner = nil
 	local tiLoser = nil
-	Utils.Do(TeamInfo, function(ti)
-		if ti.ConstructionYard.IsDead
-			and ti.Refinery.IsDead
-			and ti.Barracks.IsDead
-			and ti.WarFactory.IsDead
-			and ti.Helipad.IsDead
-			and ti.Radar.IsDead
-			and ti.Powerplant.IsDead
-			and ti.ServiceDepot.IsDead then
 
-			if ti.AiPlayer.InternalName == AlphaTeamPlayerName then
-				tiWinner = TeamInfo[BetaTeamPlayerName]
-				tiLoser = TeamInfo[AlphaTeamPlayerName]
-			else
-				tiWinner = TeamInfo[AlphaTeamPlayerName]
-				tiLoser = TeamInfo[BetaTeamPlayerName]
-			end
+	if TimeLimitExpired == true then
+		-- GDI wins in event of tie.
+		if TeamStats[AlphaTeamPlayerName].Experience >= TeamStats[AlphaTeamPlayerName].Experience then
+			tiWinner = TeamInfo[AlphaTeamPlayerName]
+			tiLoser = TeamInfo[BetaTeamPlayerName]
+		else
+			tiWinner = TeamInfo[BetaTeamPlayerName]
+			tiLoser = TeamInfo[AlphaTeamPlayerName]
 		end
-	end)
+	else
+		Utils.Do(TeamInfo, function(ti)
+			if ti.ConstructionYard.IsDead
+				and ti.Refinery.IsDead
+				and ti.Barracks.IsDead
+				and ti.WarFactory.IsDead
+				and ti.Helipad.IsDead
+				and ti.Radar.IsDead
+				and ti.Powerplant.IsDead
+				and ti.ServiceDepot.IsDead
+				then
+
+				if ti.AiPlayer.InternalName == AlphaTeamPlayerName then
+					tiWinner = TeamInfo[BetaTeamPlayerName]
+					tiLoser = TeamInfo[AlphaTeamPlayerName]
+				else
+					tiWinner = TeamInfo[AlphaTeamPlayerName]
+					tiLoser = TeamInfo[BetaTeamPlayerName]
+				end
+			end
+		end)
+	end
 
 	if tiLoser ~= nil then
 		GameOver = true
@@ -1206,30 +1223,47 @@ CheckVictoryConditions = function()
 	end
 end
 
+BindTimeLimitEvents = function()
+	if DateTime.TimeLimit == 0 then
+		-- No time limit
+		return
+	end
+
+	Trigger.AfterDelay(DateTime.TimeLimit, function()
+		TimeLimitExpired = true
+		DisplayMessage("Time limit expired!")
+	end)
+end
+
+UpdateTeamStats = function()
+	local updatedStats = { }
+
+	Utils.Do(TeamInfo, function(ti)
+		updatedStats[ti.AiPlayer.InternalName] = { Experience = 0, Kills = 0, Deaths = 0 }
+		local stats = updatedStats[ti.AiPlayer.InternalName]
+
+		Utils.Do(ti.Players, function(pi)
+			stats.Experience = stats.Experience + pi.Player.Experience
+			stats.Kills = stats.Kills + pi.Kills
+			stats.Deaths = stats.Deaths + pi.Deaths
+		end)
+	end)
+
+	TeamStats = updatedStats
+
+	Trigger.AfterDelay(5, UpdateTeamStats)
+end
+
 DrawScoreboard = function()
 	local isSpectating = LocalPlayerInfo == nil
 
-	local alphaTeamFaction = AlphaTeamPlayerName:lower()
-	local betaTeamFaction = BetaTeamPlayerName:lower()
-	local teamStats = { }
-	teamStats[alphaTeamFaction] = { Experience = 0, Kills = 0, Deaths = 0 }
-	teamStats[betaTeamFaction] = { Experience = 0, Kills = 0, Deaths = 0 }
-
-	Utils.Do(PlayerInfo, function(pi)
-		local ts = teamStats[pi.Player.Faction]
-
-		ts.Experience = ts.Experience + pi.Player.Experience
-		ts.Kills = ts.Kills + pi.Kills
-		ts.Deaths = ts.Deaths + pi.Deaths
-	end)
-
-	local alpha = AlphaTeamPlayerName .. ': ' .. tostring(teamStats[alphaTeamFaction].Experience) .. ' points - '
-		.. tostring(teamStats[alphaTeamFaction].Kills) .. '/' .. tostring(teamStats[alphaTeamFaction].Deaths) .. ' k/d'
-	local beta = BetaTeamPlayerName .. ': ' .. tostring(teamStats[betaTeamFaction].Experience) .. ' points - '
-		.. tostring(teamStats[betaTeamFaction].Kills) .. '/' .. tostring(teamStats[betaTeamFaction].Deaths) .. ' k/d'
+	local alpha = AlphaTeamPlayerName .. ': ' .. tostring(TeamStats[AlphaTeamPlayerName].Experience) .. ' points - '
+		.. tostring(TeamStats[AlphaTeamPlayerName].Kills) .. '/' .. tostring(TeamStats[AlphaTeamPlayerName].Deaths) .. ' k/d'
+	local beta = BetaTeamPlayerName .. ': ' .. tostring(TeamStats[BetaTeamPlayerName].Experience) .. ' points - '
+		.. tostring(TeamStats[BetaTeamPlayerName].Kills) .. '/' .. tostring(TeamStats[BetaTeamPlayerName].Deaths) .. ' k/d'
 
 	local scoreboard = '\n' .. '\n' .. '\n' .. '\n'
-	if teamStats[alphaTeamFaction].Experience >= teamStats[betaTeamFaction].Experience then
+	if TeamStats[AlphaTeamPlayerName].Experience >= TeamStats[BetaTeamPlayerName].Experience then
 		scoreboard = scoreboard .. alpha .. '\n' .. beta
 	else
 		scoreboard = scoreboard .. beta .. '\n' .. alpha
