@@ -10,7 +10,6 @@ TeamInfo = { }
 TeamStats = { } -- Updated on an event. Stores total experience, kills, and deaths for the team
 HealthAfterOnDamageEventTable = { } -- HACK: We store damage dealt since last instance, since OnDamage doesn't tell us.
 HarvesterWaypoints = { } -- Waypoints used to guide harvesters near their ore field.
-TypeNameTable = { } -- HACK: We don't have a nice way of getting an actor's name (e.g. hand -> Hand of Nod), except for this.
 BeaconSoundsTable = { }
 CashPerSecond = 2 -- Cash given per second.
 CashPerSecondPenalized = 1 -- Cash given per second, with no ref.
@@ -62,22 +61,6 @@ if Mod == "cnc" then
 	BetaBeaconType = "nuke-beacon"
 	BeaconDeploySound = "target3.aud"
 	BeaconHitCamera = "camera.beacon"
-	TypeNameTable['fact'] = 'Construction Yard'
-	TypeNameTable['proc'] = 'Tiberium Refinery'
-	TypeNameTable['nuk2'] = 'Power Plant'
-	TypeNameTable['hq'] = 'Communications Center'
-	TypeNameTable['weap'] = 'Weapons Factory'
-	TypeNameTable['afld'] = 'Airstrip'
-	TypeNameTable['pyle'] = 'Barracks'
-	TypeNameTable['hand'] = 'Hand of Nod'
-	TypeNameTable['hpad'] = 'Helipad'
-	TypeNameTable['fix'] = 'Repair Facility'
-	TypeNameTable['gtwr'] = 'Guard Tower'
-	TypeNameTable['atwr'] = 'Advanced Guard Tower'
-	TypeNameTable['gun'] = 'Turret'
-	TypeNameTable['obli'] = 'Obelisk'
-	TypeNameTable['ion-beacon'] = 'Ion Cannon Beacon'
-	TypeNameTable['nuke-beacon'] = 'Nuclear Strike Beacon'
 	BeaconSoundsTable['ion-beacon'] = 'ionchrg1.aud'
 	BeaconSoundsTable['nuke-beacon'] = 'nuke1.aud'
 elseif Mod == "ra" then
@@ -104,21 +87,6 @@ elseif Mod == "ra" then
 	BetaBeaconType = "nuke-beacon"
 	BeaconDeploySound = "bleep9.aud"
 	BeaconHitCamera = "camera.paradrop"
-	TypeNameTable['fact'] = 'Construction Yard'
-	TypeNameTable['proc'] = 'Ore Refinery'
-	TypeNameTable['apwr'] = 'Power Plant'
-	TypeNameTable['dome'] = 'Radar Dome'
-	TypeNameTable['weap'] = 'War Factory'
-	TypeNameTable['barr'] = 'Barracks'
-	TypeNameTable['tent'] = 'Barracks'
-	TypeNameTable['hpad'] = 'Helipad'
-	TypeNameTable['fix'] = 'Service Depot'
-	TypeNameTable['pbox'] = 'Pillbox'
-	TypeNameTable['hbox'] = 'Camoflauged Pillbox'
-	TypeNameTable['gun'] = 'Turret'
-	TypeNameTable['ftur'] = 'Flame Tower'
-	TypeNameTable['tsla'] = 'Tesla Coil'
-	TypeNameTable['nuke-beacon'] = 'Nuclear Strike Beacon'
 	BeaconSoundsTable['nuke-beacon'] = 'aprep1.aud'
 end
 AlphaTeamPlayer = Player.GetPlayer(AlphaTeamPlayerName)
@@ -553,7 +521,7 @@ CreateBuildingHusk = function(building)
 end
 
 NotifyBuildingDestroyed = function(self, killer)
-	DisplayMessage(self.Owner.Name .. " " .. TypeNameTable[self.Type] .. " was destroyed by " .. GetDisplayNameForActor(killer) .. "!")
+	DisplayMessage(self.Owner.Name .. " " .. self.TooltipName .. " was destroyed by " .. GetDisplayNameForActor(killer) .. "!")
 end
 
 NotifyBaseUnderAttack = function(self)
@@ -568,7 +536,7 @@ NotifyBaseUnderAttack = function(self)
 		-- Only display a message and play audio to that team (radar pings are handled by engine)
 		Utils.Do(ti.Players, function(pi)
 			if pi.Player.IsLocalPlayer then
-				DisplayMessage(self.Owner.Name .. " " .. TypeNameTable[self.Type] .. " is under attack!")
+				DisplayMessage(self.Owner.Name .. " " .. self.TooltipName .. " is under attack!")
 				Media.PlaySound(SoundBaseUnderAttack)
 			end
 		end)
@@ -930,7 +898,7 @@ BuildHeroItem = function(pi, actorType)
 		local beacon = Actor.Create(type, true, { Owner = pi.Player, Location = pi.Hero.Location })
 		local beaconToken = beacon.GrantCondition('activebeacon', BeaconTimeLimit)
 
-		DisplayMessage(TypeNameTable[beacon.Type] .. ' deployed!')
+		DisplayMessage(beacon.TooltipName .. ' deployed!')
 
 		-- Remove beacon ownership
 		pi.Hero.RevokeCondition(pi.HasBeaconConditionToken)
@@ -965,7 +933,7 @@ BuildHeroItem = function(pi, actorType)
 		Trigger.OnKilled(beacon, function(actor, killer)
 			if actor.Type ~= killer.Type then
 				GrantRewardOnKilled(actor, killer, "beacon");
-				DisplayMessage(TypeNameTable[beacon.Type] .. ' was disarmed by ' .. GetDisplayNameForActor(killer) .. '!')
+				DisplayMessage(beacon.TooltipName .. ' was disarmed by ' .. GetDisplayNameForActor(killer) .. '!')
 			end
 		end)
 
