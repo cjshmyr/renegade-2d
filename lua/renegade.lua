@@ -959,19 +959,23 @@ BuildHeroItem = function(pi, actorType)
 end
 
 GetBeaconFlashTicks = function()
-	-- A hacky gradual increase
+	-- Performs a gradual decrease, counting backwards from the beacon ticks.
 	local ticks = { }
 
+	local baseTickReduction = 5
+	local intervalSteps = 4
+
 	local tick = BeaconTimeLimit
-	local interval = DateTime.Seconds(1) / 10
+	local tickReduction = baseTickReduction
+
 	while tick > 0 do
 		local step = 1
-		while step <= 4 do
-			tick = tick - interval
+		while step <= intervalSteps do
+			tick = tick - tickReduction
 			if tick > 0 then ticks[#ticks+1] = tick end
 			step = step + 1
 		end
-		interval = interval + (DateTime.Seconds(1) / 10)
+		tickReduction = tickReduction + baseTickReduction
 	end
 
 	return ticks
