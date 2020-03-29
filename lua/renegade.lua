@@ -525,6 +525,7 @@ BindBaseEvents = function()
 		-- Defenses
 		Utils.Do(ti.Defenses, function(building)
 			Trigger.OnKilled(building, function(self, killer)
+				CreateBuildingHusk(self)
 				NotifyBuildingDestroyed(self, killer)
 				GrantRewardOnKilled(self, killer, "defense")
 			end)

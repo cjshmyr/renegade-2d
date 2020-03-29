@@ -121,11 +121,21 @@ hpad.destroyed:
 		Length: 1
 		ZOffset: -1023
 
+gtwr.destroyed:
+	idle: gtwr
+		Start: 2
+		Length: 1
+
 atwr.destroyed:
 	idle: atwr
 		Start: 2
 		Length: 1
 		Offset: 0,-13
+
+gun.destroyed: # there's no husk for this.
+	idle: gun
+		Start: 64
+		Length: 1
 
 obli.destroyed:
 	idle: obli

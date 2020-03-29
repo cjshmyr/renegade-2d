@@ -186,12 +186,26 @@ HPAD.Husk:
 	RenderSprites:
 		Image: hpad.destroyed
 
+GTWR.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Tooltip:
+		Name: Guard Tower (Destroyed)
+	RenderSprites:
+		Image: gtwr.destroyed
+
 ATWR.Husk:
 	Inherits: ^RenegadeBuildingHusk
 	Tooltip:
 		Name: Advanced Guard Tower (Destroyed)
 	RenderSprites:
 		Image: atwr.destroyed
+
+GUN.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Tooltip:
+		Name: Turret (Destroyed)
+	RenderSprites:
+		Image: gun.destroyed
 
 OBLI.Husk:
 	Inherits: ^RenegadeBuildingHusk
