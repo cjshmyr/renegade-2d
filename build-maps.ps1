@@ -4,7 +4,7 @@
 # This allows for one maintained source of Lua scripts & custom rules, separate from the maps themselves.
 
 # The OpenRA engine version is set as a script variable, which should get updated when targeting new releases.
-$openraVersion = 'release-20200202'
+$openraVersion = 'playtest-20200329'
 
 # Returns yaml custom rule strings.
 function Get-MapYamlRulePaths($mod)
