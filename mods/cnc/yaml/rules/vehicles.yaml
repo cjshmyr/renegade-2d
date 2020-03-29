@@ -46,7 +46,7 @@ APC:
 MSAM:
 	Inherits@Passengers: ^OnePassenger
 	RevealsShroud:
-		Range: 9c0
+		Range: 10c0
 	Tooltip:
 		Name: Multiple Launch Rocket System
 	Armament@SECONDARY:
@@ -70,7 +70,7 @@ BGGY:
 ARTY:
 	Inherits@Passengers: ^OnePassenger
 	RevealsShroud:
-		Range: 9c0
+		Range: 10c0
 
 LTNK:
 	Inherits@Passengers: ^TwoPassengers
