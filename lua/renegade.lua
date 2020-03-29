@@ -854,7 +854,13 @@ BuildPurchaseTerminalItem = function(pi, actorType)
 	if string.find(actorType, PurchaseTerminalInfantryActorTypePrefix) then
 		-- We don't init the health because it's percentage based.
 		local newHero = Actor.Create(type, false, { Owner = pi.Player, Location = hero.Location })
-		newHero.Health = hero.Health
+
+		-- If a unit has full HP, keep it full HP when they buy a new one
+		local fullyHealed = hero.Health == hero.MaxHealth
+		if not fullyHealed then
+			newHero.Health = hero.Health
+		end
+
 		newHero.IsInWorld = true
 
 		pi.Hero = newHero
