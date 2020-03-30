@@ -1,7 +1,20 @@
-# This script copies maps from the `maps` directory into the appropriate OpenRA Windows support directory's map folder.
-# The map will be copied, followed by the Lua script, and the yaml rules for that specific mod.
-# The map will also have references to yaml files added automatically.
+# Usage:
+# ./build-maps.ps1 [-Deploy]
+
+# Information:
+# This script builds the Renegade 2D maps.
+# Providing the "--Deploy" argument will build the map in the appropriate OpenRA support folder, instead of a bin folder.
+# In summary it:
+# - Copies maps to the target destination (bin folder or OpenRA support folder)
+# - Copies custom rules into the copied maps folders.
+# - Copies lua script(s) into the copied maps folders.
+# - Appends custom rules definitions to any copied maps' map.yaml files.
 # This allows for one maintained source of Lua scripts & custom rules, separate from the maps themselves.
+
+[CmdLetBinding()]
+param(
+    [switch]$Deploy
+)
 
 # The OpenRA engine version is set as a script variable, which should get updated when targeting new releases.
 $openraVersion = 'playtest-20200329'
@@ -34,7 +47,12 @@ foreach ($mod in dir "$($PSScriptRoot)\mods\")
     }
 
     # Targeted destination directory.
-    $destination = "$($env:USERPROFILE)\AppData\Roaming\OpenRA\maps\$($mod)\$($openraVersion)"
+    $destination = ""
+    if ($Deploy) {
+        $destination = "$($env:USERPROFILE)\AppData\Roaming\OpenRA\maps\$($mod)\$($openraVersion)"
+    } else {
+        $destination = "$($PSScriptRoot)\bin\maps\$($mod)\$($openraVersion)"
+    }
 
     # Create destination if it doesn't exist.
     New-Item -ItemType Directory -Force -Path $destination | Out-Null
@@ -52,7 +70,7 @@ foreach ($mod in dir "$($PSScriptRoot)\mods\")
         Copy-Item -Path $mapFromPath -Destination $destination -Recurse -Force
 
         # Copy lua script(s).
-        $scripttoPath = "$($destination)\$($mapFolder)\lua"
+        $scriptToPath = "$($destination)\$($mapFolder)\lua"
         Copy-Item -Path $luaFolder -Destination $scriptToPath -Recurse -Force
 
         # Copy rules.

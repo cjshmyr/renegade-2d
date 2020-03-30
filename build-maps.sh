@@ -1,9 +1,30 @@
 #!/bin/bash
 
-# This script is different from the powershell "build-maps.ps1" script.
-# - It currently hard codes all the .yaml rule file paths.
-# - It does not yet copy to the OpenRA support directory. This script copies to a /bin folder instead.
-# Eventually both scripts should function identically.
+# Usage:
+# ./build-maps.sh [-d|--deploy]
+
+# Information:
+# This script builds the Renegade 2D maps.
+# Providing the "--deploy" argument will build the map in the appropriate OpenRA support folder, instead of a bin folder.
+# In summary it:
+# - Copies maps to the target destination (bin folder or OpenRA support folder)
+# - Copies custom rules into the copied maps folders.
+# - Copies lua script(s) into the copied maps folders.
+# - Appends custom rules definitions to any copied maps' map.yaml files.
+# This allows for one maintained source of Lua scripts & custom rules, separate from the maps themselves.
+
+declare deploy=false
+while :; do
+    case $1 in
+        --deploy) deploy=true
+        ;;
+        *) break
+    esac
+    shift
+done
+
+# The OpenRA engine version is set as a script variable, which should get updated when targeting new releases.
+declare openraVersion="playtest-20200329"
 
 # Move maps.
 for modPath in mods/*; do
@@ -21,7 +42,13 @@ for modPath in mods/*; do
     fi
 
     # Targeted destination directory.
-    declare destination="./bin"
+    declare destination=""
+    if [ $deploy == true ]
+    then
+        destination="${home}/.openra/maps/{$mod}/{$openraVersion}"
+    else
+        destination="./bin/maps/${mod}/${openraVersion}"
+    fi
 
     # Create destination if it doesn't exist.
     mkdir -p $destination
@@ -57,3 +84,5 @@ for modPath in mods/*; do
         echo "Sequences: yaml\cnc\sequences\sequences.yaml" >> $mapDotYamlPath
     done
 done
+
+read
