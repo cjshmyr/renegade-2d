@@ -80,13 +80,9 @@ PurchaseTerminal:
 ^HeroUnit:
 	Production:
 		Produces: Building, Defence
-	ProductionBar@Building:
-		ProductionType: Building
 	ProductionQueue@Building:
 		Type: Building
 		Group: Building
-	ProductionBar@Defence:
-		ProductionType: Defence
 	ProductionQueue@Defence:
 		Type: Defence
 		Group: Defence
