@@ -84,5 +84,3 @@ for modPath in mods/*; do
         echo "Sequences: yaml\cnc\sequences\sequences.yaml" >> $mapDotYamlPath
     done
 done
-
-read
