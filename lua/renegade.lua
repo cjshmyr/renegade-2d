@@ -619,8 +619,12 @@ BindHeroEvents = function(hero)
 
 		GrantRewardOnKilled(self, killer, "hero")
 
-		-- Increment K/D
+		-- Remove any vehicle-related information, in case the unit dies before exiting (aircraft do this)
 		local selfPi = PlayerInfo[self.Owner.InternalName]
+		selfPi.PassengerOfVehicle = nil
+		selfPi.IsPilot = false
+
+		-- Increment K/D
 		local killerPi = PlayerInfo[killer.Owner.InternalName]
 
 		if selfPi ~= nil then
