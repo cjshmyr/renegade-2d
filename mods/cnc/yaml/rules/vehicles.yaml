@@ -4,7 +4,7 @@ HARV-AI:
 	-Cargo:
 	-RevealsShroudMultiplier:
 	Mobile:
-		-RequiresCondition:
+		-PauseOnCondition:
 
 ^OnePassenger:
 	Cargo:
@@ -38,10 +38,10 @@ APC:
 	Inherits@Passengers: ^FourPassengers
 	RevealsShroud:
 		Range: 6c0
-	Mobile:
-		RequiresCondition: occupied || brandnew
 	Cargo:
 		-LoadingCondition:
+	Mobile:
+		PauseOnCondition: !(occupied || brandnew)
 
 MSAM:
 	Inherits@Passengers: ^OnePassenger

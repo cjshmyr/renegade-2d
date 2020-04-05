@@ -72,7 +72,7 @@
 	ExternalCondition@BRANDNEW:
 		Condition: brandnew
 	Mobile:
-		RequiresCondition: occupied || brandnew
+		PauseOnCondition: !(occupied || brandnew)
 
 # Helicopters can have conditions.
 # Helicopters can see cloaked units.
@@ -98,6 +98,12 @@
 		RequiresCondition: !occupied
 	ExternalCondition@BRANDNEW:
 		Condition: brandnew
+
+# Helicopters can't move unless they have an 'occupied' condition.
+^HeroAircraft:
+	Aircraft:
+		TakeOffOnCreation: False
+		PauseOnCondition: !occupied
 
 # Default for destroyed buildings.
 ^RenegadeBuildingHusk:

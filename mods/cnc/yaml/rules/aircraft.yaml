@@ -6,11 +6,13 @@ TRAN-AI:
 
 TRAN:
 	Inherits@Passengers: ^FourPassengers
+	Inherits@PlayerAircraft: ^HeroAircraft
 	Health:
 		HP: 18000
 
 ORCA:
 	Inherits@Passengers: ^OnePassenger
+	Inherits@PlayerAircraft: ^HeroAircraft
 	Aircraft:
 		Speed: 150
 	Health:
@@ -25,6 +27,7 @@ ORCA:
 
 HELI:
 	Inherits@Passengers: ^OnePassenger
+	Inherits@PlayerAircraft: ^HeroAircraft
 	Aircraft:
 		Speed: 150
 	Health:
