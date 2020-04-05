@@ -922,8 +922,7 @@ BuildHeroItem = function(pi, actorType)
 					pingColor = HSLColor.Green
 				end
 
-				-- Pings may linger after beacon is destroyed.
-				Radar.Ping(pi.Player, beacon.CenterPosition, pingColor, BeaconTimeLimit)
+				Radar.Ping(pi.Player, beacon.CenterPosition, pingColor, DateTime.Seconds(5))
 			end)
 		end)
 
