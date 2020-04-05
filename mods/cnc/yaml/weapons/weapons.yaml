@@ -1,5 +1,5 @@
 RepairGun: #e6 (new weapon, repairs vehicles, disarms beacons)
-	ReloadDelay: 30
+	ReloadDelay: 10
 	Range: 3c512
 	Report: tone16.aud
 	ValidTargets: Repair, DisarmBeacon
@@ -15,12 +15,12 @@ RepairGun: #e6 (new weapon, repairs vehicles, disarms beacons)
 		ZOffset: 1024
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
-		Damage: -1500
+		Damage: -600
 		ValidTargets: Repair
 		ValidStances: Ally
 	Warhead@2Dam: SpreadDamage
 		Spread: 42
-		Damage: 1000
+		Damage: 300
 		ValidTargets: DisarmBeacon
 
 M16: #e1
