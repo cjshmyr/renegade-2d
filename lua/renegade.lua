@@ -24,6 +24,7 @@ NotifyBaseUnderAttackInterval = DateTime.Seconds(30)
 NotifyHarvesterUnderAttackInterval = DateTime.Seconds(30)
 BeaconTimeLimit = DateTime.Seconds(45)
 RespawnTime = DateTime.Seconds(3)
+LightSources = { } -- Used for beacon light adjustments.
 LocalPlayerInfo = nil -- HACK: Used for nametags & scoreboard.
 EnemyNametagsHiddenForTypes = { "stnk" } -- HACK: Used for nametags.
 GameOver = false
@@ -134,6 +135,7 @@ end
 
 Tick = function()
 	-- Tick interval = 1
+	SetLighting()
 	IncrementUnderAttackNotificationTicks()
 	HackyDrawNameTags()
 end
@@ -934,10 +936,14 @@ BuildHeroItem = function(pi, actorType)
 			GrantRewardOnDamaged(actor, attacker);
 		end)
 
+		-- Add a lighting source
+		local lightSourceKey = AddLightSource("Ambient", -0.5, DateTime.Seconds(5), BeaconTimeLimit - DateTime.Seconds(5))
+
 		Trigger.OnKilled(beacon, function(actor, killer)
 			if actor.Type ~= killer.Type then
 				GrantRewardOnKilled(actor, killer, "beacon");
-				DisplayMessage(beacon.TooltipName .. ' was disarmed by ' .. GetDisplayNameForActor(killer) .. '!')
+				FadeLightSource(lightSourceKey)
+				DisplayMessage(beacon.TooltipName .. ' was disarmed by ' .. GetDisplayNameForActor(killer) .. '!')				
 			end
 		end)
 
@@ -983,6 +989,30 @@ GetBeaconFlashTicks = function()
 	end
 
 	return ticks
+end
+
+AddLightSource = function(lightingType, targetAdjustment, durationTicks, delayTicks)
+	local key = #LightSources
+
+	local adjustmentPerTick = targetAdjustment / durationTicks
+	LightSources[key] =
+	{
+		Key = key,
+		LightingType = lightingType,
+		DelayTicks = delayTicks,
+		DurationTicks = durationTicks,
+		CurrentTick = 0,
+		TickSign = 1, -- 1 or -1, to ramp up and down. 0 indicates removal.
+		TargetAdjustment = targetAdjustment,
+		AdjustmentPerTick = adjustmentPerTick,
+		CalculatedAdjustment = 1 -- Should begin at base value.
+	}
+
+	return key
+end
+
+FadeLightSource = function(key)
+	LightSources[key].TickSign = -1
 end
 
 GrantRewardOnDamaged = function(self, attacker)
@@ -1255,6 +1285,41 @@ DrawScoreboard = function()
 	UserInterface.SetMissionText(scoreboard)
 
 	Trigger.AfterDelay(5, DrawScoreboard)
+end
+
+SetLighting = function()
+	Utils.Do(LightSources, function(source)
+		if source.DelayTicks > 0 then
+			source.DelayTicks = source.DelayTicks - 1
+		else
+			local adj = 1 + (source.AdjustmentPerTick * source.CurrentTick)
+
+			if source.TickSign == 1 and source.CurrentTick == source.DurationTicks then
+				source.TickSign = -1
+			elseif source.TickSign == -1 and source.CurrentTick == 0 then
+				source.TickSign = 0
+				adj = 1 -- Force base value, in case of junk decimal precision.
+			end
+
+			source.CurrentTick = source.CurrentTick + source.TickSign
+
+			source.CalculatedAdjustment = adj
+		end
+	end)
+
+	local lowestAmbient = 1
+
+	Utils.Do(LightSources, function(source)
+		if source.LightingType == "Ambient" and source.CalculatedAdjustment < lowestAmbient then
+			lowestAmbient = source.CalculatedAdjustment
+		end
+
+		if source.TickSign == 0 then
+			LightSources[source.Key] = nil
+		end
+	end)
+
+	Lighting.Ambient = lowestAmbient
 end
 
 IncrementUnderAttackNotificationTicks = function()
