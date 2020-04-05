@@ -60,6 +60,10 @@ if Mod == "cnc" then
 	SoundMissionFailed = "fail1.aud"
 	AlphaBeaconType = "ion-beacon"
 	BetaBeaconType = "nuke-beacon"
+	AlphaBeaconLightType = "Blue"
+	BetaBeaconLightType = "Red"
+	AlphaBeaconLightIntensity = "1"
+	BetaBeaconLightIntensity = "0.5"
 	BeaconDeploySound = "target3.aud"
 	BeaconHitCamera = "camera.beacon"
 	BeaconSoundsTable['ion-beacon'] = 'ionchrg1.aud'
@@ -86,6 +90,10 @@ elseif Mod == "ra" then
 	SoundMissionFailed = "misnlst1.aud"
 	AlphaBeaconType = "nuke-beacon"
 	BetaBeaconType = "nuke-beacon"
+	AlphaBeaconLightType = "Red"
+	BetaBeaconLightType = "Red"
+	AlphaBeaconLightIntensity = "0.5"
+	BetaBeaconLightIntensity = "0.5"
 	BeaconDeploySound = "bleep9.aud"
 	BeaconHitCamera = "camera.paradrop"
 	BeaconSoundsTable['nuke-beacon'] = 'aprep1.aud'
@@ -936,12 +944,21 @@ BuildHeroItem = function(pi, actorType)
 		end)
 
 		-- Add a lighting source
-		local lightSourceKey = AddLightSource("Ambient", -0.5, DateTime.Seconds(5), BeaconTimeLimit - DateTime.Seconds(5))
+		local lightDurationTicks = DateTime.Seconds(5)
+		local lightDelayTicks = BeaconTimeLimit - DateTime.Seconds(5)
+		local ambientLightSourceKey = AddLightSource("Ambient", -0.5, lightDurationTicks, lightDelayTicks)
+		local colorLightSourceKey = 0
+		if beacon.Type == AlphaBeaconType then
+			colorLightSourceKey = AddLightSource(AlphaBeaconLightType, AlphaBeaconLightIntensity, lightDurationTicks, lightDelayTicks)
+		else
+			colorLightSourceKey = AddLightSource(BetaBeaconLightType, BetaBeaconLightIntensity, lightDurationTicks, lightDelayTicks)
+		end
 
 		Trigger.OnKilled(beacon, function(actor, killer)
 			if actor.Type ~= killer.Type then
 				GrantRewardOnKilled(actor, killer, "beacon");
-				FadeLightSource(lightSourceKey)
+				FadeLightSource(ambientLightSourceKey)
+				FadeLightSource(colorLightSourceKey)
 				DisplayMessage(beacon.TooltipName .. ' was disarmed by ' .. GetDisplayNameForActor(killer) .. '!')				
 			end
 		end)
@@ -990,8 +1007,51 @@ GetBeaconFlashTicks = function()
 	return ticks
 end
 
+SetLighting = function()
+	Utils.Do(LightSources, function(source)
+		if source.DelayTicks > 0 then
+			source.DelayTicks = source.DelayTicks - 1
+		else
+			local adj = 1 + (source.AdjustmentPerTick * source.CurrentTick)
+
+			if source.TickSign == 1 and source.CurrentTick == source.DurationTicks then
+				source.TickSign = -1
+			elseif source.TickSign == -1 and source.CurrentTick == 0 then
+				source.TickSign = 0
+				adj = 1 -- Force base value, in case of junk decimal precision.
+			end
+
+			source.CurrentTick = source.CurrentTick + source.TickSign
+
+			source.CalculatedAdjustment = adj
+		end
+	end)
+
+	local lowestAmbient = 1
+	local highestBlue = 1
+	local highestRed = 1
+
+	Utils.Do(LightSources, function(source)
+		if source.LightingType == "Ambient" and source.CalculatedAdjustment < lowestAmbient then
+			lowestAmbient = source.CalculatedAdjustment
+		elseif source.LightingType == "Blue" and source.CalculatedAdjustment > highestBlue then
+			highestBlue = source.CalculatedAdjustment
+		elseif source.LightingType == "Red" and source.CalculatedAdjustment > highestRed then
+			highestRed = source.CalculatedAdjustment
+		end
+
+		if source.TickSign == 0 then
+			LightSources[source.Key] = nil
+		end
+	end)
+
+	Lighting.Ambient = lowestAmbient
+	Lighting.Blue = highestBlue
+	Lighting.Red = highestRed
+end
+
 AddLightSource = function(lightingType, targetAdjustment, durationTicks, delayTicks)
-	local key = #LightSources
+	local key = #LightSources .. lightingType -- Not guaranteed to be unique.
 
 	local adjustmentPerTick = targetAdjustment / durationTicks
 	LightSources[key] =
@@ -1284,41 +1344,6 @@ DrawScoreboard = function()
 	UserInterface.SetMissionText(scoreboard)
 
 	Trigger.AfterDelay(5, DrawScoreboard)
-end
-
-SetLighting = function()
-	Utils.Do(LightSources, function(source)
-		if source.DelayTicks > 0 then
-			source.DelayTicks = source.DelayTicks - 1
-		else
-			local adj = 1 + (source.AdjustmentPerTick * source.CurrentTick)
-
-			if source.TickSign == 1 and source.CurrentTick == source.DurationTicks then
-				source.TickSign = -1
-			elseif source.TickSign == -1 and source.CurrentTick == 0 then
-				source.TickSign = 0
-				adj = 1 -- Force base value, in case of junk decimal precision.
-			end
-
-			source.CurrentTick = source.CurrentTick + source.TickSign
-
-			source.CalculatedAdjustment = adj
-		end
-	end)
-
-	local lowestAmbient = 1
-
-	Utils.Do(LightSources, function(source)
-		if source.LightingType == "Ambient" and source.CalculatedAdjustment < lowestAmbient then
-			lowestAmbient = source.CalculatedAdjustment
-		end
-
-		if source.TickSign == 0 then
-			LightSources[source.Key] = nil
-		end
-	end)
-
-	Lighting.Ambient = lowestAmbient
 end
 
 IncrementUnderAttackNotificationTicks = function()
