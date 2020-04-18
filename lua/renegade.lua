@@ -68,6 +68,7 @@ if Mod == "cnc" then
 	BeaconHitCamera = "camera.beacon"
 	BeaconSoundsTable['ion-beacon'] = 'ionchrg1.aud'
 	BeaconSoundsTable['nuke-beacon'] = 'nuke1.aud'
+	HackEjectOnDeathExcludeTypes = {"tran","orca","hind"}
 elseif Mod == "ra" then
 	SpawnAsActorType = "e1"
 	AlphaTeamPlayerName = "Allies"
@@ -97,6 +98,7 @@ elseif Mod == "ra" then
 	BeaconDeploySound = "bleep9.aud"
 	BeaconHitCamera = "camera.paradrop"
 	BeaconSoundsTable['nuke-beacon'] = 'aprep1.aud'
+	HackEjectOnDeathExcludeTypes = {"tran","heli","hind"}
 end
 AlphaTeamPlayer = Player.GetPlayer(AlphaTeamPlayerName)
 BravoTeamPlayer = Player.GetPlayer(BravoTeamPlayerName)
@@ -170,6 +172,7 @@ SetPlayerInfo = function()
 			Kills = 0, -- Hero kills
 			Deaths = 0, -- Hero deaths
 			PassengerOfVehicle = nil, -- Actor of what vehicle they are a passenger of
+			EjectOnDeathHealth = 0, -- HACK: Storing health when entering a vehicle, since Cargo.EjectOnDeath is busted and we do it ourselves.
 			IsPilot = false, -- Bool indicating if they are piloting a vehicle
 			ProximityEventTokens = { }, -- Conditional tokens used for proximity events
 			VictoryMissionObjectiveId = -1,  -- Conditional token used for victory conditions
@@ -619,6 +622,25 @@ end
 
 BindHeroEvents = function(hero)
 	Trigger.OnKilled(hero, function(self, killer)
+		-- HACK: EjectOnDeath is currently busted! Handle this logic ourselves.
+		-- For polish, see if we can place created actors in subcells (since vehicles can have > 1 passenger)
+		local ejectOnDeathHackUsed = false
+		local pi = PlayerInfo[self.Owner.InternalName]
+		if pi.PassengerOfVehicle ~= nil and not ArrayContains(HackEjectOnDeathExcludeTypes, pi.PassengerOfVehicle.Type) then
+			local hero = Actor.Create(self.Type, true, { Owner = pi.Player, Location = pi.PassengerOfVehicle.Location })
+			hero.Health = pi.EjectOnDeathHealth
+			pi.Hero = hero
+
+			-- Recursion!
+			pi.PassengerOfVehicle = nil
+			pi.IsPilot = false
+			pi.EjectOnDeathHealth = 0
+			BindHeroEvents(hero)
+
+			return
+		end
+		-- End of EjectOnDeath hack.
+
 		if self.Owner.InternalName == killer.Owner.InternalName then
 			DisplayMessage(GetDisplayNameForActor(self) .. " killed themselves!")
 		else
@@ -704,6 +726,9 @@ BindProducedVehicleEvents = function(produced)
 
 		-- Set passenger state
 		pi.PassengerOfVehicle = transport
+
+		-- Eject on death hack: Set the current health value when we need to eject anyone out.
+		pi.EjectOnDeathHealth = passenger.Health
 
 		-- Name tag hack: Setting the driver to display the proper pilot name.
 		if transport.PassengerCount == 1 then
