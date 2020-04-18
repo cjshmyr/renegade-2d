@@ -41,7 +41,7 @@ Mod = "cnc"
 if Mod == "cnc" then
 	SpawnAsActorType = "e1"
 	AlphaTeamPlayerName = "GDI"
-	BetaTeamPlayerName = "Nod"
+	BravoTeamPlayerName = "Nod"
 	NeutralPlayerName = "Neutral"
 	ConstructionYardActorTypes = {"fact"}
 	RefineryActorTypes = {"proc"}
@@ -59,11 +59,11 @@ if Mod == "cnc" then
 	SoundMissionAccomplished = "accom1.aud"
 	SoundMissionFailed = "fail1.aud"
 	AlphaBeaconType = "ion-beacon"
-	BetaBeaconType = "nuke-beacon"
+	BravoBeaconType = "nuke-beacon"
 	AlphaBeaconLightType = "Blue"
-	BetaBeaconLightType = "Red"
+	BravoBeaconLightType = "Red"
 	AlphaBeaconLightIntensity = "1"
-	BetaBeaconLightIntensity = "0.5"
+	BravoBeaconLightIntensity = "0.5"
 	BeaconDeploySound = "target3.aud"
 	BeaconHitCamera = "camera.beacon"
 	BeaconSoundsTable['ion-beacon'] = 'ionchrg1.aud'
@@ -71,7 +71,7 @@ if Mod == "cnc" then
 elseif Mod == "ra" then
 	SpawnAsActorType = "e1"
 	AlphaTeamPlayerName = "Allies"
-	BetaTeamPlayerName = "Soviet"
+	BravoTeamPlayerName = "Soviet"
 	NeutralPlayerName = "Neutral"
 	ConstructionYardActorTypes = {"fact"}
 	RefineryActorTypes = {"proc"}
@@ -89,17 +89,17 @@ elseif Mod == "ra" then
 	SoundMissionAccomplished = "misnwon1.aud"
 	SoundMissionFailed = "misnlst1.aud"
 	AlphaBeaconType = "nuke-beacon"
-	BetaBeaconType = "nuke-beacon"
+	BravoBeaconType = "nuke-beacon"
 	AlphaBeaconLightType = "Red"
-	BetaBeaconLightType = "Red"
+	BravoBeaconLightType = "Red"
 	AlphaBeaconLightIntensity = "0.5"
-	BetaBeaconLightIntensity = "0.5"
+	BravoBeaconLightIntensity = "0.5"
 	BeaconDeploySound = "bleep9.aud"
 	BeaconHitCamera = "camera.paradrop"
 	BeaconSoundsTable['nuke-beacon'] = 'aprep1.aud'
 end
 AlphaTeamPlayer = Player.GetPlayer(AlphaTeamPlayerName)
-BetaTeamPlayer = Player.GetPlayer(BetaTeamPlayerName)
+BravoTeamPlayer = Player.GetPlayer(BravoTeamPlayerName)
 NeutralPlayer = Player.GetPlayer(NeutralPlayerName)
 
 WorldLoaded = function()
@@ -756,7 +756,7 @@ BindBuildingProximityEvent = function(ti, building)
 	Trigger.OnExitedProximityTrigger(building.CenterPosition, WDist.FromCells(3), function(actor)
 		-- HACK: Beacons may also trip this.
 		-- Need to stop assuming that the actor is a hero, etc.
-		if actor.Type == AlphaBeaconType or actor.Type == BetaBeaconType then
+		if actor.Type == AlphaBeaconType or actor.Type == BravoBeaconType then
 			return
 		end
 
@@ -782,7 +782,7 @@ BindBuildingProximityEvent = function(ti, building)
 	Trigger.OnEnteredProximityTrigger(building.CenterPosition, WDist.FromCells(3), function(actor)
 		-- HACK: Beacons may also trip this.
 		-- Need to stop assuming that the actor is a hero, etc.
-		if actor.Type == AlphaBeaconType or actor.Type == BetaBeaconType then
+		if actor.Type == AlphaBeaconType or actor.Type == BravoBeaconType then
 			return
 		end
 
@@ -963,7 +963,7 @@ BuildHeroItem = function(pi, actorType)
 		if beacon.Type == AlphaBeaconType then
 			colorLightSourceKey = AddLightSource(AlphaBeaconLightType, AlphaBeaconLightIntensity, lightDurationTicks, lightDelayTicks)
 		else
-			colorLightSourceKey = AddLightSource(BetaBeaconLightType, BetaBeaconLightIntensity, lightDurationTicks, lightDelayTicks)
+			colorLightSourceKey = AddLightSource(BravoBeaconLightType, BravoBeaconLightIntensity, lightDurationTicks, lightDelayTicks)
 		end
 
 		Trigger.OnKilled(beacon, function(actor, killer)
@@ -1246,12 +1246,12 @@ CheckVictoryConditions = function()
 
 	if TeamInfo[AlphaTeamPlayerName].SurrendersRemaining == 0 then
 		tiWinner = TeamInfo[AlphaTeamPlayerName]
-		tiLoser = TeamInfo[BetaTeamPlayerName]
+		tiLoser = TeamInfo[BravoTeamPlayerName]
 		DisplayMessage("All " .. AlphaTeamPlayerName .. " players have surrendered!")
-	elseif TeamInfo[BetaTeamPlayerName].SurrendersRemaining == 0 then
-		tiWinner = TeamInfo[BetaTeamPlayerName]
+	elseif TeamInfo[BravoTeamPlayerName].SurrendersRemaining == 0 then
+		tiWinner = TeamInfo[BravoTeamPlayerName]
 		tiLoser = TeamInfo[AlphaTeamPlayerName]
-		DisplayMessage("All " .. BetaTeamPlayerName .. " players have surrendered!")
+		DisplayMessage("All " .. BravoTeamPlayerName .. " players have surrendered!")
 	end
 
 	if tiLoser == nil then
@@ -1259,9 +1259,9 @@ CheckVictoryConditions = function()
 			-- GDI wins in event of tie.
 			if TeamStats[AlphaTeamPlayerName].Experience >= TeamStats[AlphaTeamPlayerName].Experience then
 				tiWinner = TeamInfo[AlphaTeamPlayerName]
-				tiLoser = TeamInfo[BetaTeamPlayerName]
+				tiLoser = TeamInfo[BravoTeamPlayerName]
 			else
-				tiWinner = TeamInfo[BetaTeamPlayerName]
+				tiWinner = TeamInfo[BravoTeamPlayerName]
 				tiLoser = TeamInfo[AlphaTeamPlayerName]
 			end
 		else
@@ -1277,11 +1277,11 @@ CheckVictoryConditions = function()
 					then
 
 					if ti.AiPlayer.InternalName == AlphaTeamPlayerName then
-						tiWinner = TeamInfo[BetaTeamPlayerName]
+						tiWinner = TeamInfo[BravoTeamPlayerName]
 						tiLoser = TeamInfo[AlphaTeamPlayerName]
 					else
 						tiWinner = TeamInfo[AlphaTeamPlayerName]
-						tiLoser = TeamInfo[BetaTeamPlayerName]
+						tiLoser = TeamInfo[BravoTeamPlayerName]
 					end
 				end
 			end)
@@ -1343,14 +1343,14 @@ DrawScoreboard = function()
 
 	local alpha = AlphaTeamPlayerName .. ': ' .. tostring(TeamStats[AlphaTeamPlayerName].Experience) .. ' points - '
 		.. tostring(TeamStats[AlphaTeamPlayerName].Kills) .. '/' .. tostring(TeamStats[AlphaTeamPlayerName].Deaths) .. ' k/d'
-	local beta = BetaTeamPlayerName .. ': ' .. tostring(TeamStats[BetaTeamPlayerName].Experience) .. ' points - '
-		.. tostring(TeamStats[BetaTeamPlayerName].Kills) .. '/' .. tostring(TeamStats[BetaTeamPlayerName].Deaths) .. ' k/d'
+	local bravo = BravoTeamPlayerName .. ': ' .. tostring(TeamStats[BravoTeamPlayerName].Experience) .. ' points - '
+		.. tostring(TeamStats[BravoTeamPlayerName].Kills) .. '/' .. tostring(TeamStats[BravoTeamPlayerName].Deaths) .. ' k/d'
 
 	local scoreboard = '\n' .. '\n' .. '\n' .. '\n'
-	if TeamStats[AlphaTeamPlayerName].Experience >= TeamStats[BetaTeamPlayerName].Experience then
-		scoreboard = scoreboard .. alpha .. '\n' .. beta
+	if TeamStats[AlphaTeamPlayerName].Experience >= TeamStats[BravoTeamPlayerName].Experience then
+		scoreboard = scoreboard .. alpha .. '\n' .. bravo
 	else
-		scoreboard = scoreboard .. beta .. '\n' .. alpha
+		scoreboard = scoreboard .. bravo .. '\n' .. alpha
 	end
 
 	if not isSpectating then
@@ -1463,7 +1463,7 @@ GetCPosAnnulus = function(baseFootprintCells, expandedFootprintCells)
 end
 
 PlayerIsTeamAi = function(player)
-	return player.InternalName == AlphaTeamPlayerName or player.InternalName == BetaTeamPlayerName
+	return player.InternalName == AlphaTeamPlayerName or player.InternalName == BravoTeamPlayerName
 end
 
 PlayerIsHumanOrBot = function(player)
@@ -1523,16 +1523,16 @@ DoTests = function()
 	local weaponTest = false
 	if weaponTest then
 		Actor.Create('camera', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 23) })
-		Actor.Create('camera', true, { Owner = BetaTeamPlayer, Location = CPos.New(25, 23) })
+		Actor.Create('camera', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 23) })
 		local a1 = Actor.Create('rmbo', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 23) })
-		local a2 = Actor.Create('e5', true, { Owner = BetaTeamPlayer, Location = CPos.New(25, 23) })
+		local a2 = Actor.Create('e5', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 23) })
 		--a1.GrantCondition('brandnew')
 		--a2.GrantCondition('brandnew')
 
 		Actor.Create('camera', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 33) })
-		Actor.Create('camera', true, { Owner = BetaTeamPlayer, Location = CPos.New(25, 33) })
+		Actor.Create('camera', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 33) })
 		local a3 = Actor.Create('e2', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 33) })
-		local a4 = Actor.Create('e4', true, { Owner = BetaTeamPlayer, Location = CPos.New(25, 33) })
+		local a4 = Actor.Create('e4', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 33) })
 		--a3.GrantCondition('brandnew')
 		--a4.GrantCondition('brandnew')
 	end
