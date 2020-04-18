@@ -188,15 +188,23 @@ SetTeamInfo = function()
 
 	Utils.Do(teams, function(team)
 		local playersOnTeam = { }
+		local humansOnTeam = 0
 		for k, v in pairs(PlayerInfo) do
 			if v.Player.Faction == team.Faction then
 				playersOnTeam[v.Player.InternalName] = v
+
+				if not v.Player.IsBot then
+					humansOnTeam = humansOnTeam + 1
+				end
 			end
 		end
+
+		if humansOnTeam == 0 then humansOnTeam = -1 end -- So bots don't trip team surrender checks
 
 		TeamInfo[team.InternalName] = {
 			AiPlayer = team, -- The "AI" player of the team
 			Players = playersOnTeam, -- All other Player actors on this team
+			SurrendersRemaining = humansOnTeam, -- A count of how many human players are on the team, for surrender checks
 			ConstructionYard = nil, -- Actor reference to Construction Yard
 			Refinery = nil, -- Actor reference to Refinery
 			Barracks = nil, -- Actor reference to Barracks
@@ -1214,7 +1222,6 @@ CheckVictoryConditions = function()
 	-- Check for surrendered players
 	-- We can't use objective triggers since they fire for only local players,
 	-- which means modifying game state == out of sync
-	-- TODO: If all players have surrendered on a team, we need to force that team a loss.
 	if not GameOver then
 		Utils.Do(PlayerInfo, function(pi)
 			if not pi.Surrendered and pi.Player.IsObjectiveFailed(pi.VictoryMissionObjectiveId) then
@@ -1227,6 +1234,7 @@ CheckVictoryConditions = function()
 				end
 
 				pi.Surrendered = true
+				pi.Team.SurrendersRemaining = pi.Team.SurrendersRemaining - 1
 				DisplayMessage(pi.Player.Name .. ' surrendered!')
 			end
 		end)
@@ -1236,36 +1244,48 @@ CheckVictoryConditions = function()
 	local tiWinner = nil
 	local tiLoser = nil
 
-	if TimeLimitExpired == true then
-		-- GDI wins in event of tie.
-		if TeamStats[AlphaTeamPlayerName].Experience >= TeamStats[AlphaTeamPlayerName].Experience then
-			tiWinner = TeamInfo[AlphaTeamPlayerName]
-			tiLoser = TeamInfo[BetaTeamPlayerName]
-		else
-			tiWinner = TeamInfo[BetaTeamPlayerName]
-			tiLoser = TeamInfo[AlphaTeamPlayerName]
-		end
-	else
-		Utils.Do(TeamInfo, function(ti)
-			if ti.ConstructionYard.IsDead
-				and ti.Refinery.IsDead
-				and ti.Barracks.IsDead
-				and ti.WarFactory.IsDead
-				and ti.Helipad.IsDead
-				and ti.Radar.IsDead
-				and ti.Powerplant.IsDead
-				and ti.ServiceDepot.IsDead
-				then
+	if TeamInfo[AlphaTeamPlayerName].SurrendersRemaining == 0 then
+		tiWinner = TeamInfo[AlphaTeamPlayerName]
+		tiLoser = TeamInfo[BetaTeamPlayerName]
+		DisplayMessage("All " .. AlphaTeamPlayerName .. " players have surrendered!")
+	elseif TeamInfo[BetaTeamPlayerName].SurrendersRemaining == 0 then
+		tiWinner = TeamInfo[BetaTeamPlayerName]
+		tiLoser = TeamInfo[AlphaTeamPlayerName]
+		DisplayMessage("All " .. BetaTeamPlayerName .. " players have surrendered!")
+	end
 
-				if ti.AiPlayer.InternalName == AlphaTeamPlayerName then
-					tiWinner = TeamInfo[BetaTeamPlayerName]
-					tiLoser = TeamInfo[AlphaTeamPlayerName]
-				else
-					tiWinner = TeamInfo[AlphaTeamPlayerName]
-					tiLoser = TeamInfo[BetaTeamPlayerName]
-				end
+	if tiLoser == nil then
+		if TimeLimitExpired == true then
+			-- GDI wins in event of tie.
+			if TeamStats[AlphaTeamPlayerName].Experience >= TeamStats[AlphaTeamPlayerName].Experience then
+				tiWinner = TeamInfo[AlphaTeamPlayerName]
+				tiLoser = TeamInfo[BetaTeamPlayerName]
+			else
+				tiWinner = TeamInfo[BetaTeamPlayerName]
+				tiLoser = TeamInfo[AlphaTeamPlayerName]
 			end
-		end)
+		else
+			Utils.Do(TeamInfo, function(ti)
+				if ti.ConstructionYard.IsDead
+					and ti.Refinery.IsDead
+					and ti.Barracks.IsDead
+					and ti.WarFactory.IsDead
+					and ti.Helipad.IsDead
+					and ti.Radar.IsDead
+					and ti.Powerplant.IsDead
+					and ti.ServiceDepot.IsDead
+					then
+
+					if ti.AiPlayer.InternalName == AlphaTeamPlayerName then
+						tiWinner = TeamInfo[BetaTeamPlayerName]
+						tiLoser = TeamInfo[AlphaTeamPlayerName]
+					else
+						tiWinner = TeamInfo[AlphaTeamPlayerName]
+						tiLoser = TeamInfo[BetaTeamPlayerName]
+					end
+				end
+			end)
+		end
 	end
 
 	if tiLoser ~= nil then
