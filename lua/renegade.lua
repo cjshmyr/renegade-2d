@@ -1293,12 +1293,7 @@ CheckVictoryConditions = function()
 end
 
 BindTimeLimitEvents = function()
-	if DateTime.TimeLimit == 0 then
-		-- No time limit
-		return
-	end
-
-	Trigger.AfterDelay(DateTime.TimeLimit, function()
+	Trigger.OnTimerExpired(function()
 		TimeLimitExpired = true
 		DisplayMessage("Time limit expired!")
 	end)
