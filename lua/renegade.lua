@@ -33,7 +33,7 @@ BotNames = {
 	"Plorp", "Gorbel", "Splunch", "Borch", "Big Jeff", "Spurtle", "Gurgis", "Brumpus", "Yurst", "Ol Ginch",
 	"Gurch", "Plape", "Sporf", "Kranch", "Splinch", "Gorpo", "Forpel", "Gromph", "Dorbie", "Jorf", "Splurst",
 	"Shorp", "Bortles", "Bubson", "Plench", "Clorch", "Borth", "Bobson", "Munton", "Plungus", "Brungus", "Dorgel",
-	"Blurp", "Paunch", "Wedge", "Arp 299", "Gorgo", "Sqlurp"
+	"Blurp", "Paunch", "Biggs", "Wedge", "Arp 299", "Gorgo", "Sqlurp", "Farfel"
 }
 
 --[[ Mod-specific ]]
