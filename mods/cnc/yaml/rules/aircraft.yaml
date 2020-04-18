@@ -1,5 +1,7 @@
 TRAN-AI:
 	Inherits: TRAN
+	Aircraft:
+		-PauseOnCondition: !occupied
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
 	WithFacingSpriteBody:

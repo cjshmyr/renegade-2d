@@ -889,7 +889,7 @@ BuildPurchaseTerminalItem = function(pi, actorType)
 			-- This will need un-hardcoding if the map is not symmetrical.
 			-- And looks hilariously glitchy on map borders.
 			local enterFrom = CPos.New(ti.WarFactoryActorLocation.X + 1, 0) -- Location offset +1, to get the "center"
-			local dropOffAt = ti.WarFactoryActorLocation + CVec.New(1, 1) -- Offset again
+			local dropOffAt = ti.WarFactoryActorLocation + CVec.New(1, 2) -- Offset again
 			local exitAt = CPos.New(enterFrom.X, 999)
 
 			local produced = Reinforcements.ReinforceWithTransport(
@@ -908,7 +908,9 @@ BuildPurchaseTerminalItem = function(pi, actorType)
 			ti.Helipad.Produce(type)
 		else
 			-- TODO: Need to fly it in from off-map.
-			local produced = Actor.Create(type, true, { Owner = NeutralPlayer, Location = ti.HelipadActorLocation })
+			-- Spawn it south of a destroyed helipad.
+			local spawnAt = ti.HelipadActorLocation + CVec.New(1, 2);
+			local produced = Actor.Create(type, true, { Owner = NeutralPlayer, Location = spawnAt })
 			BindProducedVehicleEvents(produced)
 		end
 	elseif string.find(actorType, PurchaseTerminalBeaconActorTypePrefix) then
