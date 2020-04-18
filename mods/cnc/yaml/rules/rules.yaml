@@ -50,8 +50,8 @@ Player:
 		ExploredMapCheckboxEnabled: true
 		ExploredMapCheckboxVisible: false
 	PlayerResources:
-		DefaultCash: 300
-		SelectableCash: 100, 300, 600, 900
+		DefaultCash: 400
+		SelectableCash: 200, 400, 700, 1000, 2000
 	LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY:
 		Enabled: false
 		Visible: false
