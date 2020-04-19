@@ -630,6 +630,7 @@ BindHeroEvents = function(hero)
 			local hero = Actor.Create(self.Type, true, { Owner = pi.Player, Location = pi.PassengerOfVehicle.Location })
 			hero.Health = pi.EjectOnDeathHealth
 			pi.Hero = hero
+			hero.Scatter()
 
 			-- Recursion!
 			pi.PassengerOfVehicle = nil
