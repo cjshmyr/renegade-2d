@@ -35,7 +35,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@A0:
 		Name: A0
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -48,7 +47,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A1:
 		Name: A1
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -61,7 +59,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A2:
 		Name: A2
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -74,7 +71,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A3:
 		Name: A3
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -87,7 +83,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A4:
 		Name: A4
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -100,7 +95,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A5:
 		Name: A5
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -113,7 +107,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A6:
 		Name: A6
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -126,7 +119,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A7:
 		Name: A7
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -139,7 +131,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A8:
 		Name: A8
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -152,7 +143,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A9:
 		Name: A9
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -165,7 +155,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A10:
 		Name: A10
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -178,7 +167,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@A11:
 		Name: A11
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: gdi
@@ -191,7 +179,6 @@ Players:
 		Enemies: Creeps, Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 	PlayerReference@B0:
 		Name: B0
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -204,7 +191,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B1:
 		Name: B1
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -217,7 +203,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B2:
 		Name: B2
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -230,7 +215,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B3:
 		Name: B3
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -243,7 +227,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B4:
 		Name: B4
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -256,7 +239,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B5:
 		Name: B5
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -269,7 +251,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B6:
 		Name: B6
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -282,7 +263,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B7:
 		Name: B7
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -295,7 +275,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B8:
 		Name: B8
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -308,7 +287,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B9:
 		Name: B9
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -321,7 +299,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B10:
 		Name: B10
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
@@ -334,7 +311,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 	PlayerReference@B11:
 		Name: B11
-		AllowBots: True
 		Playable: True
 		LockFaction: True
 		Faction: nod
