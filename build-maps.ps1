@@ -1,23 +1,22 @@
 # Usage:
-# ./build-maps.ps1 [-Deploy]
+# ./build-maps.ps1 [-deploy]
 
-# Information:
 # This script builds the Renegade 2D maps.
-# Providing the "--Deploy" argument will build the map in the appropriate OpenRA support folder, instead of a bin folder.
+# Providing the "-deploy" argument will build the map in the appropriate OpenRA support folder, instead of a bin folder. Currently supported on Windows only.
+
 # In summary it:
-# - Copies maps to the target destination (bin folder or OpenRA support folder)
+# - Copies maps to the target destination (bin folder or OpenRA support folder if providing --deploy).
 # - Copies custom rules into the copied maps folders.
 # - Copies lua script(s) into the copied maps folders.
 # - Appends custom rules definitions to any copied maps' map.yaml files.
-# This allows for one maintained source of Lua scripts & custom rules, separate from the maps themselves.
 
 [CmdLetBinding()]
 param(
-    [switch]$Deploy
+    [switch]$deploy
 )
 
 # The OpenRA engine version is set as a script variable, which should get updated when targeting new releases.
-$openraVersion = 'playtest-20200329'
+$openraVersion = 'release-20200503'
 
 # Returns yaml custom rule strings.
 function Get-MapYamlRulePaths($mod)
@@ -25,16 +24,16 @@ function Get-MapYamlRulePaths($mod)
     $modYaml = "$($PSScriptRoot)\mods\$($mod)\yaml\"
 
     # Hacky; instead of this, loop through subfolders and append appropriately.
-    $yaml = "`nRules: " + (((dir "$($modYaml)\rules") | %{ "yaml\$($mod)\rules\$($_.Name)" }) -join ', ')
-    $yaml += "`nWeapons: " + (((dir "$($modYaml)\weapons") | %{ "yaml\$($mod)\weapons\$($_.Name)" }) -join ', ')
-    $yaml += "`nNotifications: " + (((dir "$($modYaml)\notifications") | %{ "yaml\$($mod)\notifications\$($_.Name)" }) -join ', ')
-    $yaml += "`nSequences: " + (((dir "$($modYaml)\sequences") | %{ "yaml\$($mod)\sequences\$($_.Name)" }) -join ', ')
+    $yaml = "`nRules: " + (((Get-ChildItem "$($modYaml)\rules") | ForEach-Object { "yaml\$($mod)\rules\$($_.Name)" }) -join ', ')
+    $yaml += "`nWeapons: " + (((Get-ChildItem "$($modYaml)\weapons") | ForEach-Object { "yaml\$($mod)\weapons\$($_.Name)" }) -join ', ')
+    $yaml += "`nNotifications: " + (((Get-ChildItem "$($modYaml)\notifications") | ForEach-Object { "yaml\$($mod)\notifications\$($_.Name)" }) -join ', ')
+    $yaml += "`nSequences: " + (((Get-ChildItem "$($modYaml)\sequences") | ForEach-Object { "yaml\$($mod)\sequences\$($_.Name)" }) -join ', ')
 
     return $yaml
 }
 
 # Move maps.
-foreach ($mod in dir "$($PSScriptRoot)\mods\")
+foreach ($mod in Get-ChildItem "$($PSScriptRoot)\mods\")
 {
     $modMapsFolder = "$($PSScriptRoot)\mods\$($mod)\maps"
     $modRulesFolder = "$($PSScriptRoot)\mods\$($mod)\yaml"
@@ -48,7 +47,7 @@ foreach ($mod in dir "$($PSScriptRoot)\mods\")
 
     # Targeted destination directory.
     $destination = ""
-    if ($Deploy) {
+    if ($deploy) {
         $destination = "$($env:USERPROFILE)\AppData\Roaming\OpenRA\maps\$($mod)\$($openraVersion)"
     } else {
         $destination = "$($PSScriptRoot)\bin\maps\$($mod)\$($openraVersion)"
