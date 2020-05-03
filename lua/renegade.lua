@@ -741,6 +741,7 @@ BindProducedVehicleEvents = function(produced)
 	-- Husks (if any) retain ownership, and don't want husk explosions to hurt allies.
 	Trigger.OnPassengerExited(produced, function(transport, passenger)
 		if not transport.IsDead and transport.PassengerCount == 0 then
+			-- NOTE: With EjectOnDeath being busted, this might not be working as intended.
 			transport.Owner = NeutralPlayer
 		end
 
