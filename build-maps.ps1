@@ -1,18 +1,20 @@
 # Usage:
-# ./build-maps.ps1 [-deploy]
+# ./build-maps.ps1 [-Deploy] [-NoRuleCopy]
 
 # This script builds the Renegade 2D maps.
-# Providing the "-deploy" argument will build the map in the appropriate OpenRA support folder, instead of a bin folder. Currently supported on Windows only.
+# Providing the "-Deploy" argument will build the map in the appropriate OpenRA support folder, instead of a bin folder. Currently supported on Windows only.
+# Providing the "-NoRuleCopy" argument will ignore copying over yaml rules and lua; useful when making layout changes in the map editor.
 
 # In summary it:
-# - Copies maps to the target destination (bin folder or OpenRA support folder if providing --deploy).
+# - Copies maps to the target destination (bin folder, or OpenRA support folder if providing -Deploy).
 # - Copies custom rules into the copied maps folders.
 # - Copies lua script(s) into the copied maps folders.
-# - Appends custom rules definitions to any copied maps' map.yaml files.
+# - Appends custom rules definitions to any copied maps' map.yaml files (skipped if providing -NoRuleCopy).
 
 [CmdLetBinding()]
 param(
-    [switch]$deploy
+    [switch]$Deploy,
+    [switch]$NoRuleCopy
 )
 
 # The OpenRA engine version is set as a script variable, which should get updated when targeting new releases.
@@ -47,7 +49,7 @@ foreach ($mod in Get-ChildItem "$($PSScriptRoot)\mods\")
 
     # Targeted destination directory.
     $destination = ""
-    if ($deploy) {
+    if ($Deploy) {
         $destination = "$($env:USERPROFILE)\AppData\Roaming\OpenRA\maps\$($mod)\$($openraVersion)"
     } else {
         $destination = "$($PSScriptRoot)\bin\maps\$($mod)\$($openraVersion)"
@@ -68,17 +70,19 @@ foreach ($mod in Get-ChildItem "$($PSScriptRoot)\mods\")
         $mapFromPath = "$($modMapsFolder)\$($mapFolder)"
         Copy-Item -Path $mapFromPath -Destination $destination -Recurse -Force
 
-        # Copy lua script(s).
-        $scriptToPath = "$($destination)\$($mapFolder)\lua"
-        Copy-Item -Path $luaFolder -Destination $scriptToPath -Recurse -Force
+        if (!$NoRuleCopy) {
+            # Copy rules.
+            $rulesToPath = "$($destination)\$($mapFolder)\yaml\$($mod)"
+            Copy-Item -Path $modRulesFolder -Destination $rulesToPath -Recurse -Force
 
-        # Copy rules.
-        $rulesToPath = "$($destination)\$($mapFolder)\yaml\$($mod)"
-        Copy-Item -Path $modRulesFolder -Destination $rulesToPath -Recurse -Force
+            # Append any custom rules to map.yaml.
+            $mapDotYamlPath = "$($destination)\$($mapFolder)\map.yaml"
+            $mapDotYamlRulePaths = Get-MapYamlRulePaths($mod)
+            Add-Content -Path $mapDotYamlPath -Value $mapDotYamlRulePaths
 
-        # Append any custom rules to map.yaml.
-        $mapDotYamlPath = "$($destination)\$($mapFolder)\map.yaml"
-        $mapDotYamlRulePaths = Get-MapYamlRulePaths($mod)
-        Add-Content -Path $mapDotYamlPath -Value $mapDotYamlRulePaths
+            # Copy lua script(s).
+            $scriptToPath = "$($destination)\$($mapFolder)\lua"
+            Copy-Item -Path $luaFolder -Destination $scriptToPath -Recurse -Force
+        }
     }
 }
