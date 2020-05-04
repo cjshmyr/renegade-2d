@@ -1,12 +1,21 @@
 MapFormat: 11
+
 RequiresMod: cnc
-Title: Renegade 2D (C&C 0.99) - Bravo
+
+Title: Renegade 2D - Bravo
+
 Author: hamb
+
 Tileset: DESERT
+
 MapSize: 68,46
+
 Bounds: 1,1,66,44
+
 Visibility: Lobby
-Categories: Renegade 2D
+
+Categories: Renegade 2D (C&C 0.99)
+
 Players:
 	PlayerReference@Neutral:
 		Name: Neutral

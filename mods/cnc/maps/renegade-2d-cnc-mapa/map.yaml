@@ -2,7 +2,7 @@ MapFormat: 11
 
 RequiresMod: cnc
 
-Title: Renegade 2D (C&C 0.99) - Alpha
+Title: Renegade 2D - Alpha
 
 Author: hamb
 
@@ -14,7 +14,7 @@ Bounds: 1,1,96,48
 
 Visibility: Lobby
 
-Categories: Renegade 2D
+Categories: Renegade 2D (C&C 0.99)
 
 Players:
 	PlayerReference@Neutral:
