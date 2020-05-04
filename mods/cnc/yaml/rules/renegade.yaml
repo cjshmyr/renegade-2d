@@ -748,7 +748,7 @@ buy.cameo.helipad:
 		BuildPaletteOrder: 70
 		Prerequisites: ~cameo
 		Queue: Defence
-		Description: When present:\n- Allows for purchasing aircraft.\n\nWhen destroyed:\n- Aircraft cost 50% more.\n\nOther information:\n- Vehicles require a pilot to be operated.\n- Many vehicles hold multiple passengers.\n\n(This is an informational tooltip, purchasing this has no effect.)
+		Description: When present:\n- Allows for purchasing aircraft.\n\nWhen destroyed:\n- Aircraft cost 50% more.\n- Aircraft will fly in where the Helipad once stood.\n\nOther information:\n- Vehicles require a pilot to be operated.\n- Many vehicles hold multiple passengers.\n\n(This is an informational tooltip, purchasing this has no effect.)
 	RenderSprites:
 		Image: hpad
 
