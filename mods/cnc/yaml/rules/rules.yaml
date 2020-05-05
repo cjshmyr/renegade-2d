@@ -2,7 +2,7 @@ World:
 	MissionData:
 		Briefing: Renegade 2D (C&C 0.99) by hamb\nGameplay is based on the first person shooter C&C Renegade.\nFor discussion and update notes, check the OpenRA Modding forums. Have fun!
 	LuaScript:
-		Scripts: lua/renegade.lua
+		Scripts: renegade.lua
 	-SpawnMPUnits:
 	-MPStartLocations:
 	CrateSpawner:
