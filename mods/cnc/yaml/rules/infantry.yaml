@@ -45,7 +45,6 @@ E5:
 E6:
 	Inherits@HeroUnit: ^HeroUnit
 	Inherits@InfantryTier: ^TierOneInfantry
-	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	-EngineerRepair:
 	-RepairsBridges:
