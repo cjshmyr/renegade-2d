@@ -1,6 +1,7 @@
 # AI specific harvester
 HARV-AI:
 	Inherits: HARV
+	-ExternalCondition@BRANDNEW:
 	-Cargo:
 	-RevealsShroudMultiplier:
 	Mobile:
@@ -108,5 +109,8 @@ HARV:
 		Range: 5c0
 	Harvester:
 		SearchOnCreation: false
-		-EmptyCondition:
+		EmptyCondition: satisfy-lint-check # HACK: Removing this condition doesn't work.
+	SpeedMultiplier@SATISFY-LINT-CHECK:
+		Modifier: 100
+		RequiresCondition: satisfy-lint-check
 	-Explodes:

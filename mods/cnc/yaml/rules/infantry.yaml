@@ -73,3 +73,4 @@ RMBO:
 		Weapon: Rambo
 	-VoiceAnnouncement:
 	-AnnounceOnKill:
+	-ExternalCondition@PRODUCED:

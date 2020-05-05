@@ -98,8 +98,6 @@
 	RevealsShroudMultiplier:
 		Modifier: 0
 		RequiresCondition: !occupied
-	ExternalCondition@BRANDNEW:
-		Condition: brandnew
 
 # Helicopters can't move unless they have an 'occupied' condition.
 ^HeroAircraft:
