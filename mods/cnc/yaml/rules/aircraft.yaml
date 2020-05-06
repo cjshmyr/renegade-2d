@@ -9,16 +9,24 @@ TRAN-AI:
 TRAN:
 	Inherits@Passengers: ^FourPassengers
 	Inherits@PlayerAircraft: ^HeroAircraft
+	Aircraft:
+		Speed: 140
+		TurnSpeed: 5
 	Health:
-		HP: 18000
+		HP: 20000
+	Repairable:
+		HpPerStep: 2000
 
 ORCA:
 	Inherits@Passengers: ^OnePassenger
 	Inherits@PlayerAircraft: ^HeroAircraft
 	Aircraft:
 		Speed: 150
+		TurnSpeed: 7
 	Health:
 		HP: 15000
+	Repairable:
+		HpPerStep: 2000
 	-Armament@PRIMARY:
 	-Armament@SECONDARY:
 	Armament@AIRCRAFTMISSILE:
@@ -32,8 +40,11 @@ HELI:
 	Inherits@PlayerAircraft: ^HeroAircraft
 	Aircraft:
 		Speed: 150
+		TurnSpeed: 7
 	Health:
 		HP: 15000
+	Repairable:
+		HpPerStep: 2000
 	Tooltip:
 		Name: Apache
 	-Armament@PRIMARY:

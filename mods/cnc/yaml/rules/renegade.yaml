@@ -147,7 +147,7 @@ buy.infantry.e4:
 		BuildPaletteOrder: 20
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~nod
 		Queue: Infantry
-		Description: Anti-armor unit.
+		Description: Anti-infantry, anti-armor unit.
 	RenderSprites:
 		Image: E4
 
@@ -166,7 +166,7 @@ buy.infantry.e6:
 buy.infantry.e3:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 250
+		Cost: 300
 	Tooltip:
 		Name: Rocket Soldier
 	Buildable:
@@ -180,14 +180,14 @@ buy.infantry.e3:
 buy.infantry.penalty.e3:
 	Inherits: buy.infantry.e3
 	Valued:
-		Cost: 325
+		Cost: 450
 	Buildable:
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry-penalty
 
 buy.infantry.rmbo:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
 		Name: Commando
 	Buildable:
@@ -201,28 +201,28 @@ buy.infantry.rmbo:
 buy.infantry.penalty.rmbo:
 	Inherits: buy.infantry.rmbo
 	Valued:
-		Cost: 750
+		Cost: 900
 	Buildable:
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry-penalty, ~gdi
 
 buy.infantry.e5:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
 		Name: Chem Warrior
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry, ~nod
 		Queue: Infantry
-		Description: Advanced anti-infantry unit.\nImmune to tiberium.
+		Description: Advanced anti-infantry, anti-armor unit.\nImmune to tiberium.
 	RenderSprites:
 		Image: E5
 
 buy.infantry.penalty.e5:
 	Inherits: buy.infantry.e5
 	Valued:
-		Cost: 750
+		Cost: 900
 	Buildable:
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry-penalty, ~nod
 
@@ -449,7 +449,7 @@ buy.vehicle.penalty.stnk:
 buy.vehicle.harv:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 1200
+		Cost: 1500
 	Tooltip:
 		Name: Harvester
 	Buildable:
@@ -463,7 +463,7 @@ buy.vehicle.harv:
 buy.vehicle.penalty.harv:
 	Inherits: buy.vehicle.harv
 	Valued:
-		Cost: 1800
+		Cost: 2250
 	Buildable:
 		BuildPaletteOrder: 100
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
@@ -478,7 +478,7 @@ buy.aircraft.orca:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~gdi
 		Queue: Aircraft
-		Description: Anti-vehicle aircraft.\nHolds 1 passenger.
+		Description: Anti-armor aircraft.\nHolds 1 passenger.
 	RenderSprites:
 		Image: orca
 
@@ -500,7 +500,7 @@ buy.aircraft.heli:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~nod
 		Queue: Aircraft
-		Description: Anti-vehicle aircraft.\nHolds 1 passenger.
+		Description: Anti-armor aircraft.\nHolds 1 passenger.
 	RenderSprites:
 		Image: heli
 

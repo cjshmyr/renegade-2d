@@ -3,6 +3,7 @@
 		HP: 10000
 	Mobile:
 		Speed: 66
+		Locomotor: R2D_Infantry
 	RevealsShroud:
 		Range: 6c0
 
@@ -11,6 +12,7 @@
 		HP: 12500
 	Mobile:
 		Speed: 70
+		Locomotor: R2D_Infantry
 	RevealsShroud:
 		Range: 6c0
 
@@ -19,6 +21,7 @@
 		HP: 15000
 	Mobile:
 		Speed: 74
+		Locomotor: R2D_Infantry
 	RevealsShroud:
 		Range: 6c0
 

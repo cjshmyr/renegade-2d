@@ -21,15 +21,38 @@
 
 JEEP:
 	Inherits@Passengers: ^TwoPassengers
+	Health:
+		HP: 17500
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 8c0
+	Mobile:
+		Speed: 170
+		TurnSpeed: 10
+		Locomotor: R2D_Vehicle
+	Armor:
+		Type: Light
+	Turreted:
+		TurnSpeed: 10
+		Offset: -85,0,128
 	Armament:
 		Weapon: R2D_MachineGunH
 
 MSAM:
 	Inherits@Passengers: ^OnePassenger
+	Health:
+		HP: 20000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 10c0
+	Mobile:
+		Speed: 90
+		TurnSpeed: 4
+		Locomotor: R2D_Vehicle
+	Armor:
+		Type: Light
 	Tooltip:
 		Name: Multiple Launch Rocket System
 	Armament@PRIMARY:
@@ -42,15 +65,39 @@ MSAM:
 
 MTNK:
 	Inherits@Passengers: ^TwoPassengers
+	Health:
+		HP: 45000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 6c0
+	Mobile:
+		Speed: 90
+		TurnSpeed: 5
+		Locomotor: R2D_Vehicle
+	Turreted:
+		TurnSpeed: 5
+	Armor:
+		Type: Heavy
 	Armament:
 		Weapon: R2D_120mm
 
 HTNK:
 	Inherits@Passengers: ^TwoPassengers
+	Health:
+		HP: 80000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 6c0
+	Mobile:
+		Speed: 50
+		TurnSpeed: 3
+		Locomotor: R2D_Vehicle
+	Turreted:
+		TurnSpeed: 3
+	Armor:
+		Type: Heavy
 	Armament@PRIMARY:
 		Weapon: R2D_120mmDual
 		LocalOffset: 900,180,340, 900,-180,340
@@ -67,22 +114,56 @@ HTNK:
 
 BGGY:
 	Inherits@Passengers: ^TwoPassengers
+	Health:
+		HP: 15000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 8c0
+	Mobile:
+		Speed: 170
+		TurnSpeed: 10
+		Locomotor: R2D_Vehicle
+	Turreted:
+		TurnSpeed: 10
+	Armor:
+		Type: Light
 	Armament:
 		Weapon: R2D_MachineGun
 
 ARTY:
 	Inherits@Passengers: ^OnePassenger
+	Health:
+		HP: 20000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 10c0
+	Mobile:
+		Speed: 90
+		TurnSpeed: 4
+		Locomotor: R2D_Vehicle
+	Armor:
+		Type: Light
 	Armament:
 		Weapon: R2D_ArtilleryShell
 
 LTNK:
 	Inherits@Passengers: ^TwoPassengers
+	Health:
+		HP: 35000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 6c0
+	Mobile:
+		Speed: 110
+		TurnSpeed: 7
+		Locomotor: R2D_Vehicle
+	Turreted:
+		TurnSpeed: 7
+	Armor:
+		Type: Heavy
 	Armament:
 		Weapon: R2D_70mm
 
@@ -90,8 +171,16 @@ FTNK:
 	Inherits@Passengers: ^TwoPassengers
 	Health:
 		HP: 45000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 6c0
+	Mobile:
+		Speed: 100
+		TurnSpeed: 7
+		Locomotor: R2D_Vehicle
+	Armor:
+		Type: Heavy
 	-Armament:
 	Armament@PRIMARY:
 		Name: primary
@@ -107,9 +196,17 @@ FTNK:
 STNK:
 	Inherits@Passengers: ^OnePassenger
 	Health:
-		HP: 20000
+		HP: 25000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 8c0
+	Mobile:
+		Speed: 150
+		TurnSpeed: 10
+		Locomotor: R2D_Vehicle
+	Armor:
+		Type: Light
 	Cloak:
 		PauseOnCondition: cloak-force-disabled || !occupied
 	Armament:
@@ -119,12 +216,23 @@ STNK:
 # Other items should move up inheritance.
 APC:
 	Inherits@Passengers: ^FourPassengers
+	Health:
+		HP: 25000
+	Repairable:
+		HpPerStep: 2000
 	RevealsShroud:
 		Range: 6c0
+	Mobile:
+		Speed: 150
+		TurnSpeed: 5
+		Locomotor: R2D_Vehicle
+		PauseOnCondition: !(occupied || brandnew)
+	Turreted:
+		TurnSpeed: 10
+	Armor:
+		Type: Heavy
 	Cargo:
 		-LoadingCondition:
-	Mobile:
-		PauseOnCondition: !(occupied || brandnew)
 	Armament@PRIMARY:
 		Weapon: R2D_APCGun
 	-Armament@SECONDARY:
@@ -133,10 +241,16 @@ HARV:
 	Inherits@Passengers: ^OnePassenger
 	Health:
 		HP: 100000
+	Repairable:
+		HpPerStep: 2000
+	RevealsShroud:
+		Range: 6c0
 	Mobile:
 		Speed: 50
-	RevealsShroud:
-		Range: 5c0
+		TurnSpeed: 5
+		Locomotor: R2D_Vehicle
+	Armor:
+		Type: Heavy
 	Harvester:
 		SearchOnCreation: false
 		EmptyCondition: satisfy-lint-check # HACK: Removing this condition doesn't work.

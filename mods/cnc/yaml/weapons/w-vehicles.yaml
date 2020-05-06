@@ -23,7 +23,7 @@ R2D_MachineGunH: # jeep (added anti-air)
 	InvalidTargets: Wall
 	Burst: 5
 
-R2D_MachineGun: #buggy (added anti-air)
+R2D_MachineGun: #buggy (added anti-air, vs. light matches jeep)
 	ReloadDelay: 20
 	Range: 4c0
 	Report: mgun11.aud
@@ -36,7 +36,7 @@ R2D_MachineGun: #buggy (added anti-air)
 		Versus:
 			None: 150
 			Wood: 10
-			Light: 70
+			Light: 80
 			Heavy: 10
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, Air
@@ -198,12 +198,12 @@ R2D_120mmDual: #htnk (no changes)
 	Burst: 2
 	BurstDelays: 8
 
-R2D_MammothMissiles: #htnk (no changes)
+R2D_MammothMissiles: #htnk (missiles; no longer hits air, missile range shortened)
 	ReloadDelay: 45
-	Range: 5c0
+	Range: 4c0
 	MinRange: 0c512
 	Report: rocket1.aud
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: Missile
 		Arm: 0
 		Blockable: false
@@ -214,11 +214,11 @@ R2D_MammothMissiles: #htnk (no changes)
 		TrailImage: smokey
 		ContrailLength: 8
 		Speed: 341
-		RangeLimit: 6c0
+		RangeLimit: 5c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 298
 		Damage: 5000
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 		Versus:
 			None: 44
 			Wood: 66
@@ -233,17 +233,12 @@ R2D_MammothMissiles: #htnk (no changes)
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 		ValidTargets: Ground, Water
-	Warhead@4EffAir: CreateEffect
-		Explosions: small_building
-		ImpactSounds: xplos.aud
-		ImpactActors: false
-		ValidTargets: Air
 	Burst: 2
 	BurstDelays: 15
 
-R2D_70mm: #ltnk (no changes)
+R2D_70mm: #ltnk (range upped to match mtnk and htnk)
 	ReloadDelay: 30
-	Range: 4c0
+	Range: 4c768
 	Report: tnkfire3.aud
 	Projectile: Bullet
 		Image: 120MM
@@ -266,12 +261,12 @@ R2D_70mm: #ltnk (no changes)
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 
-R2D_227mm.stnk: #stnk (no changes)
+R2D_227mm.stnk: #stnk (no longer hits air)
 	ReloadDelay: 70
 	Range: 7c0
 	MinRange: 0c512
 	Report: rocket1.aud
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: Missile
 		Arm: 0
 		Blockable: false
@@ -286,7 +281,7 @@ R2D_227mm.stnk: #stnk (no changes)
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 6000
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 		Versus:
 			None: 25
 			Wood: 75
@@ -301,29 +296,30 @@ R2D_227mm.stnk: #stnk (no changes)
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 		ValidTargets: Ground, Water
-	Warhead@4EffAir: CreateEffect
-		Explosions: small_poof
-		ImpactSounds: xplos.aud
-		ImpactActors: false
-		ValidTargets: Air
 	Burst: 2
 	BurstDelays: 10
 
-R2D_APCGun: #apc (TODO: Needs anti-air)
-	ReloadDelay: 18
-	Range: 5c0
-	Report: gun20.aud
+R2D_APCGun: #apc (same weapon as humvee)
+	ReloadDelay: 20
+	Range: 4c0
+	Report: mgun11.aud
+	ValidTargets: Ground, Air
 	Projectile: Bullet
-		Speed: 900
+		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 2000
+		Damage: 1000
 		Versus:
-			None: 30
-			Wood: 25
-			Light: 75
-			Heavy: 25
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+			None: 150
+			Wood: 10
+			Light: 80
+			Heavy: 10
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		ValidTargets: Ground, Air
+		InvalidTargets: Wall
 	Warhead@2Eff: CreateEffect
-		Explosions: small_frag
+		Explosions: piffs
+		ImpactActors: false
 		ValidTargets: Ground, Water, Air
+	InvalidTargets: Wall
+	Burst: 5
