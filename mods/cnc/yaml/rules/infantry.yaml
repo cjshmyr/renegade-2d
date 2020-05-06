@@ -25,22 +25,32 @@
 E1:
 	Inherits@HeroUnit: ^HeroUnit
 	Inherits@InfantryTier: ^TierOneInfantry
+	Armament:
+		Weapon: R2D_M16
 
 E2:
 	Inherits@HeroUnit: ^HeroUnit
 	Inherits@InfantryTier: ^TierOneInfantry
+	Armament:
+		Weapon: R2D_Grenade
 
 E3:
 	Inherits@HeroUnit: ^HeroUnit
 	Inherits@InfantryTier: ^TierTwoInfantry
+	Armament:
+		Weapon: R2D_Rockets
 
 E4:
 	Inherits@HeroUnit: ^HeroUnit
 	Inherits@InfantryTier: ^TierOneInfantry
+	Armament:
+		Weapon: R2D_Flamethrower
 
 E5:
 	Inherits@HeroUnit: ^HeroUnit
 	Inherits@InfantryTier: ^TierThreeInfantry
+	Armament:
+		Weapon: R2D_Chemspray
 
 E6:
 	Inherits@HeroUnit: ^HeroUnit
@@ -53,7 +63,7 @@ E6:
 	AttackFrontal:
 		Voice: Action
 	Armament:
-		Weapon: RepairGun
+		Weapon: R2D_RepairGun
 		Cursor: repair
 		OutsideRangeCursor: repair
 		TargetStances: Ally, Enemy
@@ -70,7 +80,7 @@ RMBO:
 	Inherits@InfantryTier: ^TierThreeInfantry
 	-Demolition:
 	Armament:
-		Weapon: Rambo
+		Weapon: R2D_Rambo
 	-VoiceAnnouncement:
 	-AnnounceOnKill:
 	-ExternalCondition@PRODUCED:

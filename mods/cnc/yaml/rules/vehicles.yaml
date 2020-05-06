@@ -1,12 +1,3 @@
-# AI specific harvester
-HARV-AI:
-	Inherits: HARV
-	-ExternalCondition@BRANDNEW:
-	-Cargo:
-	-RevealsShroudMultiplier:
-	Mobile:
-		-PauseOnCondition:
-
 ^OnePassenger:
 	Cargo:
 		Types: Infantry
@@ -32,17 +23,8 @@ JEEP:
 	Inherits@Passengers: ^TwoPassengers
 	RevealsShroud:
 		Range: 8c0
-
-# APC TODO: Mobile changes should be inherited at this level.
-# Other items should move up inheritance.
-APC:
-	Inherits@Passengers: ^FourPassengers
-	RevealsShroud:
-		Range: 6c0
-	Cargo:
-		-LoadingCondition:
-	Mobile:
-		PauseOnCondition: !(occupied || brandnew)
+	Armament:
+		Weapon: R2D_MachineGunH
 
 MSAM:
 	Inherits@Passengers: ^OnePassenger
@@ -50,8 +32,13 @@ MSAM:
 		Range: 10c0
 	Tooltip:
 		Name: Multiple Launch Rocket System
+	Armament@PRIMARY:
+		Weapon: R2D_227mm
+		LocalOffset: 213,128,0, 213,-128,0
 	Armament@SECONDARY:
+		Weapon: R2D_227mm
 		FireDelay: 10
+		LocalOffset: 213,-128,0, 213,128,0
 
 MTNK:
 	Inherits@Passengers: ^TwoPassengers
@@ -67,11 +54,15 @@ BGGY:
 	Inherits@Passengers: ^TwoPassengers
 	RevealsShroud:
 		Range: 8c0
+	Armament:
+		Weapon: R2D_MachineGun
 
 ARTY:
 	Inherits@Passengers: ^OnePassenger
 	RevealsShroud:
 		Range: 10c0
+	Armament:
+		Weapon: R2D_ArtilleryShell
 
 LTNK:
 	Inherits@Passengers: ^TwoPassengers
@@ -84,9 +75,15 @@ FTNK:
 		HP: 45000
 	RevealsShroud:
 		Range: 6c0
+	-Armament:
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: R2D_BigFlamer
+		LocalOffset: 512,128,42, 512,-128,42
+		MuzzleSequence: muzzle
 	Armament@SECONDARY:
 		Name: secondary
-		Weapon: BigFlamer
+		Weapon: R2D_BigFlamer
 		LocalOffset: 512,-128,42, 512,128,42
 		MuzzleSequence: muzzle
 
@@ -98,6 +95,17 @@ STNK:
 		Range: 8c0
 	Cloak:
 		PauseOnCondition: cloak-force-disabled || !occupied
+
+# APC TODO: Mobile changes should be inherited at this level.
+# Other items should move up inheritance.
+APC:
+	Inherits@Passengers: ^FourPassengers
+	RevealsShroud:
+		Range: 6c0
+	Cargo:
+		-LoadingCondition:
+	Mobile:
+		PauseOnCondition: !(occupied || brandnew)
 
 HARV:
 	Inherits@Passengers: ^OnePassenger
@@ -114,3 +122,12 @@ HARV:
 		Modifier: 100
 		RequiresCondition: satisfy-lint-check
 	-Explodes:
+
+# AI specific harvester
+HARV-AI:
+	Inherits: HARV
+	-ExternalCondition@BRANDNEW:
+	-Cargo:
+	-RevealsShroudMultiplier:
+	Mobile:
+		-PauseOnCondition:

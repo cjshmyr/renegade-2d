@@ -59,6 +59,8 @@ GUN:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	DetectCloaked:
 		Range: 6c0
+	Armament:
+		Weapon: R2D_TurretGun
 
 OBLI:
 	Inherits@Renegade: ^RenegadeBaseBuilding
@@ -67,12 +69,16 @@ OBLI:
 		Range: 6c0
 	Power: # Powered defense
 		Amount: -1
+	Armament:
+		Weapon: R2D_Laser
 
 GTWR:
 	Inherits@Renegade: ^RenegadeBaseBuilding
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	DetectCloaked:
 		Range: 6c0
+	Armament:
+		Weapon: R2D_HighV
 
 ATWR:
 	Inherits@Renegade: ^RenegadeSmallBuilding
@@ -80,6 +86,10 @@ ATWR:
 		Range: 6c0
 	Power: # Powered defense
 		Amount: -1
+	Armament@PRIMARY:
+		Weapon: TowerMissile
+	Armament@SECONDARY:
+		Weapon: TowerMissile
 
 #Husks
 FACT.Husk:

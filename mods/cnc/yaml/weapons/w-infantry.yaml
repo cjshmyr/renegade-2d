@@ -1,0 +1,182 @@
+R2D_M16: #e1
+	ReloadDelay: 20
+	Range: 5c0
+	Report: mgun2.aud
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1000
+		Versus:
+			None: 160
+			Wood: 80
+			Light: 80
+			Heavy: 10
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	InvalidTargets: Wall
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	InvalidTargets: Wall
+
+R2D_Grenade: #e2
+	ReloadDelay: 50
+	Range: 5c0
+	Report: toss1.aud
+	Projectile: Bullet
+		Speed: 204
+		Inaccuracy: 400
+		Image: BOMB
+		Shadow: true
+		Blockable: false
+		LaunchAngle: 62
+		Inaccuracy: 813
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 4000
+		Versus:
+			None: 80
+			Wood: 100
+			Light: 80
+			Heavy: 80
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+
+R2D_Rockets: #e3
+	ReloadDelay: 50
+	Range: 6c0
+	MinRange: 0c512
+	Report: bazook1.aud
+	ValidTargets: Ground, Air
+	Projectile: Missile
+		Arm: 0
+		Blockable: false
+		Inaccuracy: 128
+		Image: DRAGON
+		Shadow: true
+		HorizontalRateOfTurn: 15
+		TrailImage: smokey
+		ContrailLength: 8
+		Speed: 298
+		RangeLimit: 7c204
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 4000
+		ValidTargets: Ground, Air
+		Versus:
+			None: 30
+			Wood: 100
+			Light: 100
+			Heavy: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: small_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water
+	Warhead@4EffAir: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Air
+
+R2D_Flamethrower: #e4
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 25
+	Range: 4c0
+	InvalidTargets: Wall
+	Report: flamer2.aud
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 468
+		Damage: 1500
+		ValidTargets: Ground, Water, Trees
+		InvalidTargets: Wall
+		Versus:
+			None: 100
+			Wood: 120
+			Light: 100
+			Heavy: 100
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: small_napalm
+		ImpactSounds: flamer2.aud
+		ImpactActors: false
+
+R2D_Chemspray: #e5
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 25
+	Range: 5c0
+	InvalidTargets: Wall
+	Report: flamer2.aud
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 2500
+		ValidTargets: Ground, Water, Trees
+		InvalidTargets: Wall
+		Versus:
+			None: 100
+			Wood: 80
+			Light: 80
+			Heavy: 60
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: chemball
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+
+R2D_Rambo: #rmbo (new weapon)
+	Inherits: R2D_M16
+	Range: 6c0
+	Report: mgun11.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		Versus:
+			None: 120
+			Wood: 60
+			Light: 60
+			Heavy: 10
+
+R2D_RepairGun: #e6 (new weapon, repairs vehicles, disarms beacons)
+	ReloadDelay: 10
+	Range: 3c512
+	Report: tone16.aud
+	ValidTargets: Repair, DisarmBeacon
+	Projectile: Bullet
+		Speed: 1c682
+	Projectile: LaserZap
+		Width: 100
+		HitAnim: smokey
+		Color: 0077FF
+		SecondaryBeam: true
+		SecondaryBeamWidth: 20
+		SecondaryBeamColor: C4DFFF #00BBFF
+		ZOffset: 1024
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: -600
+		ValidTargets: Repair
+		ValidStances: Ally
+	Warhead@2Dam: SpreadDamage
+		Spread: 42
+		Damage: 300
+		ValidTargets: DisarmBeacon

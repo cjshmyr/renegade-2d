@@ -1,0 +1,19 @@
+AircraftMissile: #orca and hind (new weapons, matches E3 damage)
+	Inherits: ^MissileWeapon
+	ReloadDelay: 24
+	Range: 5c0
+	MinRange: 1c256
+	ValidTargets: Ground, Air
+	Projectile: Missile
+		Arm: 1
+		HorizontalRateOfTurn: 20
+		Speed: 256
+		RangeLimit: 5c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		ValidTargets: Ground, Air
+		Versus:
+			None: 30
+			Wood: 100
+			Light: 100
+			Heavy: 100

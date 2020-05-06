@@ -1,0 +1,32 @@
+AtomicBeacon: #nuke-beacon
+	ValidTargets: Ground, Air, Trees
+	Warhead@1Dam_impact: SpreadDamage
+		Range: 0, 1c1, 2c1, 2c512
+		Damage: 50000
+		Falloff: 2000, 1000, 250, 100
+		ValidTargets: Ground, Air, Trees
+		AffectsParent: True
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Eff_impact: CreateEffect
+		Explosions: nuke_explosion
+		ImpactSounds: nukexplo.aud
+		ImpactActors: false
+
+IonCannonBeacon: #ion-beacon
+	ValidTargets: Ground, Air, Trees
+	Warhead@1Dam_impact: SpreadDamage
+		Range: 0, 1c1, 2c1, 2c512
+		Damage: 50000
+		Falloff: 2000, 1000, 250, 100
+		ValidTargets: Ground, Air, Trees
+		AffectsParent: True
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Eff_impact: CreateEffect
+		Explosions: ion_explosion
+		ImpactSounds: ion1.aud
+		ImpactActors: false
+		Image: custom_explosion
+
+UnitExplodeSmall: #husks (don't hurt allies)
+	Warhead@1Dam: SpreadDamage
+		ValidStances: Neutral, Enemy

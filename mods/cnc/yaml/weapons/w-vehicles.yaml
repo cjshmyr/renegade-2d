@@ -1,0 +1,147 @@
+R2D_MachineGunH: # jeep (added anti-air)
+	ReloadDelay: 20
+	Range: 4c0
+	Report: mgun11.aud
+	ValidTargets: Ground, Air
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1000
+		Versus:
+			None: 150
+			Wood: 10
+			Light: 80
+			Heavy: 10
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		ValidTargets: Ground, Air
+		InvalidTargets: Wall
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	InvalidTargets: Wall
+	Burst: 5
+
+R2D_MachineGun: #buggy (added anti-air)
+	ReloadDelay: 20
+	Range: 4c0
+	Report: mgun11.aud
+	ValidTargets: Ground, Air
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1000
+		Versus:
+			None: 150
+			Wood: 10
+			Light: 70
+			Heavy: 10
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		ValidTargets: Ground, Air
+		InvalidTargets: Wall
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	InvalidTargets: Wall
+	Burst: 5
+
+R2D_227mm: #mlrs (fires 12 rockets, remove minrange, more accuracy, less rocket speed, more damage vs wood/heavy)
+	ReloadDelay: 100
+	Range: 11c0
+	Report: rocket1.aud
+	ValidTargets: Ground
+	Warhead@1Dam: SpreadDamage
+		Spread: 683
+		Damage: 2500
+		ValidTargets: Ground
+		Versus:
+			None: 24
+			Wood: 80
+			Light: 100
+			Heavy: 60
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: med_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water
+	Warhead@4EffAir: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Air
+	Burst: 6
+	BurstDelays: 20
+	TargetActorCenter: true
+	Projectile: Bullet
+		Blockable: false
+		Image: DRAGON
+		Shadow: true
+		TrailImage: smokey
+		Inaccuracy: 400
+		LaunchAngle: 62
+		ContrailLength: 10
+		Speed: 280
+
+R2D_ArtilleryShell: #arty (more accuracy, faster shell speed, remove minrange)
+	ReloadDelay: 65
+	Range: 11c0
+	Report: tnkfire2.aud
+	Projectile: Bullet
+		Image: 120MM
+		Speed: 400
+		Shadow: true
+		Blockable: false
+		LaunchAngle: 56
+		Inaccuracy: 0c512
+		ContrailLength: 30
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 10000
+		Versus:
+			None: 150
+			Wood: 120
+			Light: 112
+			Heavy: 75
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: poof
+		ImpactSounds: xplosml2.aud
+		ImpactActors: false
+	TargetActorCenter: true
+
+R2D_BigFlamer: #ftnk (shorter reload, less damage, no burst, more damage done (buff of Flamethrower))
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 10
+	Range: 3c512
+	InvalidTargets: Wall
+	Report: flamer2.aud
+	Projectile: Bullet
+		Speed: 341
+	Warhead@1Dam: SpreadDamage
+		Spread: 400
+		Damage: 1000
+		ValidTargets: Ground, Water, Trees
+		InvalidTargets: Wall
+		Versus:
+			None: 110
+			Wood: 100
+			Light: 100
+			Heavy: 90
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: med_napalm #small_napalm
+		ImpactSounds: flamer2.aud
+		ImpactActors: false
