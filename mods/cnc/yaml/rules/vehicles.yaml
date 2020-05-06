@@ -44,11 +44,26 @@ MTNK:
 	Inherits@Passengers: ^TwoPassengers
 	RevealsShroud:
 		Range: 6c0
+	Armament:
+		Weapon: R2D_120mm
 
 HTNK:
 	Inherits@Passengers: ^TwoPassengers
 	RevealsShroud:
 		Range: 6c0
+	Armament@PRIMARY:
+		Weapon: R2D_120mmDual
+		LocalOffset: 900,180,340, 900,-180,340
+		Recoil: 170
+		RecoilRecovery: 42
+		MuzzleSequence: muzzle
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: R2D_MammothMissiles
+		LocalOffset: -85,384,340, -85,-384,340
+		LocalYaw: -100, 100
+		Recoil: 10
+		MuzzleSequence: muzzle
 
 BGGY:
 	Inherits@Passengers: ^TwoPassengers
@@ -68,6 +83,8 @@ LTNK:
 	Inherits@Passengers: ^TwoPassengers
 	RevealsShroud:
 		Range: 6c0
+	Armament:
+		Weapon: R2D_70mm
 
 FTNK:
 	Inherits@Passengers: ^TwoPassengers
@@ -95,6 +112,8 @@ STNK:
 		Range: 8c0
 	Cloak:
 		PauseOnCondition: cloak-force-disabled || !occupied
+	Armament:
+		Weapon: R2D_227mm.stnk
 
 # APC TODO: Mobile changes should be inherited at this level.
 # Other items should move up inheritance.
@@ -106,6 +125,9 @@ APC:
 		-LoadingCondition:
 	Mobile:
 		PauseOnCondition: !(occupied || brandnew)
+	Armament@PRIMARY:
+		Weapon: R2D_APCGun
+	-Armament@SECONDARY:
 
 HARV:
 	Inherits@Passengers: ^OnePassenger

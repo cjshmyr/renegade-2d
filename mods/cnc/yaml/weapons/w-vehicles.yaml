@@ -145,3 +145,185 @@ R2D_BigFlamer: #ftnk (shorter reload, less damage, no burst, more damage done (b
 		Explosions: med_napalm #small_napalm
 		ImpactSounds: flamer2.aud
 		ImpactActors: false
+
+R2D_120mm: #mtnk (no changes)
+	ReloadDelay: 40
+	Range: 4c768
+	Report: tnkfire6.aud
+	Projectile: Bullet
+		Image: 120MM
+		Speed: 682
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 4000
+		Versus:
+			None: 25
+			Wood: 100
+			Light: 100
+			Heavy: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: small_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+
+R2D_120mmDual: #htnk (no changes)
+	ReloadDelay: 40
+	Range: 4c768
+	Report: tnkfire6.aud
+	Projectile: Bullet
+		Image: 120MM
+		Speed: 682
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 4000
+		Versus:
+			None: 25
+			Wood: 100
+			Light: 100
+			Heavy: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: small_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+	Burst: 2
+	BurstDelays: 8
+
+R2D_MammothMissiles: #htnk (no changes)
+	ReloadDelay: 45
+	Range: 5c0
+	MinRange: 0c512
+	Report: rocket1.aud
+	ValidTargets: Ground, Air
+	Projectile: Missile
+		Arm: 0
+		Blockable: false
+		Inaccuracy: 128
+		Image: DRAGON
+		Shadow: true
+		HorizontalRateOfTurn: 20
+		TrailImage: smokey
+		ContrailLength: 8
+		Speed: 341
+		RangeLimit: 6c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 298
+		Damage: 5000
+		ValidTargets: Ground, Air
+		Versus:
+			None: 44
+			Wood: 66
+			Light: 90
+			Heavy: 44
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water
+	Warhead@4EffAir: CreateEffect
+		Explosions: small_building
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Air
+	Burst: 2
+	BurstDelays: 15
+
+R2D_70mm: #ltnk (no changes)
+	ReloadDelay: 30
+	Range: 4c0
+	Report: tnkfire3.aud
+	Projectile: Bullet
+		Image: 120MM
+		Speed: 853
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2500
+		Versus:
+			None: 24
+			Wood: 72
+			Light: 100
+			Heavy: 88
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: small_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+
+R2D_227mm.stnk: #stnk (no changes)
+	ReloadDelay: 70
+	Range: 7c0
+	MinRange: 0c512
+	Report: rocket1.aud
+	ValidTargets: Ground, Air
+	Projectile: Missile
+		Arm: 0
+		Blockable: false
+		Inaccuracy: 213
+		Image: DRAGON
+		Shadow: true
+		HorizontalRateOfTurn: 10
+		TrailImage: smokey
+		ContrailLength: 8
+		Speed: 213
+		RangeLimit: 8c409
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 6000
+		ValidTargets: Ground, Air
+		Versus:
+			None: 25
+			Wood: 75
+			Light: 100
+			Heavy: 90
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: small_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water
+	Warhead@4EffAir: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Air
+	Burst: 2
+	BurstDelays: 10
+
+R2D_APCGun: #apc (TODO: Needs anti-air)
+	ReloadDelay: 18
+	Range: 5c0
+	Report: gun20.aud
+	Projectile: Bullet
+		Speed: 900
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2000
+		Versus:
+			None: 30
+			Wood: 25
+			Light: 75
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: small_frag
+		ValidTargets: Ground, Water, Air
