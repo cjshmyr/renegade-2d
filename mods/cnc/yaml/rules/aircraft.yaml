@@ -8,7 +8,7 @@ TRAN-AI:
 
 TRAN:
 	Inherits@Passengers: ^FourPassengers
-	Inherits@PlayerAircraft: ^HeroAircraft
+	Inherits@HeroAircraft: ^HeroAircraft
 	Aircraft:
 		Speed: 140
 		TurnSpeed: 5
@@ -19,7 +19,7 @@ TRAN:
 
 ORCA:
 	Inherits@Passengers: ^OnePassenger
-	Inherits@PlayerAircraft: ^HeroAircraft
+	Inherits@HeroAircraft: ^HeroAircraft
 	Aircraft:
 		Speed: 150
 		TurnSpeed: 7
@@ -37,7 +37,7 @@ ORCA:
 
 HELI:
 	Inherits@Passengers: ^OnePassenger
-	Inherits@PlayerAircraft: ^HeroAircraft
+	Inherits@HeroAircraft: ^HeroAircraft
 	Aircraft:
 		Speed: 150
 		TurnSpeed: 7
