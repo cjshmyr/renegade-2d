@@ -109,6 +109,8 @@ NeutralPlayer = Player.GetPlayer(NeutralPlayerName)
 WorldLoaded = function()
 	Media.PlaySound(SoundMissionStarted)
 
+	DisplayMessage('Welcome to Renegade 2D (version 0.99)!')
+
 	SetPlayerInfo()
 	SetTeamInfo()
 	SetBotNames()
@@ -327,8 +329,15 @@ AssignSpawnLocations = function()
 end
 
 SetVictoryConditions = function()
+	local objectiveText = 'Destroy the enemy base!'
+	if DateTime.TimeLimit > 0 then
+		objectiveText = 'Destroy the enemy base, or most team points after time limit!'
+	end
+
+	DisplayMessage('Objective - ' .. objectiveText)
+
 	Utils.Do(PlayerInfo, function(pi)
-		local objectiveId = pi.Player.AddPrimaryObjective('Destroy the enemy base!')
+		local objectiveId = pi.Player.AddPrimaryObjective(objectiveText)
 		pi.VictoryMissionObjectiveId = objectiveId
 	end)
 end
