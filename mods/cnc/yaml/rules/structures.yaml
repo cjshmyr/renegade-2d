@@ -8,7 +8,11 @@
 	Health:
 		HP: 100000
 	Armor:
-		Type: Woood
+		Type: Wood
+
+BRIK:
+	Health:
+		HP: 50000
 
 FACT:
 	Inherits@Renegade: ^RenegadeBaseBuilding
