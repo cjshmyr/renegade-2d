@@ -601,7 +601,7 @@ buy.placebeacon.nuke-beacon:
 	SelectionDecorations:
 	WithSpriteControlGroupDecoration:
 	Selectable:
-		Bounds: 24,24
+		Bounds: 20,20
 	Health:
 		HP: 10000
 	Building:

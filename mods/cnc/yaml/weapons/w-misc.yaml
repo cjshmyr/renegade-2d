@@ -11,6 +11,11 @@ AtomicBeacon: #nuke-beacon
 		Explosions: nuke_explosion
 		ImpactSounds: nukexplo.aud
 		ImpactActors: false
+	Warhead@3Smu_areanukea: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+		Size: 3
+		Delay: 3
 
 IonCannonBeacon: #ion-beacon
 	ValidTargets: Ground, Air, Trees
@@ -26,6 +31,11 @@ IonCannonBeacon: #ion-beacon
 		ImpactSounds: ion1.aud
 		ImpactActors: false
 		Image: custom_explosion
+	Warhead@3Smu_areanukea: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+		Size: 3
+		Delay: 3
 
 UnitExplodeSmall: #husks (don't hurt allies)
 	Warhead@1Dam: SpreadDamage
