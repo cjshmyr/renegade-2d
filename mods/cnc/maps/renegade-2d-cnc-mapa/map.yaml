@@ -6,7 +6,7 @@ Title: Renegade 2D - Alpha
 
 Author: hamb
 
-Tileset: TEMPERAT
+Tileset: WINTER
 
 MapSize: 98,50
 
@@ -335,12 +335,6 @@ Actors:
 	Actor0: splitblue
 		Owner: Neutral
 		Location: 48,11
-	Actor15: split2
-		Owner: Neutral
-		Location: 45,39
-	Actor16: split2
-		Owner: Neutral
-		Location: 51,39
 	Actor37: t16
 		Owner: Neutral
 		Location: 43,3
@@ -383,9 +377,6 @@ Actors:
 	Actor52: t16
 		Owner: Neutral
 		Location: 64,5
-	Actor53: t16
-		Owner: Neutral
-		Location: 92,4
 	Actor54: t16
 		Owner: Neutral
 		Location: 74,1
@@ -431,9 +422,6 @@ Actors:
 	Actor69: t07
 		Owner: Neutral
 		Location: 58,23
-	Actor70: t07
-		Owner: Neutral
-		Location: 91,5
 	Actor71: t05
 		Owner: Neutral
 		Location: 72,2
@@ -473,12 +461,6 @@ Actors:
 	Actor84: t11
 		Owner: Neutral
 		Location: 3,2
-	Actor85: waypoint
-		Owner: GDI
-		Location: 45,39
-	Actor86: waypoint
-		Owner: Nod
-		Location: 51,39
 	Actor87: proc
 		Owner: GDI
 		Location: 4,26
@@ -488,10 +470,6 @@ Actors:
 	Actor95: fix
 		Owner: GDI
 		Location: 17,26
-	Actor97: atwr
-		Owner: GDI
-		TurretFacing: 96
-		Location: 13,12
 	Actor89: hpad
 		Owner: GDI
 		Location: 4,16
@@ -539,14 +517,6 @@ Actors:
 		Owner: GDI
 		TurretFacing: 96
 		Location: 1,32
-	Actor106: gtwr
-		Owner: GDI
-		TurretFacing: 96
-		Location: 1,13
-	Actor81: gtwr
-		Owner: GDI
-		TurretFacing: 96
-		Location: 10,7
 	Actor107: obli
 		Owner: Nod
 		Location: 76,22
@@ -597,18 +567,150 @@ Actors:
 		Owner: Nod
 		TurretFacing: 96
 		Location: 75,14
-	Actor120: gun
-		Owner: Nod
-		TurretFacing: 96
-		Location: 96,13
-	Actor121: obli
-		Owner: Nod
-		Location: 85,12
 	Actor122: gun
 		Owner: Nod
 		TurretFacing: 96
 		Location: 82,7
+	Actor85: split2
+		Owner: Neutral
+		Location: 53,39
+	Actor86: split2
+		Owner: Neutral
+		Location: 43,39
+	Actor124: waypoint
+		Owner: GDI
+		Location: 43,39
+	Actor125: waypoint
+		Owner: Nod
+		Location: 53,39
+	Actor106: gtwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 8,7
+	Actor127: t16
+		Owner: Neutral
+		Location: 93,2
+	Actor128: t07
+		Owner: Neutral
+		Location: 92,3
+	Actor120: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 90,7
+	Actor121: obli
+		Owner: Nod
+		Location: 87,11
 	Actor123: gun
 		Owner: Nod
 		TurretFacing: 96
-		Location: 88,7
+		Location: 96,13
+	Actor126: brik
+		Owner: Nod
+		Location: 86,10
+	Actor129: brik
+		Owner: Nod
+		Location: 86,11
+	Actor130: brik
+		Owner: Nod
+		Location: 87,10
+	Actor131: brik
+		Owner: Nod
+		Location: 88,10
+	Actor132: brik
+		Owner: Nod
+		Location: 88,11
+	Actor133: brik
+		Owner: Nod
+		Location: 76,23
+	Actor134: brik
+		Owner: Nod
+		Location: 75,23
+	Actor135: brik
+		Owner: Nod
+		Location: 75,22
+	Actor136: brik
+		Owner: Nod
+		Location: 75,21
+	Actor137: brik
+		Owner: Nod
+		Location: 76,21
+	Actor138: brik
+		Owner: Nod
+		Location: 83,33
+	Actor139: brik
+		Owner: Nod
+		Location: 83,34
+	Actor140: brik
+		Owner: Nod
+		Location: 83,34
+	Actor141: brik
+		Owner: Nod
+		Location: 84,34
+	Actor142: brik
+		Owner: Nod
+		Location: 85,34
+	Actor143: brik
+		Owner: Nod
+		Location: 85,33
+	Actor144: gtwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 1,13
+	Actor145: atwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 11,11
+	Actor146: brik
+		Owner: GDI
+		Location: 10,11
+	Actor147: brik
+		Owner: GDI
+		Location: 10,10
+	Actor148: brik
+		Owner: GDI
+		Location: 11,10
+	Actor149: brik
+		Owner: GDI
+		Location: 12,10
+	Actor150: brik
+		Owner: GDI
+		Location: 12,11
+	Actor151: brik
+		Owner: GDI
+		Location: 22,21
+	Actor152: brik
+		Owner: GDI
+		Location: 22,21
+	Actor153: brik
+		Owner: GDI
+		Location: 23,21
+	Actor154: brik
+		Owner: GDI
+		Location: 23,22
+	Actor155: brik
+		Owner: GDI
+		Location: 23,23
+	Actor156: brik
+		Owner: GDI
+		Location: 22,23
+	Actor157: brik
+		Owner: GDI
+		Location: 15,33
+	Actor158: brik
+		Owner: GDI
+		Location: 15,34
+	Actor159: brik
+		Owner: GDI
+		Location: 14,34
+	Actor160: brik
+		Owner: GDI
+		Location: 13,34
+	Actor161: brik
+		Owner: GDI
+		Location: 13,33
+	Actor162: t10
+		Owner: Neutral
+		Location: 76,8
+	Actor163: t12
+		Owner: Neutral
+		Location: 78,7
