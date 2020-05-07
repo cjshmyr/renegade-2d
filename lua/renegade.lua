@@ -715,6 +715,12 @@ BindProducedVehicleEvents = function(produced)
 	Trigger.OnDamaged(produced, function(self, attacker)
 		local damageTaken = GetDamageTaken(self)
 		GrantRewardOnDamaged(self, attacker, damageTaken)
+
+		-- This should live in InitializeAiHarvester, but because of how damage taken is calculated with events
+		-- we're forced to calculate it once on a single trigger.
+		if produced.Type == AiHarvesterActorType then
+			NotifyHarvesterUnderAttack(self, damageTaken)
+		end
 	end)
 	Trigger.OnKilled(produced, function(self, killer)
 		GrantRewardOnKilled(self, killer, "unit")
@@ -862,10 +868,11 @@ InitializeAiHarvester = function(harv, wasPurchased)
 	harv.FindResources()
 
 	Trigger.OnDamaged(harv, function(self, attacker)
-		local damageTaken = GetDamageTaken(self)
-		NotifyHarvesterUnderAttack(self, damageTaken)
+		-- TODO: When OnDamaged finally provides damage, move the notify under attack trigger here.
 		if not wasPurchased then
 			-- Initial AI Harvester
+			local damageTaken = GetDamageTaken(self)
+			NotifyHarvesterUnderAttack(self, damageTaken)
 			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end
 	end)
