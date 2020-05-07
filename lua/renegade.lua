@@ -68,6 +68,7 @@ if Mod == "cnc" then
 	BeaconHitCamera = "camera.beacon"
 	BeaconSoundsTable['ion-beacon'] = 'ionchrg1.aud'
 	BeaconSoundsTable['nuke-beacon'] = 'nuke1.aud'
+	RespawnCamera = "camera.respawn"
 	HackEjectOnDeathExcludeTypes = {"tran","orca","hind"}
 elseif Mod == "ra" then
 	SpawnAsActorType = "e1"
@@ -98,6 +99,7 @@ elseif Mod == "ra" then
 	BeaconDeploySound = "bleep9.aud"
 	BeaconHitCamera = "camera.paradrop"
 	BeaconSoundsTable['nuke-beacon'] = 'aprep1.aud'
+	RespawnCamera = "camera.respawn"
 	HackEjectOnDeathExcludeTypes = {"tran","heli","hind"}
 end
 AlphaTeamPlayer = Player.GetPlayer(AlphaTeamPlayerName)
@@ -665,6 +667,11 @@ BindHeroEvents = function(hero)
 			killerPi.Kills = killerPi.Kills + 1
 		end
 
+		-- Add a death cam
+		local camera = Actor.Create(RespawnCamera, true,  { Owner = self.Owner, Location = self.Location })
+		Trigger.AfterDelay(RespawnTime, function() camera.Destroy() end)
+
+		-- Respawn hero
 		Trigger.AfterDelay(RespawnTime, function() SpawnHero(self.Owner) end)
 	end)
 
@@ -1015,7 +1022,7 @@ BuildHeroItem = function(pi, actorType)
 			if beacon.IsInWorld then
 				-- Add a camera for the impact, and remove after.
 				local camera = Actor.Create(BeaconHitCamera, true,  { Owner = pi.Player, Location = beacon.Location })
-				Trigger.AfterDelay(DateTime.Seconds(2), function() camera.Destroy() end)
+				Trigger.AfterDelay(DateTime.Seconds(3), function() camera.Destroy() end)
 
 				-- Calling .Kill() to force their explosion.
 				-- (A beacon should technically have a projectile come first.)

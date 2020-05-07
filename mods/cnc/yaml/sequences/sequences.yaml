@@ -40,6 +40,10 @@ camera.beacon:
 	idle: camera
 		Length: *
 
+camera.respawn:
+	idle: camera
+		Length: *
+
 ion-beacon:
 	idle: scrate
 		Start: 0
