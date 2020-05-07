@@ -392,11 +392,10 @@ BindBaseEvents = function()
 			end)
 		end)
 		Trigger.OnDamaged(ti.ConstructionYard, function(self, attacker)
-			if not self.IsDead then
-				self.StartBuildingRepairs()
-			end
-			NotifyBaseUnderAttack(self)
-			GrantRewardOnDamaged(self, attacker)
+			local damageTaken = GetDamageTaken(self)
+			RepairBuilding(self, ti.ConstructionYard, damageTaken)
+			NotifyBaseUnderAttack(self, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end)
 
 		-- Refinery
@@ -410,11 +409,10 @@ BindBaseEvents = function()
 			end
 		end)
 		Trigger.OnDamaged(ti.Refinery, function(self, attacker)
-			if not self.IsDead and not ti.ConstructionYard.IsDead then
-				self.StartBuildingRepairs()
-			end
-			NotifyBaseUnderAttack(self)
-			GrantRewardOnDamaged(self, attacker)
+			local damageTaken = GetDamageTaken(self)
+			RepairBuilding(self, ti.ConstructionYard, damageTaken)
+			NotifyBaseUnderAttack(self, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end)
 
 		-- Barracks
@@ -429,11 +427,10 @@ BindBaseEvents = function()
 			end)
 		end)
 		Trigger.OnDamaged(ti.Barracks, function(self, attacker)
-			if not self.IsDead and not ti.ConstructionYard.IsDead then
-				self.StartBuildingRepairs()
-			end
-			NotifyBaseUnderAttack(self)
-			GrantRewardOnDamaged(self, attacker)
+			local damageTaken = GetDamageTaken(self)
+			RepairBuilding(self, ti.ConstructionYard, damageTaken)
+			NotifyBaseUnderAttack(self, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end)
 
 		-- War Factory
@@ -448,11 +445,10 @@ BindBaseEvents = function()
 			end)
 		end)
 		Trigger.OnDamaged(ti.WarFactory, function(self, attacker)
-			if not self.IsDead and not ti.ConstructionYard.IsDead then
-				self.StartBuildingRepairs()
-			end
-			NotifyBaseUnderAttack(self)
-			GrantRewardOnDamaged(self, attacker)
+			local damageTaken = GetDamageTaken(self)
+			RepairBuilding(self, ti.ConstructionYard, damageTaken)
+			NotifyBaseUnderAttack(self, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end)
 
 		-- Helipad
@@ -467,11 +463,10 @@ BindBaseEvents = function()
 			end)
 		end)
 		Trigger.OnDamaged(ti.Helipad, function(self, attacker)
-			if not self.IsDead and not ti.ConstructionYard.IsDead then
-				self.StartBuildingRepairs()
-			end
-			NotifyBaseUnderAttack(self)
-			GrantRewardOnDamaged(self, attacker)
+			local damageTaken = GetDamageTaken(self)
+			RepairBuilding(self, ti.ConstructionYard, damageTaken)
+			NotifyBaseUnderAttack(self, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end)
 
 		-- Radar
@@ -485,11 +480,10 @@ BindBaseEvents = function()
 			end)
 		end)
 		Trigger.OnDamaged(ti.Radar, function(self, attacker)
-			if not self.IsDead and not ti.ConstructionYard.IsDead then
-				self.StartBuildingRepairs()
-			end
-			NotifyBaseUnderAttack(self)
-			GrantRewardOnDamaged(self, attacker)
+			local damageTaken = GetDamageTaken(self)
+			RepairBuilding(self, ti.ConstructionYard, damageTaken)
+			NotifyBaseUnderAttack(self, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end)
 
 		-- Powerplant
@@ -505,11 +499,10 @@ BindBaseEvents = function()
 			end
 		end)
 		Trigger.OnDamaged(ti.Powerplant, function(self, attacker)
-			if not self.IsDead and not ti.ConstructionYard.IsDead then
-				self.StartBuildingRepairs()
-			end
-			NotifyBaseUnderAttack(self)
-			GrantRewardOnDamaged(self, attacker)
+			local damageTaken = GetDamageTaken(self)
+			RepairBuilding(self, ti.ConstructionYard, damageTaken)
+			NotifyBaseUnderAttack(self, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end)
 
 		-- Service Depot
@@ -519,11 +512,10 @@ BindBaseEvents = function()
 			GrantRewardOnKilled(self, killer, "building")
 		end)
 		Trigger.OnDamaged(ti.ServiceDepot, function(self, attacker)
-			if not self.IsDead and not ti.ConstructionYard.IsDead then
-				self.StartBuildingRepairs()
-			end
-			NotifyBaseUnderAttack(self)
-			GrantRewardOnDamaged(self, attacker)
+			local damageTaken = GetDamageTaken(self)
+			RepairBuilding(self, ti.ConstructionYard, damageTaken)
+			NotifyBaseUnderAttack(self, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end)
 
 		-- Defenses
@@ -534,11 +526,10 @@ BindBaseEvents = function()
 				GrantRewardOnKilled(self, killer, "defense")
 			end)
 			Trigger.OnDamaged(building, function(self, attacker)
-				if not self.IsDead and not ti.ConstructionYard.IsDead then
-					self.StartBuildingRepairs()
-				end
-				NotifyBaseUnderAttack(self)
-				GrantRewardOnDamaged(self, attacker)
+				local damageTaken = GetDamageTaken(self)
+				RepairBuilding(self, ti.ConstructionYard, damageTaken)
+				NotifyBaseUnderAttack(self, damageTaken)
+				GrantRewardOnDamaged(self, attacker, damageTaken)
 			end)
 		end)
 
@@ -556,11 +547,15 @@ NotifyBuildingDestroyed = function(self, killer)
 	DisplayMessage(self.Owner.Name .. " " .. self.TooltipName .. " was destroyed by " .. GetDisplayNameForActor(killer) .. "!")
 end
 
-NotifyBaseUnderAttack = function(self)
-	local actorId = tostring(self) -- returns e.g. "Actor (e1 53)", where the last # is unique.
-	local previousHealth = HealthAfterOnDamageEventTable[actorId]
-	if previousHealth ~= nil and previousHealth < self.Health then
-		return -- Was healed.
+RepairBuilding = function(self, constructionYard, damageTaken)
+	if damageTaken > 0 and not self.IsDead and not constructionYard.IsDead then
+		self.StartBuildingRepairs()
+	end
+end
+
+NotifyBaseUnderAttack = function(self, damageTaken)
+	if damageTaken <= 0 then
+		return -- Was healed or no damage.
 	end
 
 	local ti = TeamInfo[self.Owner.InternalName]
@@ -577,11 +572,9 @@ NotifyBaseUnderAttack = function(self)
 	ti.TicksSinceLastBuildingDamage = 0
 end
 
-NotifyHarvesterUnderAttack = function(self)
-	local actorId = tostring(self) -- returns e.g. "Actor (e1 53)", where the last # is unique.
-	local previousHealth = HealthAfterOnDamageEventTable[actorId]
-	if previousHealth ~= nil and previousHealth < self.Health then
-		return -- Was healed.
+NotifyHarvesterUnderAttack = function(self, damageTaken)
+	if damageTaken <= 0 then
+		return -- Was healed or no damage.
 	end
 
 	local ti = TeamInfo[self.Owner.InternalName]
@@ -685,7 +678,8 @@ BindHeroEvents = function(hero)
 	end)
 
 	Trigger.OnDamaged(hero, function(self, attacker)
-		GrantRewardOnDamaged(self, attacker)
+		local damageTaken = GetDamageTaken(self)
+		GrantRewardOnDamaged(self, attacker, damageTaken)
 	end)
 
 	-- Beacons
@@ -719,7 +713,8 @@ BindProducedVehicleEvents = function(produced)
 
 	-- Damage/killed events
 	Trigger.OnDamaged(produced, function(self, attacker)
-		GrantRewardOnDamaged(self, attacker)
+		local damageTaken = GetDamageTaken(self)
+		GrantRewardOnDamaged(self, attacker, damageTaken)
 	end)
 	Trigger.OnKilled(produced, function(self, killer)
 		GrantRewardOnKilled(self, killer, "unit")
@@ -867,9 +862,11 @@ InitializeAiHarvester = function(harv, wasPurchased)
 	harv.FindResources()
 
 	Trigger.OnDamaged(harv, function(self, attacker)
-		NotifyHarvesterUnderAttack(self)
+		local damageTaken = GetDamageTaken(self)
+		NotifyHarvesterUnderAttack(self, damageTaken)
 		if not wasPurchased then
-			GrantRewardOnDamaged(self, attacker)
+			-- Initial AI Harvester
+			GrantRewardOnDamaged(self, attacker, damageTaken)
 		end
 	end)
 
@@ -997,7 +994,8 @@ BuildHeroItem = function(pi, actorType)
 				beacon.RevokeCondition(beaconToken)
 			end
 
-			GrantRewardOnDamaged(actor, attacker);
+			local damageTaken = GetDamageTaken(actor)
+			GrantRewardOnDamaged(actor, attacker, damageTaken)
 		end)
 
 		-- Add a lighting source
@@ -1131,29 +1129,7 @@ FadeLightSource = function(key)
 	LightSources[key].TickSign = -1
 end
 
-GrantRewardOnDamaged = function(self, attacker)
-	--[[
-		This is a fun state machine that calculates damage done.
-		It can be completely removed if Lua exposes that information.
-
-		We create a table of actor IDs.
-		This table stores health of all actors in the world, and changes after the OnDamage event.
-	]]
-	local actorId = tostring(self) -- returns e.g. "Actor (e1 53)", where the last # is unique.
-	local previousHealth = HealthAfterOnDamageEventTable[actorId]
-
-	if previousHealth == nil then
-		-- If an actor isn't in the damage table, they haven't taken damage yet
-		-- (or they were purchased, in which case we set their current hp there)
-		-- Assume previous health was max HP.
-		previousHealth = self.MaxHealth
-	end
-
-	local currentHealth = self.Health
-	HealthAfterOnDamageEventTable[actorId] = currentHealth
-
-	local damageTaken = previousHealth - currentHealth
-
+GrantRewardOnDamaged = function(self, attacker, damageTaken)
 	if damageTaken == 0 then -- No damage taken (can happen)
 		return
 	elseif ActorIsNeutral(self) then -- Ignore attacking neutral units.
@@ -1200,6 +1176,32 @@ GrantRewardOnDamaged = function(self, attacker)
 		attackerpi.Player.Experience = attackerpi.Player.Experience + points
 		attackerpi.Player.Cash = attackerpi.Player.Cash + points
 	end
+end
+
+GetDamageTaken = function(self)
+	--[[
+		This is a fun state machine that calculates damage done.
+		It can be completely removed if Lua exposes that information.
+
+		We create a table of actor IDs.
+		This table stores health of all actors in the world, and changes after the OnDamage event.
+	]]
+	local actorId = tostring(self) -- returns e.g. "Actor (e1 53)", where the last # is unique.
+	local previousHealth = HealthAfterOnDamageEventTable[actorId]
+
+	if previousHealth == nil then
+		-- If an actor isn't in the damage table, they haven't taken damage yet
+		-- (or they were purchased, in which case we set their current hp there)
+		-- Assume previous health was max HP.
+		previousHealth = self.MaxHealth
+	end
+
+	local currentHealth = self.Health
+	HealthAfterOnDamageEventTable[actorId] = currentHealth
+
+	local damageTaken = previousHealth - currentHealth
+
+	return damageTaken
 end
 
 GrantRewardOnKilled = function(self, killer, actorCategory)
