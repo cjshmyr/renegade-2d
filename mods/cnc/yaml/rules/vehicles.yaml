@@ -3,21 +3,21 @@
 		Types: Infantry
 		MaxWeight: 1
 		PipCount: 1
-		EjectOnDeath: true
+		# EjectOnDeath: true # HACK: Handled in Lua until this works.
 
 ^TwoPassengers:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 2
 		PipCount: 2
-		EjectOnDeath: true
+		# EjectOnDeath: true # HACK: Handled in Lua until this works.
 
 ^FourPassengers:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 4
 		PipCount: 4
-		EjectOnDeath: true
+		# EjectOnDeath: true # HACK: Handled in Lua until this works.
 
 JEEP:
 	Inherits@Passengers: ^TwoPassengers
@@ -30,7 +30,6 @@ JEEP:
 	Mobile:
 		Speed: 170
 		TurnSpeed: 10
-		Locomotor: R2D_Vehicle
 	Armor:
 		Type: Light
 	Turreted:
@@ -50,7 +49,6 @@ MSAM:
 	Mobile:
 		Speed: 90
 		TurnSpeed: 4
-		Locomotor: R2D_Vehicle
 	Armor:
 		Type: Light
 	Tooltip:
@@ -74,7 +72,6 @@ MTNK:
 	Mobile:
 		Speed: 90
 		TurnSpeed: 5
-		Locomotor: R2D_Vehicle
 	Turreted:
 		TurnSpeed: 5
 	Armor:
@@ -93,7 +90,6 @@ HTNK:
 	Mobile:
 		Speed: 50
 		TurnSpeed: 3
-		Locomotor: R2D_Vehicle
 	Turreted:
 		TurnSpeed: 3
 	Armor:
@@ -123,7 +119,6 @@ BGGY:
 	Mobile:
 		Speed: 170
 		TurnSpeed: 10
-		Locomotor: R2D_Vehicle
 	Turreted:
 		TurnSpeed: 10
 	Armor:
@@ -142,7 +137,6 @@ ARTY:
 	Mobile:
 		Speed: 90
 		TurnSpeed: 4
-		Locomotor: R2D_Vehicle
 	Armor:
 		Type: Light
 	Armament:
@@ -159,7 +153,6 @@ LTNK:
 	Mobile:
 		Speed: 110
 		TurnSpeed: 7
-		Locomotor: R2D_Vehicle
 	Turreted:
 		TurnSpeed: 7
 	Armor:
@@ -178,7 +171,6 @@ FTNK:
 	Mobile:
 		Speed: 100
 		TurnSpeed: 7
-		Locomotor: R2D_Vehicle
 	Armor:
 		Type: Heavy
 	-Armament:
@@ -204,7 +196,6 @@ STNK:
 	Mobile:
 		Speed: 150
 		TurnSpeed: 10
-		Locomotor: R2D_Vehicle
 	Armor:
 		Type: Light
 	Cloak:
@@ -225,7 +216,6 @@ APC:
 	Mobile:
 		Speed: 150
 		TurnSpeed: 5
-		Locomotor: R2D_Vehicle
 		PauseOnCondition: !(occupied || brandnew)
 	Turreted:
 		TurnSpeed: 10
@@ -248,7 +238,6 @@ HARV:
 	Mobile:
 		Speed: 50
 		TurnSpeed: 5
-		Locomotor: R2D_Vehicle
 	Armor:
 		Type: Heavy
 	Harvester:
