@@ -330,6 +330,7 @@ Players:
 		Team: 2
 		Allies: Nod, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+
 Actors:
 	Actor23: hq
 		Location: 14,7
@@ -361,25 +362,9 @@ Actors:
 	Actor42: hpad
 		Location: 63,32
 		Owner: Nod
-	Actor43: gun
-		Location: 44,30
-		Owner: Nod
-		TurretFacing: 65
-	Actor44: gun
-		Location: 44,35
-		Owner: Nod
-		TurretFacing: 65
 	Actor35: split2
 		Owner: Neutral
 		Location: 36,6
-	Actor37: gun
-		Location: 53,20
-		Owner: Nod
-		TurretFacing: 255
-	Actor40: gun
-		Location: 59,20
-		Owner: Nod
-		TurretFacing: 255
 	Actor45: obli
 		Location: 56,24
 		Owner: Nod
@@ -407,30 +392,14 @@ Actors:
 	Actor36: weap
 		Owner: GDI
 		Location: 6,8
-	Actor52: gtwr
-		TurretFacing: 92
-		Owner: GDI
-		Location: 22,10
 	Actor53: atwr
 		TurretFacing: 92
 		Owner: GDI
 		Location: 18,13
-	Actor54: gtwr
-		TurretFacing: 92
-		Owner: GDI
-		Location: 22,15
 	Actor56: atwr
 		TurretFacing: 92
 		Owner: GDI
 		Location: 10,21
-	Actor57: gtwr
-		TurretFacing: 92
-		Owner: GDI
-		Location: 7,25
-	Actor58: gtwr
-		TurretFacing: 92
-		Owner: GDI
-		Location: 13,25
 	Actor48: waypoint
 		Owner: GDI
 		Location: 36,6
@@ -446,3 +415,35 @@ Actors:
 	Actor60: hpad
 		Owner: GDI
 		Location: 3,12
+	Actor61: gtwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 7,27
+	Actor62: gtwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 13,27
+	Actor57: gtwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 25,15
+	Actor58: gtwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 25,9
+	Actor52: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 53,18
+	Actor54: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 59,18
+	Actor37: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 42,30
+	Actor43: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 42,36
