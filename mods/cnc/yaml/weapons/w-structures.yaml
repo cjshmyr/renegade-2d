@@ -12,7 +12,7 @@ R2D_TurretGun: #gun
 		Damage: 4000
 		ValidTargets: Ground, Air
 		Versus:
-			None: 25
+			None: 50
 			Wood: 100
 			Light: 100
 			Heavy: 75
@@ -55,7 +55,7 @@ R2D_HighV: #gtwr
 		Damage: 4000
 		ValidTargets: Ground, Air
 		Versus:
-			None: 25
+			None: 50
 			Wood: 100
 			Light: 100
 			Heavy: 75
