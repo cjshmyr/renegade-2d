@@ -94,6 +94,11 @@ HTNK:
 		TurnSpeed: 3
 	Armor:
 		Type: Heavy
+	SelfHealing:
+		Step: 500
+		Delay: 25
+		HealIfBelow: 50
+		DamageCooldown: 200
 	Armament@PRIMARY:
 		Weapon: R2D_120mmDual
 		LocalOffset: 900,180,340, 900,-180,340
