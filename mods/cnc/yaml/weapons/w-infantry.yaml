@@ -4,6 +4,7 @@ R2D_M16: #e1
 	Report: mgun2.aud
 	Projectile: Bullet
 		Speed: 1c682
+	ValidTargets: Ground, Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 1000
@@ -13,12 +14,12 @@ R2D_M16: #e1
 			Light: 80
 			Heavy: 10
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-	InvalidTargets: Wall
+		ValidTargets: Ground, Air
+		InvalidTargets: Wall
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		ImpactActors: false
-		ValidTargets: Ground, Water, Air
-	InvalidTargets: Wall
+		InvalidTargets: Wall
 
 R2D_Grenade: #e2
 	ReloadDelay: 50
@@ -144,7 +145,7 @@ R2D_Chemspray: #e5
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 
-R2D_Rambo: #rmbo (new weapon)
+R2D_Rambo: #rmbo
 	Inherits: R2D_M16
 	Range: 6c0
 	Report: mgun11.aud
@@ -156,7 +157,7 @@ R2D_Rambo: #rmbo (new weapon)
 			Light: 60
 			Heavy: 10
 
-R2D_RepairGun: #e6 (new weapon, repairs vehicles, disarms beacons)
+R2D_RepairGun: #e6
 	ReloadDelay: 10
 	Range: 3c512
 	Report: tone16.aud

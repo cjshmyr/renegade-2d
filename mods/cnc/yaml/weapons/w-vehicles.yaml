@@ -1,4 +1,4 @@
-R2D_MachineGunH: # jeep (added anti-air)
+R2D_MachineGunH: # jeep
 	ReloadDelay: 20
 	Range: 4c0
 	Report: mgun11.aud
@@ -23,7 +23,7 @@ R2D_MachineGunH: # jeep (added anti-air)
 	InvalidTargets: Wall
 	Burst: 5
 
-R2D_MachineGun: #buggy (added anti-air, vs. light matches jeep)
+R2D_MachineGun: #buggy
 	ReloadDelay: 20
 	Range: 4c0
 	Report: mgun11.aud
@@ -48,13 +48,13 @@ R2D_MachineGun: #buggy (added anti-air, vs. light matches jeep)
 	InvalidTargets: Wall
 	Burst: 5
 
-R2D_227mm: #mlrs (fires 12 rockets, remove minrange, more accuracy, less rocket speed, more damage vs wood/heavy)
+R2D_227mm: #mlrs
 	ReloadDelay: 100
 	Range: 11c0
 	Report: rocket1.aud
 	ValidTargets: Ground
 	Warhead@1Dam: SpreadDamage
-		Spread: 683
+		Spread: 341
 		Damage: 2500
 		ValidTargets: Ground
 		Versus:
@@ -89,7 +89,7 @@ R2D_227mm: #mlrs (fires 12 rockets, remove minrange, more accuracy, less rocket 
 		ContrailLength: 10
 		Speed: 280
 
-R2D_ArtilleryShell: #arty (more accuracy, faster shell speed, remove minrange)
+R2D_ArtilleryShell: #arty
 	ReloadDelay: 65
 	Range: 11c0
 	Report: tnkfire2.aud
@@ -107,8 +107,8 @@ R2D_ArtilleryShell: #arty (more accuracy, faster shell speed, remove minrange)
 		Versus:
 			None: 150
 			Wood: 120
-			Light: 112
-			Heavy: 75
+			Light: 100
+			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -142,11 +142,11 @@ R2D_BigFlamer: #ftnk (shorter reload, less damage, no burst, more damage done (b
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall
 	Warhead@3Eff: CreateEffect
-		Explosions: med_napalm #small_napalm
+		Explosions: small_napalm
 		ImpactSounds: flamer2.aud
 		ImpactActors: false
 
-R2D_120mm: #mtnk (no changes)
+R2D_120mm: #mtnk
 	ReloadDelay: 40
 	Range: 4c768
 	Report: tnkfire6.aud
@@ -171,7 +171,7 @@ R2D_120mm: #mtnk (no changes)
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 
-R2D_120mmDual: #htnk (no changes)
+R2D_120mmDual: #htnk
 	ReloadDelay: 40
 	Range: 4c768
 	Report: tnkfire6.aud
@@ -181,7 +181,7 @@ R2D_120mmDual: #htnk (no changes)
 		Shadow: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 4000
+		Damage: 3000
 		Versus:
 			None: 25
 			Wood: 100
@@ -198,9 +198,9 @@ R2D_120mmDual: #htnk (no changes)
 	Burst: 2
 	BurstDelays: 8
 
-R2D_MammothMissiles: #htnk (missiles; no longer hits air, missile range shortened)
+R2D_MammothMissiles: #htnk
 	ReloadDelay: 45
-	Range: 4c0
+	Range: 3c512
 	MinRange: 0c512
 	Report: rocket1.aud
 	ValidTargets: Ground
@@ -214,16 +214,16 @@ R2D_MammothMissiles: #htnk (missiles; no longer hits air, missile range shortene
 		TrailImage: smokey
 		ContrailLength: 8
 		Speed: 341
-		RangeLimit: 5c0
+		RangeLimit: 4c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 298
-		Damage: 5000
+		Damage: 2000
 		ValidTargets: Ground
 		Versus:
-			None: 44
-			Wood: 66
-			Light: 90
-			Heavy: 44
+			None: 30
+			Wood: 100
+			Light: 100
+			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -248,10 +248,10 @@ R2D_70mm: #ltnk (range upped to match mtnk and htnk)
 		Spread: 128
 		Damage: 2500
 		Versus:
-			None: 24
-			Wood: 72
+			None: 25
+			Wood: 100
 			Light: 100
-			Heavy: 88
+			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -261,8 +261,8 @@ R2D_70mm: #ltnk (range upped to match mtnk and htnk)
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 
-R2D_227mm.stnk: #stnk (no longer hits air)
-	ReloadDelay: 70
+R2D_227mm.stnk: #stnk
+	ReloadDelay: 40
 	Range: 7c0
 	MinRange: 0c512
 	Report: rocket1.aud
@@ -280,13 +280,13 @@ R2D_227mm.stnk: #stnk (no longer hits air)
 		RangeLimit: 8c409
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 6000
+		Damage: 3500
 		ValidTargets: Ground
 		Versus:
-			None: 25
-			Wood: 75
+			None: 30
+			Wood: 100
 			Light: 100
-			Heavy: 90
+			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -299,7 +299,7 @@ R2D_227mm.stnk: #stnk (no longer hits air)
 	Burst: 2
 	BurstDelays: 10
 
-R2D_APCGun: #apc (same weapon as humvee)
+R2D_APCGun: #apc
 	ReloadDelay: 20
 	Range: 4c0
 	Report: mgun11.aud

@@ -1,6 +1,6 @@
 ^RenegadeBaseBuilding:
 	Health:
-		HP: 200000
+		HP: 400000
 	Armor:
 		Type: Wood
 
@@ -73,11 +73,13 @@ OBLI:
 		Range: 6c0
 	Power: # Powered defense
 		Amount: -1
+	AttackCharges:
+		ChargeLevel: 50
 	Armament:
 		Weapon: R2D_Laser
 
 GTWR:
-	Inherits@Renegade: ^RenegadeBaseBuilding
+	Inherits@Renegade: ^RenegadeSmallBuilding
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	DetectCloaked:
 		Range: 6c0
@@ -85,15 +87,15 @@ GTWR:
 		Weapon: R2D_HighV
 
 ATWR:
-	Inherits@Renegade: ^RenegadeSmallBuilding
+	Inherits@Renegade: ^RenegadeBaseBuilding
 	DetectCloaked:
 		Range: 6c0
 	Power: # Powered defense
 		Amount: -1
 	Armament@PRIMARY:
-		Weapon: TowerMissile
+		Weapon: R2D_TowerMissile
 	Armament@SECONDARY:
-		Weapon: TowerMissile
+		Weapon: R2D_TowerMissile
 
 #Husks
 FACT.Husk:

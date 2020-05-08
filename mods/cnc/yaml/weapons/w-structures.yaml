@@ -1,4 +1,4 @@
-R2D_TurretGun: #gun (reduced vs heavy damage, projectile speed matches HighV, added anti-air)
+R2D_TurretGun: #gun
 	ReloadDelay: 20
 	Range: 6c0
 	Report: tnkfire6.aud
@@ -25,7 +25,7 @@ R2D_TurretGun: #gun (reduced vs heavy damage, projectile speed matches HighV, ad
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 
-R2D_Laser: #obli (added anti-air)
+R2D_Laser: #obli
 	ReloadDelay: 40
 	Range: 7c512
 	Report: obelray1.aud
@@ -37,15 +37,13 @@ R2D_Laser: #obli (added anti-air)
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 36000
-		Versus:
-			Wood: 50
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
 
-R2D_HighV: #gtwr (made similar to TurretGun, added anti-air)
+R2D_HighV: #gtwr
 	ReloadDelay: 20
 	Range: 6c0
 	Report: gun8.aud
@@ -53,7 +51,7 @@ R2D_HighV: #gtwr (made similar to TurretGun, added anti-air)
 	Projectile: Bullet
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 683
+		Spread: 128
 		Damage: 4000
 		ValidTargets: Ground, Air
 		Versus:
@@ -67,8 +65,8 @@ R2D_HighV: #gtwr (made similar to TurretGun, added anti-air)
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 
-R2D_TowerMissile: #atwr (made similar to Laser)
-	ReloadDelay: 15
+R2D_TowerMissile: #atwr
+	ReloadDelay: 25
 	Range: 7c512
 	MinRange: 0c512
 	Report: rocket2.aud
@@ -85,8 +83,8 @@ R2D_TowerMissile: #atwr (made similar to Laser)
 		Speed: 298
 		RangeLimit: 8c409
 	Warhead@1Dam: SpreadDamage
-		Spread: 483
-		Damage: 7500
+		Spread: 128
+		Damage: 3500
 		ValidTargets: Ground
 		Versus:
 			None: 52
