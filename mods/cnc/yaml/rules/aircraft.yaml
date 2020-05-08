@@ -17,7 +17,7 @@ TRAN:
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
-		Range: 6c0
+		Range: 7c0
 
 ORCA:
 	Inherits@Passengers: ^OnePassenger
@@ -30,7 +30,7 @@ ORCA:
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
-		Range: 6c0
+		Range: 7c0
 	-Armament@PRIMARY:
 	-Armament@SECONDARY:
 	Armament@AIRCRAFTMISSILE:
@@ -50,7 +50,7 @@ HELI:
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
-		Range: 6c0
+		Range: 7c0
 	Tooltip:
 		Name: Apache
 	-Armament@PRIMARY:
