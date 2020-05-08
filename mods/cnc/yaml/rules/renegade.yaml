@@ -123,7 +123,7 @@ buy.infantry.e1:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown
 		Queue: Infantry
-		Description: \nAnti-infantry unit.
+		Description: \nAnti-infantry, anti-air unit.
 	RenderSprites:
 		Image: E1
 
@@ -159,7 +159,7 @@ buy.infantry.e6:
 		BuildPaletteOrder: 30
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown
 		Queue: Infantry
-		Description: \nRepairs friendly vehicles and structures.\nDisarms ion and nuclear strike beacons.
+		Description: \nRepairs friendly vehicles and structures.\nDisarms ion and nuclear strike beacons.\n\nOther information:\n-If a vehicle is damaged, hold CTRL to force an enter vehicle command instead of repair.
 	RenderSprites:
 		Image: E6
 
@@ -173,7 +173,7 @@ buy.infantry.e3:
 		BuildPaletteOrder: 40
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry
 		Queue: Infantry
-		Description: \nAdvanced anti-armor unit.
+		Description: \nAdvanced anti-armor, anti-air unit.
 	RenderSprites:
 		Image: E3
 
@@ -194,7 +194,7 @@ buy.infantry.rmbo:
 		BuildPaletteOrder: 50
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry, ~gdi
 		Queue: Infantry
-		Description: \nAdvanced anti-infantry unit.
+		Description: \nAdvanced anti-infantry, anti-air unit.
 	RenderSprites:
 		Image: rmbo
 
@@ -236,7 +236,7 @@ buy.vehicle.jeep:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
 		Queue: Vehicle
-		Description: \nAnti-infantry vehicle.\n\nHolds 2 passengers.
+		Description: \nAnti-infantry, anti-air vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
 		Image: jeep
 
@@ -258,7 +258,7 @@ buy.vehicle.apc:
 		BuildPaletteOrder: 20
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle
 		Queue: Vehicle
-		Description: \nAnti-infantry vehicle.\n\nHolds 4 passengers.
+		Description: \nAnti-infantry, anti-air vehicle.\n\nHolds 4 passengers.
 	RenderSprites:
 		Image: apc
 
@@ -346,7 +346,7 @@ buy.vehicle.bggy:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~nod
 		Queue: Vehicle
-		Description: \nAnti-infantry vehicle.\n\nHolds 2 passengers.
+		Description: \nAnti-infantry, anti-air vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
 		Image: bggy
 
@@ -478,7 +478,7 @@ buy.aircraft.orca:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~gdi
 		Queue: Aircraft
-		Description: \nAnti-armor aircraft.\n\nHolds 1 passenger.
+		Description: \nAnti-armor, anti-air aircraft.\n\nHolds 1 passenger.
 	RenderSprites:
 		Image: orca
 
@@ -500,7 +500,7 @@ buy.aircraft.heli:
 		BuildPaletteOrder: 10
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~nod
 		Queue: Aircraft
-		Description: \nAnti-armor aircraft.\n\nHolds 1 passenger.
+		Description: \nAnti-armor, anti-air aircraft.\n\nHolds 1 passenger.
 	RenderSprites:
 		Image: heli
 
@@ -768,3 +768,51 @@ buy.cameo.fix:
 		Description: \nWhen present:\n- Allows for repairing vehicles.\n\nOther information\n- Engineers can repair vehicles.\n\n(This is an informational tooltip, purchasing this has no effect.)
 	RenderSprites:
 		Image: fix
+
+buy.cameo.atwr:
+	Inherits: ^buy.default
+	Tooltip:
+		Name: Advanced Guard Tower
+	Buildable:
+		BuildPaletteOrder: 90
+		Prerequisites: ~cameo, ~gdi
+		Queue: Defence
+		Description: \nWhen present:\n- Attacks ground and air units within range.\n\nOther information:\n- This defense can be permanently disabled if the power plant is destroyed.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
+	RenderSprites:
+		Image: atwr
+
+buy.cameo.gtwr:
+	Inherits: ^buy.default
+	Tooltip:
+		Name: Guard Tower
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~cameo, ~gdi
+		Queue: Defence
+		Description: \nWhen present:\n- Attacks ground and air units within range.\n\nOther information:\n- This defense does not require the power plant to be operational.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
+	RenderSprites:
+		Image: gtwr
+
+buy.cameo.obli:
+	Inherits: ^buy.default
+	Tooltip:
+		Name: Obelisk of Light
+	Buildable:
+		BuildPaletteOrder: 90
+		Prerequisites: ~cameo, ~nod
+		Queue: Defence
+		Description: \nWhen present:\n- Attacks ground and air units within range.\n\nOther information:\n- This defense can be permanently disabled if the power plant is destroyed.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
+	RenderSprites:
+		Image: obli
+
+buy.cameo.gun:
+	Inherits: ^buy.default
+	Tooltip:
+		Name: Guard Tower
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~cameo, ~nod
+		Queue: Defence
+		Description: \nWhen present:\n- Attacks ground and air units within range.\n\nOther information:\n- This defense does not require the power plant to be operational.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
+	RenderSprites:
+		Image: gun
