@@ -1575,19 +1575,29 @@ end
 -- [[ Tests ]]
 DoTests = function()
 	local weaponTest = false
-	if weaponTest then
+	if weaponTest then -- Coordinates fit bravo map
 		Actor.Create('camera', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 23) })
 		Actor.Create('camera', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 23) })
-		local a1 = Actor.Create('rmbo', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 23) })
-		local a2 = Actor.Create('e5', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 23) })
-		--a1.GrantCondition('brandnew')
-		--a2.GrantCondition('brandnew')
+		local a1 = Actor.Create('gun', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 23) })
+		local a2 = Actor.Create('mtnk', true, { Owner = BravoTeamPlayer, Location = CPos.New(24, 23) })
+		local a3 = Actor.Create('mtnk', true, { Owner = BravoTeamPlayer, Location = CPos.New(24, 24) })
+		local a4 = Actor.Create('mtnk', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 23) })
+		local a5 = Actor.Create('mtnk', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 24) })
+		a2.GrantCondition('brandnew')
+		a3.GrantCondition('brandnew')
+		a4.GrantCondition('brandnew')
+		a5.GrantCondition('brandnew')
 
 		Actor.Create('camera', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 33) })
 		Actor.Create('camera', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 33) })
-		local a3 = Actor.Create('e2', true, { Owner = AlphaTeamPlayer, Location = CPos.New(22, 33) })
-		local a4 = Actor.Create('e4', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 33) })
-		--a3.GrantCondition('brandnew')
-		--a4.GrantCondition('brandnew')
+		local b1 = Actor.Create('gtwr', true, { Owner = AlphaTeamPlayer, Location = CPos.New(21, 33) })
+		local b2 = Actor.Create('mtnk', true, { Owner = BravoTeamPlayer, Location = CPos.New(24, 33) })
+		local b3 = Actor.Create('mtnk', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 33) })
+		local b4 = Actor.Create('mtnk', true, { Owner = BravoTeamPlayer, Location = CPos.New(24, 34) })
+		local b5 = Actor.Create('mtnk', true, { Owner = BravoTeamPlayer, Location = CPos.New(25, 34) })
+		b2.GrantCondition('brandnew')
+		b3.GrantCondition('brandnew')
+		b4.GrantCondition('brandnew')
+		b5.GrantCondition('brandnew')
 	end
 end
