@@ -356,14 +356,6 @@ Actors:
 	Actor7: hpad
 		Location: 17,7
 		Owner: GDI
-	Actor9: atwr
-		TurretFacing: 96
-		Location: 4,23
-		Owner: GDI
-	Actor10: atwr
-		TurretFacing: 96
-		Location: 11,23
-		Owner: GDI
 	Actor11: fix
 		Location: 59,15
 		Faction: gdi
@@ -396,14 +388,6 @@ Actors:
 		Location: 63,3
 		Faction: gdi
 		Owner: Nod
-	Actor21: obli
-		Location: 66,23
-		Faction: gdi
-		Owner: Nod
-	Actor22: obli
-		Location: 73,23
-		Faction: gdi
-		Owner: Nod
 	Actor23: obli
 		Location: 56,19
 		Faction: gdi
@@ -415,22 +399,6 @@ Actors:
 	Actor25: split2
 		Owner: Neutral
 		Location: 15,38
-	Actor28: atwr
-		TurretFacing: 96
-		Location: 23,7
-		Owner: GDI
-	Actor29: atwr
-		TurretFacing: 96
-		Location: 23,2
-		Owner: GDI
-	Actor32: obli
-		Location: 54,7
-		Faction: gdi
-		Owner: Nod
-	Actor33: obli
-		Location: 54,2
-		Faction: gdi
-		Owner: Nod
 	Actor35: gun
 		TurretFacing: 96
 		Location: 49,8
@@ -665,3 +633,17 @@ Actors:
 	Actor108: waypoint
 		Location: 62,38
 		Owner: Nod
+	Actor109: atwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 22,4
+	Actor110: atwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 7,21
+	Actor111: obli
+		Owner: Nod
+		Location: 69,21
+	Actor112: obli
+		Owner: Nod
+		Location: 55,4
