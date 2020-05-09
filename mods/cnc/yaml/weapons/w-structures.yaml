@@ -65,12 +65,11 @@ R2D_HighV: #gtwr
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 
-R2D_TowerMissile: #atwr
+R2D_AgtMissile: #atwr
 	ReloadDelay: 25
 	Range: 7c512
-	MinRange: 0c512
 	Report: rocket2.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Air
 	Projectile: Missile
 		Arm: 0
 		Blockable: false
@@ -84,13 +83,8 @@ R2D_TowerMissile: #atwr
 		RangeLimit: 8c409
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 3500
-		ValidTargets: Ground
-		Versus:
-			None: 52
-			Wood: 24
-			Light: 100
-			Heavy: 100
+		Damage: 7000
+		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater

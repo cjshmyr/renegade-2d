@@ -93,9 +93,10 @@ ATWR:
 	Power: # Powered defense
 		Amount: -1
 	Armament@PRIMARY:
-		Weapon: R2D_TowerMissile
-	Armament@SECONDARY:
-		Weapon: R2D_TowerMissile
+		Weapon: R2D_AgtMissile
+		LocalOffset: 256,128,0, 256,-128,0
+		LocalYaw: -100,100
+	-Armament@SECONDARY:
 
 #Husks
 FACT.Husk:
