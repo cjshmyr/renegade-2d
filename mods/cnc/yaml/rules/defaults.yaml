@@ -19,7 +19,7 @@
 		RequiresCondition: damaged
 		TargetTypes: Repair
 	RepairableBuilding:
-		RepairInterval: 50
+		RepairInterval: 100
 		RepairPercent: 0
 
 # Infantry can see cloaked units.

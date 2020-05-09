@@ -208,6 +208,9 @@ SetTeamInfo = function()
 
 		if humansOnTeam == 0 then humansOnTeam = -1 end -- So bots don't trip team surrender checks
 
+		-- HACK: Give the AI team a ton of cash for repair costs
+		team.Cash = 100000
+
 		TeamInfo[team.InternalName] = {
 			AiPlayer = team, -- The "AI" player of the team
 			Players = playersOnTeam, -- All other Player actors on this team
