@@ -3,16 +3,11 @@ Git repository containing the Renegade 2D code and maps for OpenRA.
 
 ![](mods/cnc/maps/renegade-2d-cnc-mapa/map.png) ![](mods/cnc/maps/renegade-2d-cnc-mapb/map.png) ![](mods/cnc/maps/renegade-2d-cnc-mapc/map.png)
 
-## Support
-The released maps are supported on OpenRA release-20190314.
-
-An update is in progress to support OpenRA release-2020503.
-
 ## Map links
-For release-20200503
-- Alpha (version 0.99): coming soon (release-20190314 0.95: https://resource.openra.net/maps/31296/)
-- Bravo (version 0.99): coming soon (release-20190314 0.95: https://resource.openra.net/maps/31297/)
-- Charlie (version 0.99): coming soon
+The released maps are supported on OpenRA release-20200503.
+- Alpha (version 0.99): https://resource.openra.net/maps/35099/
+- Bravo (version 0.99): https://resource.openra.net/maps/35100/
+- Charlie (version 0.99): https://resource.openra.net/maps/35101/
 
 ## Features
 Gameplay is based on the first person shooter C&C Renegade.
