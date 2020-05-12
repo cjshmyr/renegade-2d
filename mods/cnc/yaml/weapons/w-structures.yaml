@@ -36,7 +36,7 @@ R2D_Laser: #obli
 		ZOffset: 2047
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
-		Damage: 36000
+		Damage: 14000
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
@@ -83,7 +83,7 @@ R2D_AgtMissile: #atwr
 		RangeLimit: 8c409
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 7000
+		Damage: 3500
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
