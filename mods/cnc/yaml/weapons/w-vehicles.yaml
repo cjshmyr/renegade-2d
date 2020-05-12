@@ -200,7 +200,7 @@ R2D_120mmDual: #htnk
 
 R2D_MammothMissiles: #htnk
 	ReloadDelay: 45
-	Range: 3c512
+	Range: 4c0
 	MinRange: 0c512
 	Report: rocket1.aud
 	ValidTargets: Ground
@@ -217,13 +217,13 @@ R2D_MammothMissiles: #htnk
 		RangeLimit: 4c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 298
-		Damage: 2000
+		Damage: 5000
 		ValidTargets: Ground
 		Versus:
-			None: 30
+			None: 100
 			Wood: 100
-			Light: 100
-			Heavy: 100
+			Light: 80
+			Heavy: 80
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
