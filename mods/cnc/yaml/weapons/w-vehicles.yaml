@@ -200,7 +200,7 @@ R2D_120mmDual: #htnk
 
 R2D_MammothMissiles: #htnk
 	ReloadDelay: 45
-	Range: 4c0
+	Range: 4c256
 	MinRange: 0c512
 	Report: rocket1.aud
 	ValidTargets: Ground
@@ -214,7 +214,7 @@ R2D_MammothMissiles: #htnk
 		TrailImage: smokey
 		ContrailLength: 8
 		Speed: 341
-		RangeLimit: 4c0
+		RangeLimit: 6c512
 	Warhead@1Dam: SpreadDamage
 		Spread: 298
 		Damage: 5000
