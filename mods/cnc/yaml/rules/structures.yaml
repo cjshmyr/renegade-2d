@@ -1,18 +1,18 @@
 ^RenegadeBaseBuilding:
 	Health:
-		HP: 400000
+		HP: 200000
 	Armor:
 		Type: Wood
 
 ^RenegadeSmallBuilding:
 	Health:
-		HP: 100000
+		HP: 50000
 	Armor:
 		Type: Wood
 
 BRIK:
 	Health:
-		HP: 50000
+		HP: 25000
 
 FACT:
 	Inherits@Renegade: ^RenegadeBaseBuilding
