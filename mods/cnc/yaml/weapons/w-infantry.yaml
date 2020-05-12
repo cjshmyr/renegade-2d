@@ -26,7 +26,7 @@ R2D_Grenade: #e2
 	Range: 5c0
 	Report: toss1.aud
 	Projectile: Bullet
-		Speed: 204
+		Speed: 230
 		Inaccuracy: 400
 		Image: BOMB
 		Shadow: true
@@ -37,10 +37,10 @@ R2D_Grenade: #e2
 		Spread: 341
 		Damage: 4000
 		Versus:
-			None: 80
+			None: 70
 			Wood: 100
-			Light: 80
-			Heavy: 80
+			Light: 90
+			Heavy: 90
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -94,7 +94,7 @@ R2D_Rockets: #e3
 R2D_Flamethrower: #e4
 	ValidTargets: Ground, Water, Trees
 	ReloadDelay: 25
-	Range: 4c0
+	Range: 5c0
 	InvalidTargets: Wall
 	Report: flamer2.aud
 	Projectile: Bullet
