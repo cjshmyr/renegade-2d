@@ -1,4 +1,4 @@
-AircraftMissile: #orca and hind
+R2D_AircraftMissile: #orca and hind
 	Inherits: ^MissileWeapon
 	ReloadDelay: 20
 	Range: 5c0
@@ -14,6 +14,6 @@ AircraftMissile: #orca and hind
 		ValidTargets: Ground, Air
 		Versus:
 			None: 80
-			Wood: 80
+			Wood: 60
 			Light: 100
 			Heavy: 100

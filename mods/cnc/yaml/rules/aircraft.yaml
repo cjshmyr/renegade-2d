@@ -34,7 +34,7 @@ ORCA:
 	-Armament@PRIMARY:
 	-Armament@SECONDARY:
 	Armament@AIRCRAFTMISSILE:
-		Weapon: AircraftMissile
+		Weapon: R2D_AircraftMissile
 		LocalOffset: 427,-171,-213, 427,171,-213
 	-AmmoPool:
 	-ReloadAmmoPool:
@@ -56,7 +56,7 @@ HELI:
 	-Armament@PRIMARY:
 	-Armament@SECONDARY:
 	Armament@AIRCRAFTMISSILE:
-		Weapon: AircraftMissile
+		Weapon: R2D_AircraftMissile
 		LocalOffset: 427,-171,-213, 427,171,-213
 	-AmmoPool:
 	-ReloadAmmoPool:
