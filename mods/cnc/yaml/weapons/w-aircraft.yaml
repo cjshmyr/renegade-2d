@@ -8,12 +8,12 @@ AircraftMissile: #orca and hind
 		Arm: 1
 		HorizontalRateOfTurn: 20
 		Speed: 256
-		RangeLimit: 5c0
+		RangeLimit: 7c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 3500
 		ValidTargets: Ground, Air
 		Versus:
-			None: 50
+			None: 80
 			Wood: 80
 			Light: 100
 			Heavy: 100
