@@ -332,12 +332,6 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 
 Actors:
-	Actor23: hq
-		Location: 14,7
-		Owner: GDI
-	Actor24: fix
-		Location: 51,27
-		Owner: Nod
 	Actor25: hand
 		Location: 60,28
 		Owner: Nod
@@ -346,9 +340,6 @@ Actors:
 		Owner: Nod
 	Actor29: obli
 		Location: 48,33
-		Owner: Nod
-	Actor31: hq
-		Location: 51,36
 		Owner: Nod
 	Actor32: afld
 		Location: 59,36
@@ -374,9 +365,6 @@ Actors:
 	Actor41: split2
 		Owner: Neutral
 		Location: 4,41
-	Actor39: splitblue
-		Owner: Neutral
-		Location: 33,22
 	Actor47: split2
 		Owner: Neutral
 		Location: 30,39
@@ -409,9 +397,6 @@ Actors:
 	Actor55: pyle
 		Owner: GDI
 		Location: 6,16
-	Actor59: fix
-		Owner: GDI
-		Location: 14,16
 	Actor60: hpad
 		Owner: GDI
 		Location: 3,12
@@ -447,3 +432,21 @@ Actors:
 		Owner: Nod
 		TurretFacing: 96
 		Location: 42,36
+	Actor39: splitblue
+		Owner: Neutral
+		Location: 32,24
+	Actor40: splitblue
+		Owner: Neutral
+		Location: 34,21
+	Actor44: hq
+		Owner: GDI
+		Location: 14,16
+	Actor59: fix
+		Owner: GDI
+		Location: 14,7
+	Actor63: fix
+		Owner: Nod
+		Location: 51,36
+	Actor64: hq
+		Owner: Nod
+		Location: 52,27
