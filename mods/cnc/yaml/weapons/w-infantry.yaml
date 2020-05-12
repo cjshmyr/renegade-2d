@@ -121,7 +121,7 @@ R2D_Flamethrower: #e4
 R2D_Chemspray: #e5
 	ValidTargets: Ground, Water, Trees
 	ReloadDelay: 25
-	Range: 5c0
+	Range: 6c0
 	InvalidTargets: Wall
 	Report: flamer2.aud
 	Projectile: Bullet
@@ -135,7 +135,7 @@ R2D_Chemspray: #e5
 			None: 100
 			Wood: 80
 			Light: 80
-			Heavy: 60
+			Heavy: 80
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
