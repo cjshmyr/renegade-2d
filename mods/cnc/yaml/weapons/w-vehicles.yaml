@@ -54,14 +54,14 @@ R2D_227mm: #mlrs
 	Report: rocket1.aud
 	ValidTargets: Ground
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
+		Spread: 400
 		Damage: 2500
 		ValidTargets: Ground
 		Versus:
-			None: 24
-			Wood: 80
+			None: 120
+			Wood: 100
 			Light: 100
-			Heavy: 60
+			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -102,11 +102,11 @@ R2D_ArtilleryShell: #arty
 		Inaccuracy: 0c512
 		ContrailLength: 30
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
+		Spread: 400
 		Damage: 10000
 		Versus:
 			None: 150
-			Wood: 120
+			Wood: 100
 			Light: 100
 			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
