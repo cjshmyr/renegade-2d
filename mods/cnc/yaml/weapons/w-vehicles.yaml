@@ -134,7 +134,7 @@ R2D_BigFlamer: #ftnk
 		InvalidTargets: Wall
 		Versus:
 			None: 110
-			Wood: 100
+			Wood: 110
 			Light: 100
 			Heavy: 90
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
