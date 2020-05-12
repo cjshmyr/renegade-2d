@@ -398,7 +398,7 @@ BindBaseEvents = function()
 			local damageTaken = GetDamageTaken(self)
 			RepairBuilding(self, ti.ConstructionYard, damageTaken)
 			NotifyBaseUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 		end)
 
 		-- Refinery
@@ -415,7 +415,7 @@ BindBaseEvents = function()
 			local damageTaken = GetDamageTaken(self)
 			RepairBuilding(self, ti.ConstructionYard, damageTaken)
 			NotifyBaseUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 		end)
 
 		-- Barracks
@@ -433,7 +433,7 @@ BindBaseEvents = function()
 			local damageTaken = GetDamageTaken(self)
 			RepairBuilding(self, ti.ConstructionYard, damageTaken)
 			NotifyBaseUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 		end)
 
 		-- War Factory
@@ -451,7 +451,7 @@ BindBaseEvents = function()
 			local damageTaken = GetDamageTaken(self)
 			RepairBuilding(self, ti.ConstructionYard, damageTaken)
 			NotifyBaseUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 		end)
 
 		-- Helipad
@@ -469,7 +469,7 @@ BindBaseEvents = function()
 			local damageTaken = GetDamageTaken(self)
 			RepairBuilding(self, ti.ConstructionYard, damageTaken)
 			NotifyBaseUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 		end)
 
 		-- Radar
@@ -486,7 +486,7 @@ BindBaseEvents = function()
 			local damageTaken = GetDamageTaken(self)
 			RepairBuilding(self, ti.ConstructionYard, damageTaken)
 			NotifyBaseUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 		end)
 
 		-- Powerplant
@@ -505,7 +505,7 @@ BindBaseEvents = function()
 			local damageTaken = GetDamageTaken(self)
 			RepairBuilding(self, ti.ConstructionYard, damageTaken)
 			NotifyBaseUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 		end)
 
 		-- Service Depot
@@ -518,7 +518,7 @@ BindBaseEvents = function()
 			local damageTaken = GetDamageTaken(self)
 			RepairBuilding(self, ti.ConstructionYard, damageTaken)
 			NotifyBaseUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 		end)
 
 		-- Defenses
@@ -526,13 +526,13 @@ BindBaseEvents = function()
 			Trigger.OnKilled(building, function(self, killer)
 				CreateBuildingHusk(self)
 				NotifyBuildingDestroyed(self, killer)
-				GrantRewardOnKilled(self, killer, "defense")
+				GrantRewardOnKilled(self, killer, "building")
 			end)
 			Trigger.OnDamaged(building, function(self, attacker)
 				local damageTaken = GetDamageTaken(self)
 				RepairBuilding(self, ti.ConstructionYard, damageTaken)
 				NotifyBaseUnderAttack(self, damageTaken)
-				GrantRewardOnDamaged(self, attacker, damageTaken)
+				GrantRewardOnDamaged(self, attacker, damageTaken, "building")
 			end)
 		end)
 
@@ -682,7 +682,7 @@ BindHeroEvents = function(hero)
 
 	Trigger.OnDamaged(hero, function(self, attacker)
 		local damageTaken = GetDamageTaken(self)
-		GrantRewardOnDamaged(self, attacker, damageTaken)
+		GrantRewardOnDamaged(self, attacker, damageTaken, "hero")
 	end)
 
 	-- Beacons
@@ -717,7 +717,7 @@ BindProducedVehicleEvents = function(produced)
 	-- Damage/killed events
 	Trigger.OnDamaged(produced, function(self, attacker)
 		local damageTaken = GetDamageTaken(self)
-		GrantRewardOnDamaged(self, attacker, damageTaken)
+		GrantRewardOnDamaged(self, attacker, damageTaken, "unit")
 
 		-- This should live in InitializeAiHarvester, but because of how damage taken is calculated with events
 		-- we're forced to calculate it once on a single trigger.
@@ -876,7 +876,7 @@ InitializeAiHarvester = function(harv, wasPurchased)
 			-- Initial AI Harvester
 			local damageTaken = GetDamageTaken(self)
 			NotifyHarvesterUnderAttack(self, damageTaken)
-			GrantRewardOnDamaged(self, attacker, damageTaken)
+			GrantRewardOnDamaged(self, attacker, damageTaken, "unit")
 		end
 	end)
 
@@ -1005,7 +1005,7 @@ BuildHeroItem = function(pi, actorType)
 			end
 
 			local damageTaken = GetDamageTaken(actor)
-			GrantRewardOnDamaged(actor, attacker, damageTaken)
+			GrantRewardOnDamaged(actor, attacker, damageTaken, "beacon")
 		end)
 
 		-- Add a lighting source
@@ -1139,7 +1139,7 @@ FadeLightSource = function(key)
 	LightSources[key].TickSign = -1
 end
 
-GrantRewardOnDamaged = function(self, attacker, damageTaken)
+GrantRewardOnDamaged = function(self, attacker, damageTaken, actorCategory)
 	if damageTaken == 0 then -- No damage taken (can happen)
 		return
 	elseif ActorIsNeutral(self) then -- Ignore attacking neutral units.
@@ -1150,6 +1150,11 @@ GrantRewardOnDamaged = function(self, attacker, damageTaken)
 		return
 	end
 
+	local pointsMultiplier = 1
+	if actorCategory == "building" then
+		pointsMultiplier = 2
+	end
+
 	local attackerpi = PlayerInfo[attacker.Owner.InternalName]
 	if attackerpi ~= nil then -- Is a player
 		--[[
@@ -1157,10 +1162,8 @@ GrantRewardOnDamaged = function(self, attacker, damageTaken)
 			If an actor has 5000 health, and the attack dealt 1500 damage, this is 30%.
 
 			If damage or healing dealt was less than 1%, they are given one point.
-			If damage > 1%, the percentage is doubled then floored (e.g. 2.3% -> 4.6% -> 4 points).
-			If healing > 1%, the percentage is floored (e.g. 2.3% -> 2 points).
-
-			An MLRS and Artillery destroying a structure will end up with identical points.
+			A multiplier is applied to damage only (buildings have a 2.0 multiplier; e.g. 2.3% -> 4.6%).
+			Percentages are then floored, then converted to points (e.g. 4.6% -> 4 points)
 		]]
 
 		-- If the damage dealt was negative, this is a heal
@@ -1177,7 +1180,7 @@ GrantRewardOnDamaged = function(self, attacker, damageTaken)
 			points = percentageDamageDealt
 
 			if not wasHeal then
-				points = points * 2
+				points = points * pointsMultiplier
 			end
 
 			points = math.floor(points + 0.5)
@@ -1227,7 +1230,6 @@ GrantRewardOnKilled = function(self, killer, actorCategory)
 		local points = 0
 		if actorCategory == "hero" then	points = 100
 		elseif actorCategory == "unit" then points = 100
-		elseif actorCategory == "defense" then points = 200
 		elseif actorCategory == "building" then	points = 300
 		elseif actorCategory == "beacon" then points = 300
 		end
