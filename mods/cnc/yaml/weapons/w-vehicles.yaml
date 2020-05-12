@@ -119,10 +119,10 @@ R2D_ArtilleryShell: #arty
 		ImpactActors: false
 	TargetActorCenter: true
 
-R2D_BigFlamer: #ftnk (shorter reload, less damage, no burst, more damage done (buff of Flamethrower))
+R2D_BigFlamer: #ftnk
 	ValidTargets: Ground, Water, Trees
 	ReloadDelay: 10
-	Range: 3c512
+	Range: 4c512
 	InvalidTargets: Wall
 	Report: flamer2.aud
 	Projectile: Bullet
