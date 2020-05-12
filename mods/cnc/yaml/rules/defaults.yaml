@@ -27,7 +27,7 @@
 # Allow infantry to auto-heal close enough to base buildings
 ^Infantry:
 	DetectCloaked:
-		Range: 4c0
+		Range: 3c0
 	Crushable:
 		WarnProbability: 50
 	ExternalCondition@NEARALLYBUILDING:
@@ -57,7 +57,7 @@
 # Vehicles can't move unless they have an 'occupied' or 'brandnew' condition.
 ^Vehicle:
 	DetectCloaked:
-		Range: 4c0
+		Range: 3c0
 	Valued:
 		Cost: 0
 	GrantConditionOnDamageState@DAMAGED:
@@ -84,7 +84,7 @@
 # All Helicopters provide no vision if empty.
 ^Helicopter:
 	DetectCloaked:
-		Range: 4c0
+		Range: 3c0
 	Valued:
 		Cost: 0
 	GrantConditionOnDamageState@DAMAGED:
