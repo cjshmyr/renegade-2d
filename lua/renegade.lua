@@ -69,7 +69,7 @@ if Mod == "cnc" then
 	BeaconSoundsTable['ion-beacon'] = 'ionchrg1.aud'
 	BeaconSoundsTable['nuke-beacon'] = 'nuke1.aud'
 	RespawnCamera = "camera.respawn"
-	HackEjectOnDeathExcludeTypes = {"tran","orca","hind"}
+	HackEjectOnDeathExcludeTypes = {"tran","orca","heli"}
 elseif Mod == "ra" then
 	SpawnAsActorType = "e1"
 	AlphaTeamPlayerName = "Allies"
