@@ -1,6 +1,6 @@
 ^TierOneInfantry:
 	Health:
-		HP: 10000
+		HP: 7000
 	Mobile:
 		Speed: 65
 	RevealsShroud:
@@ -8,7 +8,7 @@
 
 ^TierTwoInfantry:
 	Health:
-		HP: 12500
+		HP: 9000
 	Mobile:
 		Speed: 70
 	RevealsShroud:
@@ -16,7 +16,7 @@
 
 ^TierThreeInfantry:
 	Health:
-		HP: 15000
+		HP: 11000
 	Mobile:
 		Speed: 75
 	RevealsShroud:
