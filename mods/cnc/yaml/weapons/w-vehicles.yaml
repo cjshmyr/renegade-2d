@@ -286,7 +286,7 @@ R2D_227mm.stnk: #stnk
 			None: 30
 			Wood: 100
 			Light: 100
-			Heavy: 90
+			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
