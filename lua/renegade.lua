@@ -1557,12 +1557,24 @@ InitializeIfBot = function(pi)
 	-- Purchase terminals don't exist on first tick anyways (hacky).
 	Trigger.AfterDelay(DateTime.Seconds(1), function()
 		if Mod == "cnc" then
-			local purchasePool = { "e1", "e2", "e4" }
-			if pi.Player.Cash >= 300 and pi.Player.Cash < 600 then
-				purchasePool = { "e1", "e2", "e4", "e3", "e3", "e3" }
-			elseif pi.Player.Cash >= 600 then
-				purchasePool = { "rmbo", "e3" }
+			local purchasePool = { }
+
+			if pi.Player.Faction == "gdi" then
+				purchasePool = { "e1", "e2" }
+				if pi.Player.Cash >= 300 and pi.Player.Cash < 600 then
+					purchasePool = { "e1", "e2", "e3", "e3", "e3" }
+				elseif pi.Player.Cash >= 600 then
+					purchasePool = { "rmbo", "e3" }
+				end
+			else -- Nod
+				purchasePool = { "e1", "e4" }
+				if pi.Player.Cash >= 300 and pi.Player.Cash < 600 then
+					purchasePool = { "e1", "e4", "e3", "e3", "e3" }
+				elseif pi.Player.Cash >= 600 then
+					purchasePool = { "e5", "e3" }
+				end
 			end
+
 			local toPurchase = Utils.Random(purchasePool)
 
 			if pi.PurchaseTerminal ~= nil then
