@@ -121,15 +121,15 @@ R2D_ArtilleryShell: #arty
 
 R2D_BigFlamer: #ftnk
 	ValidTargets: Ground, Water, Trees
-	ReloadDelay: 10
-	Range: 4c512
+	ReloadDelay: 25
+	Range: 3c512
 	InvalidTargets: Wall
 	Report: flamer2.aud
 	Projectile: Bullet
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
-		Damage: 1000
+		Damage: 1500
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
 		Versus:
