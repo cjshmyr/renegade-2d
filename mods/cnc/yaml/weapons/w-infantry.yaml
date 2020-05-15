@@ -7,12 +7,12 @@ R2D_M16: #e1
 	ValidTargets: Ground, Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 1000
+		Damage: 2000
 		Versus:
-			None: 160
-			Wood: 80
-			Light: 80
-			Heavy: 10
+			None: 100
+			Wood: 40
+			Light: 40
+			Heavy: 5
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, Air
 		InvalidTargets: Wall
@@ -37,10 +37,10 @@ R2D_Grenade: #e2
 		Spread: 341
 		Damage: 4000
 		Versus:
-			None: 70
-			Wood: 100
-			Light: 90
-			Heavy: 90
+			None: 100
+			Wood: 140
+			Light: 100
+			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -73,7 +73,7 @@ R2D_Rockets: #e3
 		ValidTargets: Ground, Air
 		Versus:
 			None: 30
-			Wood: 100
+			Wood: 200
 			Light: 100
 			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
@@ -101,12 +101,12 @@ R2D_Flamethrower: #e4
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 468
-		Damage: 1500
+		Damage: 2000
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
 		Versus:
 			None: 100
-			Wood: 120
+			Wood: 140
 			Light: 100
 			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
@@ -128,14 +128,14 @@ R2D_Chemspray: #e5
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
-		Damage: 2500
+		Damage: 3000
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
 		Versus:
-			None: 100
-			Wood: 80
+			None: 120
+			Wood: 100
 			Light: 80
-			Heavy: 80
+			Heavy: 60
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
@@ -150,9 +150,9 @@ R2D_Rambo: #rmbo
 	Range: 6c0
 	Report: mgun11.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 		Versus:
-			None: 120
+			None: 100
 			Wood: 60
 			Light: 60
 			Heavy: 10
