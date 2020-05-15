@@ -199,7 +199,7 @@ STNK:
 	RevealsShroud:
 		Range: 8c0
 	Mobile:
-		Speed: 130
+		Speed: 140
 		TurnSpeed: 10
 	Armor:
 		Type: Light
