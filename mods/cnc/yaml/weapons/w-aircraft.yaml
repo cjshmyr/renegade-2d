@@ -1,15 +1,22 @@
 R2D_AircraftMissile: #orca and hind
-	Inherits: ^MissileWeapon
 	ReloadDelay: 20
 	Range: 5c0
 	MinRange: 1c256
+	Report: bazook1.aud
 	ValidTargets: Ground, Air
 	Projectile: Missile
 		Arm: 1
+		Blockable: false
+		Inaccuracy: 128
+		Image: DRAGON
+		Shadow: true
 		HorizontalRateOfTurn: 20
+		TrailImage: smokey
+		ContrailLength: 8
 		Speed: 256
 		RangeLimit: 7c0
 	Warhead@1Dam: SpreadDamage
+		Spread: 128
 		Damage: 3500
 		ValidTargets: Ground, Air
 		Versus:
@@ -17,3 +24,17 @@ R2D_AircraftMissile: #orca and hind
 			Wood: 60
 			Light: 100
 			Heavy: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: small_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@4EffAir: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Air
