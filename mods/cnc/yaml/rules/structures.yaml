@@ -70,13 +70,14 @@ OBLI:
 	Inherits@Renegade: ^RenegadeBaseBuilding
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	DetectCloaked:
-		Range: 6c0
+		Range: 8c0
 	Power: # Powered defense
 		Amount: -1
 	AttackCharges:
 		ChargeLevel: 50
 	Armament:
 		Weapon: R2D_Laser
+	-RenderDetectionCircle:
 
 GTWR:
 	Inherits@Renegade: ^RenegadeSmallBuilding
@@ -89,7 +90,7 @@ GTWR:
 ATWR:
 	Inherits@Renegade: ^RenegadeBaseBuilding
 	DetectCloaked:
-		Range: 6c0
+		Range: 8c0
 	Power: # Powered defense
 		Amount: -1
 	Armament@PRIMARY:
@@ -97,6 +98,7 @@ ATWR:
 		LocalOffset: 256,128,0, 256,-128,0
 		LocalYaw: -100,100
 	-Armament@SECONDARY:
+	-RenderDetectionCircle:
 
 #Husks
 FACT.Husk:

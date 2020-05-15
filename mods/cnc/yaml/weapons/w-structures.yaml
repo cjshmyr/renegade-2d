@@ -27,7 +27,7 @@ R2D_TurretGun: #gun
 
 R2D_Laser: #obli
 	ReloadDelay: 40
-	Range: 7c512
+	Range: 8c0
 	Report: obelray1.aud
 	ValidTargets: Ground, Air
 	Projectile: LaserZap
@@ -67,7 +67,7 @@ R2D_HighV: #gtwr
 
 R2D_AgtMissile: #atwr
 	ReloadDelay: 25
-	Range: 7c512
+	Range: 8c0
 	Report: rocket2.aud
 	ValidTargets: Ground, Air
 	Projectile: Missile
