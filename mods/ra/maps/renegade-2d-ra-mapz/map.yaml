@@ -1,0 +1,417 @@
+MapFormat: 11
+
+RequiresMod: ra
+
+Title: Renegade 2D - Zulu
+
+Author: Your name here
+
+Tileset: TEMPERAT
+
+MapSize: 98,50
+
+Bounds: 1,1,96,48
+
+Visibility: Lobby
+
+Categories: Renegade 2D (1.00)
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		Spectating: True # HACK: Lets us enter neutral actors, and we don't see them under fog. Side effect: Warhead damage types think we are targeting an Ally.		
+		NonCombatant: True
+		Faction: allies
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: allies
+		Enemies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@Allies:
+		Name: Allies
+		Faction: allies
+		Color: ABB7E4
+		Team: 1
+		Allies: A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@Soviet:
+		Name: Soviet
+		Faction: soviet
+		Color: FE1100
+		Team: 2
+		Allies: B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@A0:
+		Name: A0
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A1:
+		Name: A1
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A2:
+		Name: A2
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A3:
+		Name: A3
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A4:
+		Name: A4
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A5:
+		Name: A5
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A6:
+		Name: A6
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A7:
+		Name: A7
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A8:
+		Name: A8
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A9:
+		Name: A9
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A10:
+		Name: A10
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@A11:
+		Name: A11
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockColor: True
+		Color: ABB7E4
+		LockSpawn: True
+		LockTeam: True
+		Team: 1
+		Allies: Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+		Enemies: Creeps, Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+	PlayerReference@B0:
+		Name: B0
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B1:
+		Name: B1
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B2:
+		Name: B2
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B3:
+		Name: B3
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B4:
+		Name: B4
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B5:
+		Name: B5
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B6:
+		Name: B6
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B7:
+		Name: B7
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B8:
+		Name: B8
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B9:
+		Name: B9
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B10:
+		Name: B10
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+	PlayerReference@B11:
+		Name: B11
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockColor: True
+		Color: FE1100
+		LockSpawn: True
+		LockTeam: True
+		Team: 2
+		Allies: Soviet, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11
+		Enemies: Creeps, Allies, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
+
+Actors:
+	Actor0: fact
+		Owner: Neutral
+		Location: 13,21
+	Actor2: weap
+		Owner: Neutral
+		Location: 18,26
+	Actor3: tent
+		Owner: Neutral
+		Location: 18,17
+	Actor4: proc
+		Owner: Neutral
+		Location: 9,25
+	Actor5: apwr
+		Owner: Neutral
+		Location: 9,17
+	Actor6: fix
+		Owner: Neutral
+		Location: 18,31
+	Actor7: hpad
+		Owner: Neutral
+		Location: 22,22
+	Actor8: dome
+		Owner: Neutral
+		Location: 14,13
+	Actor9: gun
+		Owner: Neutral
+		TurretFacing: 96
+		Location: 28,27
+	Actor10: gun
+		Owner: Neutral
+		TurretFacing: 96
+		Location: 28,18
+	Actor16: hpad
+		Owner: Neutral
+		Location: 43,23
+	Actor17: weap
+		Owner: Neutral
+		Location: 46,27
+	Actor18: barr
+		Owner: Neutral
+		Location: 47,17
+	Actor19: fact
+		Owner: Neutral
+		Location: 51,22
+	Actor20: proc
+		Owner: Neutral
+		Location: 56,26
+	Actor21: apwr
+		Owner: Neutral
+		Location: 56,17
+	Actor22: dome
+		Owner: Neutral
+		Location: 52,13
+	Actor23: ftur
+		Owner: Neutral
+		TurretFacing: 96
+		Location: 40,27
+	Actor24: ftur
+		Owner: Neutral
+		TurretFacing: 96
+		Location: 40,18
+	Actor25: tsla
+		Owner: Neutral
+		Location: 45,32
+	Actor26: tsla
+		Owner: Neutral
+		Location: 45,14
+	Actor27: pbox
+		Owner: Neutral
+		TurretFacing: 96
+		Location: 24,13
+	Actor28: pbox
+		Owner: Neutral
+		TurretFacing: 96
+		Location: 25,33
+	Actor29: hbox
+		Owner: Neutral
+		TurretFacing: 96
+		Location: 19,9
+	Actor30: hbox
+		Owner: Neutral
+		TurretFacing: 96
+		Location: 20,38
