@@ -1,3 +1,6 @@
+E1:
+	Inherits@HeroUnit: ^HeroUnit
+
 # E6:
 # 	-EngineerRepair:
 # 	-RepairsBridges:

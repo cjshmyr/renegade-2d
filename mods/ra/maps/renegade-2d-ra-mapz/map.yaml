@@ -427,3 +427,6 @@ Actors:
 	Actor40: hpad
 		Owner: Soviet
 		Location: 43,22
+	Actor41: fix
+		Owner: Soviet
+		Location: 48,35

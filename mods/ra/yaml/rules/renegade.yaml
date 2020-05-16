@@ -77,6 +77,29 @@ PurchaseTerminal:
 	ProvidesRadar:
 		RequiresCondition: radar
 
+^HeroUnit:
+	Production:
+		Produces: Building, Defence
+	ProductionQueue@Building:
+		Type: Building
+		Group: Building
+	ProductionQueue@Defence:
+		Type: Defence
+		Group: Defence
+	Exit:
+	ExternalCondition@canbuy:
+		Condition: canbuy
+	ExternalCondition@hasbeacon:
+		Condition: hasbeacon
+	ProvidesPrerequisite@canbuy:
+		Prerequisite: canbuy
+		RequiresCondition: canbuy
+	ProvidesPrerequisite@hasbeacon:
+		Prerequisite: hasbeacon
+		RequiresCondition: hasbeacon
+	ProvidesPrerequisite@cameo:
+		Prerequisite: cameo
+
 # # These actors are always present in build queue, so get rid of them.
 # # Changes to buildings/units are in other files.
 # POWR:
