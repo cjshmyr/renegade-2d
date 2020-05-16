@@ -109,7 +109,7 @@ NeutralPlayer = Player.GetPlayer(NeutralPlayerName)
 WorldLoaded = function()
 	Media.PlaySound(SoundMissionStarted)
 
-	DisplayMessage('Welcome to Renegade 2D (version 0.99)!')
+	DisplayMessage('Welcome to Renegade 2D (version 1.00)!')
 
 	SetPlayerInfo()
 	SetTeamInfo()
