@@ -4,7 +4,7 @@ RequiresMod: ra
 
 Title: Renegade 2D - Zulu
 
-Author: Your name here
+Author: hamb
 
 Tileset: TEMPERAT
 
@@ -20,7 +20,7 @@ Players:
 	PlayerReference@Neutral:
 		Name: Neutral
 		OwnsWorld: True
-		Spectating: True # HACK: Lets us enter neutral actors, and we don't see them under fog. Side effect: Warhead damage types think we are targeting an Ally.		
+		Spectating: True # HACK: Lets us enter neutral actors, and we don't see them under fog. Side effect: Warhead damage types think we are targeting an Ally.
 		NonCombatant: True
 		Faction: allies
 	PlayerReference@Creeps:
@@ -333,85 +333,101 @@ Players:
 
 Actors:
 	Actor0: fact
-		Owner: Neutral
 		Location: 13,21
+		Owner: Allies
 	Actor2: weap
-		Owner: Neutral
 		Location: 18,26
+		Owner: Allies
 	Actor3: tent
-		Owner: Neutral
 		Location: 18,17
+		Owner: Allies
 	Actor4: proc
-		Owner: Neutral
 		Location: 9,25
+		Owner: Allies
 	Actor5: apwr
-		Owner: Neutral
 		Location: 9,17
+		Owner: Allies
 	Actor6: fix
-		Owner: Neutral
 		Location: 18,31
-	Actor7: hpad
-		Owner: Neutral
-		Location: 22,22
+		Owner: Allies
 	Actor8: dome
-		Owner: Neutral
 		Location: 14,13
+		Owner: Allies
 	Actor9: gun
-		Owner: Neutral
 		TurretFacing: 96
 		Location: 28,27
+		Owner: Allies
 	Actor10: gun
-		Owner: Neutral
 		TurretFacing: 96
 		Location: 28,18
-	Actor16: hpad
-		Owner: Neutral
-		Location: 43,23
-	Actor17: weap
-		Owner: Neutral
-		Location: 46,27
+		Owner: Allies
 	Actor18: barr
-		Owner: Neutral
 		Location: 47,17
-	Actor19: fact
-		Owner: Neutral
-		Location: 51,22
-	Actor20: proc
-		Owner: Neutral
-		Location: 56,26
-	Actor21: apwr
-		Owner: Neutral
-		Location: 56,17
+		Faction: allies
+		Owner: Soviet
 	Actor22: dome
-		Owner: Neutral
 		Location: 52,13
+		Faction: allies
+		Owner: Soviet
 	Actor23: ftur
-		Owner: Neutral
 		TurretFacing: 96
 		Location: 40,27
+		Faction: allies
+		Owner: Soviet
 	Actor24: ftur
-		Owner: Neutral
 		TurretFacing: 96
 		Location: 40,18
+		Faction: allies
+		Owner: Soviet
 	Actor25: tsla
-		Owner: Neutral
 		Location: 45,32
+		Faction: allies
+		Owner: Soviet
 	Actor26: tsla
-		Owner: Neutral
 		Location: 45,14
+		Faction: allies
+		Owner: Soviet
 	Actor27: pbox
-		Owner: Neutral
 		TurretFacing: 96
 		Location: 24,13
+		Owner: Allies
 	Actor28: pbox
-		Owner: Neutral
 		TurretFacing: 96
 		Location: 25,33
+		Owner: Allies
 	Actor29: hbox
-		Owner: Neutral
 		TurretFacing: 96
 		Location: 19,9
+		Owner: Allies
 	Actor30: hbox
-		Owner: Neutral
 		TurretFacing: 96
 		Location: 20,38
+		Owner: Allies
+	Actor31: mine
+		Owner: Neutral
+		Location: 10,34
+	Actor33: fact
+		Faction: allies
+		Owner: Soviet
+		Location: 51,21
+	Actor35: weap
+		Faction: allies
+		Owner: Soviet
+		Location: 46,26
+	Actor34: apwr
+		Faction: allies
+		Owner: Soviet
+		Location: 55,17
+	Actor36: proc
+		Faction: allies
+		Owner: Soviet
+		Location: 55,25
+	Actor32: mine
+		Owner: Neutral
+		Location: 56,35
+	Actor37: waypoint
+		Owner: Soviet
+		Location: 56,35
+	Actor38: waypoint
+		Owner: Allies
+		Location: 10,34
