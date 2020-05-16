@@ -5,15 +5,19 @@ Git repository containing the Renegade 2D code and maps for OpenRA.
 
 ## Map links
 The released maps are supported on OpenRA release-20200503.
-- Alpha (version 0.99): https://resource.openra.net/maps/35099/
-- Bravo (version 0.99): https://resource.openra.net/maps/35100/
-- Charlie (version 0.99): https://resource.openra.net/maps/35101/
+
+Tiberian Dawn:
+- Alpha (version 1.00): https://resource.openra.net/maps/35289/
+- Bravo (version 1.00): https://resource.openra.net/maps/35290/
+- Charlie (version 1.00): https://resource.openra.net/maps/35291/
+
+Red Alert - none yet playable, work is in progress.
 
 ## Features
-Gameplay is based on the first person shooter C&C Renegade.
+Gameplay is based on the first person shooter C&C Renegade, and is similar to its predecessor C&C Sole Survivor.
 
 Gameplay features:
-- Up to 24 players (12v12), GDI vs Nod.
+- Up to 24 players (12 vs 12).
 - Control a single unit in a shared base with your team.
 - Stand near base buildings to make purchases.
 - Base buildings provide various benefits to your team.
@@ -32,13 +36,11 @@ There are several Lua hacks to make things work, and bugs.
 ## Repository structure
 `lua` folder - Contains any scripts for running Renegade 2D. The script is mod-agnostic; it works for the CNC & RA mods, and can easily support future mods.
 
-`mods/cnc/rules` folder - Contains CNC rules for Renegade 2D
+`mods/{mod}/rules` folder - Contains mod-specific rules for Renegade 2D
 
-`mods/cnc/maps` folder - Contains CNC maps for Renegade 2D
+`mods/{mod}/maps` folder - Contains mod-specific maps for Renegade 2D
 
 The maps in the `mods/{mod}/maps` folder only contain minimal custom yaml for Renegade 2D (player & team settings only).
-
-RA mod rule folders exist, but these rules are out of date and currently unsupported.
 
 ## Building maps
 To build maps for development, please see and use the `build-maps.ps1` script.
