@@ -363,29 +363,23 @@ Actors:
 		Owner: Allies
 	Actor18: barr
 		Location: 47,17
-		Faction: allies
 		Owner: Soviet
 	Actor22: dome
 		Location: 52,13
-		Faction: allies
 		Owner: Soviet
 	Actor23: ftur
 		TurretFacing: 96
 		Location: 40,27
-		Faction: allies
 		Owner: Soviet
 	Actor24: ftur
 		TurretFacing: 96
 		Location: 40,18
-		Faction: allies
 		Owner: Soviet
 	Actor25: tsla
 		Location: 45,32
-		Faction: allies
 		Owner: Soviet
 	Actor26: tsla
 		Location: 45,14
-		Faction: allies
 		Owner: Soviet
 	Actor27: pbox
 		TurretFacing: 96
@@ -407,19 +401,15 @@ Actors:
 		Owner: Neutral
 		Location: 10,34
 	Actor33: fact
-		Faction: allies
 		Owner: Soviet
 		Location: 51,21
 	Actor35: weap
-		Faction: allies
 		Owner: Soviet
 		Location: 46,26
 	Actor34: apwr
-		Faction: allies
 		Owner: Soviet
 		Location: 55,17
 	Actor36: proc
-		Faction: allies
 		Owner: Soviet
 		Location: 55,25
 	Actor32: mine
@@ -431,3 +421,9 @@ Actors:
 	Actor38: waypoint
 		Owner: Allies
 		Location: 10,34
+	Actor39: hpad
+		Owner: Allies
+		Location: 22,22
+	Actor40: hpad
+		Owner: Soviet
+		Location: 43,22
