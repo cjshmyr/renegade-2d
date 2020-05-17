@@ -108,6 +108,7 @@ foreach ($mod in Get-ChildItem "$($PSScriptRoot)\mods\")
             Add-Content -Path $mapDotYamlPath -Value $mapDotYamlRulePaths
 
             # Copy lua script(s).
+            $scriptToPath = ""
             if (!$flattenAtTarget)
             {
                 $scriptToPath = "$($destination)\$($mapFolder)\lua"
@@ -119,6 +120,10 @@ foreach ($mod in Get-ChildItem "$($PSScriptRoot)\mods\")
                 $scriptToPath = "$($destination)\$($mapFolder)"
                 Copy-Item -Path (Get-ChildItem -Path $luaFolder).Fullname -Destination $scriptToPath -Recurse -Force
             }
+
+            # Update mod reference in main lua script.
+            $luaScriptFullPath = "$($scriptToPath)\renegade.lua"
+            (Get-Content -Path $luaScriptFullPath -Raw) -Replace '{BUILD_MOD}',$mod | Set-Content $luaScriptFullPath
         }
 
         # If creating a packaged .oramap file

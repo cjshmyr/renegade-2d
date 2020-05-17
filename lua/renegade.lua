@@ -4,6 +4,9 @@
 	Engine: OpenRA release-20200504
 ]]
 
+--[[ Variables set by build script ]]
+Mod = "{BUILD_MOD}"
+
 --[[ General ]]
 PlayerInfo = { }
 TeamInfo = { }
@@ -37,7 +40,6 @@ BotNames = {
 }
 
 --[[ Mod-specific ]]
-Mod = "cnc"
 if Mod == "cnc" then
 	SpawnAsActorType = "e1"
 	AlphaTeamPlayerName = "GDI"
