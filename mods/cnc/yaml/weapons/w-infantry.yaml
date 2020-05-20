@@ -132,7 +132,7 @@ R2D_Chemspray: #e5
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
 		Versus:
-			None: 120
+			None: 160
 			Wood: 100
 			Light: 80
 			Heavy: 60
