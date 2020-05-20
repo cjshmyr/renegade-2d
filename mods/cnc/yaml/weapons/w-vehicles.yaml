@@ -1,4 +1,4 @@
-R2D_MachineGunH: # jeep
+R2D_MachineGunH: #jeep
 	ReloadDelay: 20
 	Range: 4c0
 	Report: mgun11.aud
@@ -241,7 +241,7 @@ R2D_MammothMissiles: #htnk
 	Burst: 2
 	BurstDelays: 15
 
-R2D_70mm: #ltnk (range upped to match mtnk and htnk)
+R2D_70mm: #ltnk
 	ReloadDelay: 30
 	Range: 4c768
 	Report: tnkfire3.aud
