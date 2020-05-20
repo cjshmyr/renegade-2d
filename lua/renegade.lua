@@ -64,8 +64,8 @@ if Mod == "cnc" then
 	BravoBeaconType = "nuke-beacon"
 	AlphaBeaconLightType = "Blue"
 	BravoBeaconLightType = "Red"
-	AlphaBeaconLightIntensity = "1"
-	BravoBeaconLightIntensity = "0.5"
+	AlphaBeaconLightIntensity = 1
+	BravoBeaconLightIntensity = 0.5
 	BeaconDeploySound = "target3.aud"
 	BeaconHitCamera = "camera.beacon"
 	BeaconSoundsTable['ion-beacon'] = 'ionchrg1.aud'
@@ -96,8 +96,8 @@ elseif Mod == "ra" then
 	BravoBeaconType = "nuke-beacon"
 	AlphaBeaconLightType = "Red"
 	BravoBeaconLightType = "Red"
-	AlphaBeaconLightIntensity = "0.5"
-	BravoBeaconLightIntensity = "0.5"
+	AlphaBeaconLightIntensity = 0.5
+	BravoBeaconLightIntensity = 0.5
 	BeaconDeploySound = "bleep9.aud"
 	BeaconHitCamera = "camera.paradrop"
 	BeaconSoundsTable['nuke-beacon'] = 'aprep1.aud'
