@@ -235,7 +235,7 @@ APC:
 HARV:
 	Inherits@Passengers: ^OnePassenger
 	Health:
-		HP: 100000
+		HP: 80000
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
