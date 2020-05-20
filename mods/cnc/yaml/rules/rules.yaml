@@ -38,6 +38,14 @@ World:
 		Blue: 1.0
 		Green: 1.0
 		Ambient: 1.0
+	ScriptLobbyDropdown@points:
+		ID: points
+		Label: Point / Credit Rewards
+		Values:
+			old: Too much! (v1.00)
+			new: Less (v1.01)
+			new2: Way less! (v1.??)
+		Default: new
 
 Player:
 	-ConquestVictoryConditions:
