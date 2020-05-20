@@ -3,12 +3,16 @@
 		HP: 200000
 	Armor:
 		Type: Wood
+	Valued:
+		Cost: 300
 
 ^RenegadeSmallBuilding:
 	Health:
 		HP: 100000
 	Armor:
 		Type: Wood
+	Valued:
+		Cost: 300
 
 BRIK:
 	Health:

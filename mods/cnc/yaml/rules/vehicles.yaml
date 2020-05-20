@@ -32,6 +32,8 @@ JEEP:
 		TurnSpeed: 10
 	Armor:
 		Type: Light
+	Valued:
+		Cost: 35
 	Turreted:
 		TurnSpeed: 10
 		Offset: -85,0,128
@@ -51,6 +53,8 @@ MSAM:
 		TurnSpeed: 4
 	Armor:
 		Type: Light
+	Valued:
+		Cost: 45
 	Tooltip:
 		Name: Multiple Launch Rocket System
 	Armament@PRIMARY:
@@ -76,6 +80,8 @@ MTNK:
 		TurnSpeed: 5
 	Armor:
 		Type: Heavy
+	Valued:
+		Cost: 80
 	Armament:
 		Weapon: R2D_120mm
 
@@ -94,6 +100,8 @@ HTNK:
 		TurnSpeed: 3
 	Armor:
 		Type: Heavy
+	Valued:
+		Cost: 150
 	SelfHealing:
 		Step: 500
 		Delay: 25
@@ -128,6 +136,8 @@ BGGY:
 		TurnSpeed: 10
 	Armor:
 		Type: Light
+	Valued:
+		Cost: 30
 	Armament:
 		Weapon: R2D_MachineGun
 
@@ -144,6 +154,8 @@ ARTY:
 		TurnSpeed: 4
 	Armor:
 		Type: Light
+	Valued:
+		Cost: 45
 	Armament:
 		Weapon: R2D_ArtilleryShell
 
@@ -162,6 +174,8 @@ LTNK:
 		TurnSpeed: 7
 	Armor:
 		Type: Heavy
+	Valued:
+		Cost: 60
 	Armament:
 		Weapon: R2D_70mm
 
@@ -178,6 +192,8 @@ FTNK:
 		TurnSpeed: 7
 	Armor:
 		Type: Heavy
+	Valued:
+		Cost: 80
 	-Armament:
 	Armament@PRIMARY:
 		Name: primary
@@ -203,6 +219,8 @@ STNK:
 		TurnSpeed: 10
 	Armor:
 		Type: Light
+	Valued:
+		Cost: 90
 	Cloak:
 		PauseOnCondition: cloak-force-disabled || !occupied
 	Armament:
@@ -226,6 +244,8 @@ APC:
 		TurnSpeed: 10
 	Armor:
 		Type: Heavy
+	Valued:
+		Cost: 50
 	Cargo:
 		-LoadingCondition:
 	Armament@PRIMARY:
@@ -245,6 +265,8 @@ HARV:
 		TurnSpeed: 5
 	Armor:
 		Type: Heavy
+	Valued:
+		Cost: 150
 	-Explodes:
 	Harvester:
 		SearchOnCreation: false

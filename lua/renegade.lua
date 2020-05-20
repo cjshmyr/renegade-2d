@@ -384,7 +384,7 @@ BindBaseEvents = function()
 		Trigger.OnKilled(ti.ConstructionYard, function(self, killer)
 			CreateBuildingHusk(self)
 			NotifyBuildingDestroyed(self, killer)
-			GrantRewardOnKilled(self, killer, "building")
+			GrantRewardOnKilled(self, killer)
 
 			local baseBuildings = {
 				ti.Refinery, ti.Barracks, ti.WarFactory, ti.Helipad, ti.Radar, ti.Powerplant, ti.ServiceDepot
@@ -407,7 +407,7 @@ BindBaseEvents = function()
 		Trigger.OnKilled(ti.Refinery, function(self, killer)
 			CreateBuildingHusk(self)
 			NotifyBuildingDestroyed(self, killer)
-			GrantRewardOnKilled(self, killer, "building")
+			GrantRewardOnKilled(self, killer)
 
 			if not ti.AiHarvester.IsDead then
 				ti.AiHarvester.Kill()
@@ -424,7 +424,7 @@ BindBaseEvents = function()
 		Trigger.OnKilled(ti.Barracks, function(self, killer)
 			CreateBuildingHusk(self)
 			NotifyBuildingDestroyed(self, killer)
-			GrantRewardOnKilled(self, killer, "building")
+			GrantRewardOnKilled(self, killer)
 
 			Utils.Do(ti.Players, function(pi)
 				pi.PurchaseTerminal.RevokeCondition(pi.InfantryConditionToken)
@@ -442,7 +442,7 @@ BindBaseEvents = function()
 		Trigger.OnKilled(ti.WarFactory, function(self, killer)
 			CreateBuildingHusk(self)
 			NotifyBuildingDestroyed(self, killer)
-			GrantRewardOnKilled(self, killer, "building")
+			GrantRewardOnKilled(self, killer)
 
 			Utils.Do(ti.Players, function(pi)
 				pi.PurchaseTerminal.RevokeCondition(pi.VehicleConditionToken)
@@ -460,7 +460,7 @@ BindBaseEvents = function()
 		Trigger.OnKilled(ti.Helipad, function(self, killer)
 			CreateBuildingHusk(self)
 			NotifyBuildingDestroyed(self, killer)
-			GrantRewardOnKilled(self, killer, "building")
+			GrantRewardOnKilled(self, killer)
 
 			Utils.Do(ti.Players, function(pi)
 				pi.PurchaseTerminal.RevokeCondition(pi.AircraftConditionToken)
@@ -478,7 +478,7 @@ BindBaseEvents = function()
 		Trigger.OnKilled(ti.Radar, function(self, killer)
 			CreateBuildingHusk(self)
 			NotifyBuildingDestroyed(self, killer)
-			GrantRewardOnKilled(self, killer, "building")
+			GrantRewardOnKilled(self, killer)
 
 			Utils.Do(ti.Players, function(pi)
 				pi.PurchaseTerminal.RevokeCondition(pi.RadarConditionToken)
@@ -495,7 +495,7 @@ BindBaseEvents = function()
 		Trigger.OnKilled(ti.Powerplant, function(self, killer)
 			CreateBuildingHusk(self)
 			NotifyBuildingDestroyed(self, killer)
-			GrantRewardOnKilled(self, killer, "building")
+			GrantRewardOnKilled(self, killer)
 
 			if not ti.Radar.IsDead then
 				Utils.Do(ti.Players, function(pi)
@@ -514,7 +514,7 @@ BindBaseEvents = function()
 		Trigger.OnKilled(ti.ServiceDepot, function(self, killer)
 			CreateBuildingHusk(self)
 			NotifyBuildingDestroyed(self, killer)
-			GrantRewardOnKilled(self, killer, "building")
+			GrantRewardOnKilled(self, killer)
 		end)
 		Trigger.OnDamaged(ti.ServiceDepot, function(self, attacker)
 			local damageTaken = GetDamageTaken(self)
@@ -528,7 +528,7 @@ BindBaseEvents = function()
 			Trigger.OnKilled(building, function(self, killer)
 				CreateBuildingHusk(self)
 				NotifyBuildingDestroyed(self, killer)
-				GrantRewardOnKilled(self, killer, "building")
+				GrantRewardOnKilled(self, killer)
 			end)
 			Trigger.OnDamaged(building, function(self, attacker)
 				local damageTaken = GetDamageTaken(self)
@@ -657,7 +657,7 @@ BindHeroEvents = function(hero)
 			DisplayMessage(GetDisplayNameForActor(killer) .. " killed " .. GetDisplayNameForActor(self) .. "!")
 		end
 
-		GrantRewardOnKilled(self, killer, "hero")
+		GrantRewardOnKilled(self, killer)
 
 		-- Remove any vehicle-related information, in case the unit dies before exiting (aircraft do this)
 		local selfPi = PlayerInfo[self.Owner.InternalName]
@@ -728,7 +728,7 @@ BindProducedVehicleEvents = function(produced)
 		end
 	end)
 	Trigger.OnKilled(produced, function(self, killer)
-		GrantRewardOnKilled(self, killer, "unit")
+		GrantRewardOnKilled(self, killer)
 	end)
 
 	-- New vehicles belong to appropriate team's Neutral (except AI harvesters...)
@@ -884,7 +884,7 @@ InitializeAiHarvester = function(harv, wasPurchased)
 
 	Trigger.OnKilled(harv, function(self, killer)
 		if not wasPurchased then
-			GrantRewardOnKilled(self, killer, "unit")
+			GrantRewardOnKilled(self, killer)
 		end
 
 		if not ti.WarFactory.IsDead and not ti.Refinery.IsDead then
@@ -1023,7 +1023,7 @@ BuildHeroItem = function(pi, actorType)
 
 		Trigger.OnKilled(beacon, function(actor, killer)
 			if actor.Type ~= killer.Type then
-				GrantRewardOnKilled(actor, killer, "beacon");
+				GrantRewardOnKilled(actor, killer)
 				FadeLightSource(ambientLightSourceKey)
 				FadeLightSource(colorLightSourceKey)
 				DisplayMessage(beacon.TooltipName .. ' was disarmed by ' .. GetDisplayNameForActor(killer) .. '!')				
@@ -1219,7 +1219,7 @@ GetDamageTaken = function(self)
 	return damageTaken
 end
 
-GrantRewardOnKilled = function(self, killer, actorCategory)
+GrantRewardOnKilled = function(self, killer)
 	if ActorIsNeutral(self) then -- Ignore destroying neutral units.
 		return
 	end
@@ -1228,16 +1228,19 @@ GrantRewardOnKilled = function(self, killer, actorCategory)
 	end
 
 	local killerpi = PlayerInfo[killer.Owner.InternalName]
-	if killerpi ~= nil then -- Is a player
-		local points = 0
-		if actorCategory == "hero" then	points = 100
-		elseif actorCategory == "unit" then points = 100
-		elseif actorCategory == "building" then	points = 300
-		elseif actorCategory == "beacon" then points = 300
-		end
+	if killerpi ~= nil then -- Killed by a player
+		-- Use actor costs defined in yaml to determine point reward.
+		-- Our Lua API throws an exception if a unit has no cost.
+		-- Just in case, handle it gracefully here.
+		local hasValued = pcall(function() Actor.Cost(self.Type) end)
+		if hasValued then
+			local points = Actor.Cost(self.Type)
 
-		killerpi.Player.Experience = killerpi.Player.Experience + points
-		killerpi.Player.Cash = killerpi.Player.Cash + points
+			killerpi.Player.Experience = killerpi.Player.Experience + points
+			killerpi.Player.Cash = killerpi.Player.Cash + points
+		else
+			DisplayMessage('ERROR: Actor ' .. self.Type .. ' is missing a point reward!')
+		end
 	end
 end
 

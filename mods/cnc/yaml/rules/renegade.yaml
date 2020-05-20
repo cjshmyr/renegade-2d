@@ -604,6 +604,8 @@ buy.placebeacon.nuke-beacon:
 		Bounds: 20,20
 	Health:
 		HP: 10000
+	Valued:
+		Cost: 300
 	Building:
 		Footprint: x
 		Dimensions: 1,1

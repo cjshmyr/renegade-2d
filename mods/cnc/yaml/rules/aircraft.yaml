@@ -12,12 +12,18 @@ TRAN:
 	Aircraft:
 		Speed: 140
 		TurnSpeed: 5
+	Tooltip:
+		Name: Transport Helicopter
 	Health:
 		HP: 20000
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
 		Range: 8c0
+	Armor:
+		Type: Light
+	Valued:
+		Cost: 90
 
 ORCA:
 	Inherits@Passengers: ^OnePassenger
@@ -25,12 +31,18 @@ ORCA:
 	Aircraft:
 		Speed: 150
 		TurnSpeed: 7
+	Tooltip:
+		Name: Orca
 	Health:
 		HP: 15000
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
 		Range: 8c0
+	Armor:
+		Type: Light
+	Valued:
+		Cost: 90
 	-Armament@PRIMARY:
 	-Armament@SECONDARY:
 	Armament@AIRCRAFTMISSILE:
@@ -45,14 +57,18 @@ HELI:
 	Aircraft:
 		Speed: 150
 		TurnSpeed: 7
+	Tooltip:
+		Name: Apache
 	Health:
 		HP: 15000
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
 		Range: 8c0
-	Tooltip:
-		Name: Apache
+	Armor:
+		Type: Light
+	Valued:
+		Cost: 90
 	-Armament@PRIMARY:
 	-Armament@SECONDARY:
 	Armament@AIRCRAFTMISSILE:
