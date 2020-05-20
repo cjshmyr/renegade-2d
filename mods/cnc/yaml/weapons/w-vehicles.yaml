@@ -203,7 +203,7 @@ R2D_MammothMissiles: #htnk
 	Range: 4c256
 	MinRange: 0c512
 	Report: rocket1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Air
 	Projectile: Missile
 		Arm: 0
 		Blockable: false
@@ -214,16 +214,16 @@ R2D_MammothMissiles: #htnk
 		TrailImage: smokey
 		ContrailLength: 8
 		Speed: 341
-		RangeLimit: 6c512
+		RangeLimit: 6c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 298
-		Damage: 5000
-		ValidTargets: Ground
+		Damage: 4000
+		ValidTargets: Ground, Air
 		Versus:
-			None: 100
-			Wood: 100
-			Light: 80
-			Heavy: 80
+			None: 80
+			Wood: 80
+			Light: 100
+			Heavy: 60
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -233,6 +233,11 @@ R2D_MammothMissiles: #htnk
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 		ValidTargets: Ground, Water
+	Warhead@4EffAir: CreateEffect
+		Explosions: small_building
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Air
 	Burst: 2
 	BurstDelays: 15
 
@@ -266,7 +271,7 @@ R2D_227mm.stnk: #stnk
 	Range: 7c0
 	MinRange: 0c512
 	Report: rocket1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Air
 	Projectile: Missile
 		Arm: 0
 		Blockable: false
@@ -281,7 +286,7 @@ R2D_227mm.stnk: #stnk
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 3500
-		ValidTargets: Ground
+		ValidTargets: Ground, Air
 		Versus:
 			None: 30
 			Wood: 100
@@ -296,6 +301,11 @@ R2D_227mm.stnk: #stnk
 		ImpactSounds: xplos.aud
 		ImpactActors: false
 		ValidTargets: Ground, Water
+	Warhead@4EffAir: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Air
 	Burst: 2
 	BurstDelays: 10
 
