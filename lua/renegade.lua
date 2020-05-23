@@ -1566,14 +1566,14 @@ InitializeIfBot = function(pi)
 			if pi.Player.Faction == "gdi" then
 				purchasePool = { "e1", "e2" }
 				if pi.Player.Cash >= 300 and pi.Player.Cash < 600 then
-					purchasePool = { "e1", "e2", "e3", "e3", "e3" }
+					purchasePool = { "e1", "e2", "e3", "e3" }
 				elseif pi.Player.Cash >= 600 then
 					purchasePool = { "rmbo", "e3" }
 				end
 			else -- Nod
 				purchasePool = { "e1", "e4" }
 				if pi.Player.Cash >= 300 and pi.Player.Cash < 600 then
-					purchasePool = { "e1", "e4", "e3", "e3", "e3" }
+					purchasePool = { "e1", "e4", "e3", "e3" }
 				elseif pi.Player.Cash >= 600 then
 					purchasePool = { "e5", "e3" }
 				end
