@@ -31,7 +31,6 @@
 E1:
 	Inherits@HeroUnit: ^HeroUnit
 	Inherits@InfantryTier: ^TierOneInfantry
-	-Valued:
 	Armament:
 		Weapon: R2D_M16
 
