@@ -1154,91 +1154,41 @@ GrantRewardOnDamaged = function(self, attacker, damageTaken, actorCategory)
 
 	local attackerpi = PlayerInfo[attacker.Owner.InternalName]
 	if attackerpi ~= nil then -- Is a player
-		-- If the damage dealt was negative, this is a heal
-		local wasHeal = damageTaken < 0
-		damageTaken = math.abs(damageTaken)
+		-- Temporary point experiments
+		local buildingPointsModifierOption = Map.LobbyOption("buildingpointsmodifier")
+		local unitPointsModifierOption = Map.LobbyOption("unitpointsmodifier")
 
-		local percentageDamageDealt = (damageTaken / self.MaxHealth) * 100
-
-		-- Temporary point calculation experiments
-		local behavior = Map.LobbyOption("points")
-
-		if behavior == "old" then
-			--[[
-				Take % damage dealt of actor's max HP.
-				If it's a building (and damage dealt), multiply the %.
-				Reward one point at a minimum for less than 1% damage done.
-				Floor the %, and convert to points.
-			]]
-			local points = 0
-
-			if percentageDamageDealt < 1 then
-				points = 1
-			else
-				points = percentageDamageDealt
-
-				if not wasHeal then
-					local pointsMultiplier = 1
-					if actorCategory == "building" then
-						pointsMultiplier = 2
-					end
-
-					points = points * pointsMultiplier
-				end
-
-				points = math.floor(points + 0.5)
-			end
-
-			attackerpi.Player.Experience = attackerpi.Player.Experience + points
-			attackerpi.Player.Cash = attackerpi.Player.Cash + points
-		elseif behavior == "new" then
-			--[[
-				Take % damage dealt of actor's max HP.
-				If it's not a building, halve it.
-				Reward one point at a minimum for less than 1% damage done.
-				Floor the %, and convert to points.
-			]]
-			local points = 0
-
-			if actorCategory ~= "building" then
-				percentageDamageDealt = percentageDamageDealt / 2
-			end
-
-			if percentageDamageDealt < 1 then
-				points = 1
-			else
-				points = percentageDamageDealt
-				points = math.floor(points + 0.5)
-			end
-
-			attackerpi.Player.Experience = attackerpi.Player.Experience + points
-			attackerpi.Player.Cash = attackerpi.Player.Cash + points
-		elseif behavior == "new2" then
-			--[[
-				Take % damage dealt of actor's max HP.
-				If it's a building, halve it. Otherwise, quarter it.
-				Reward one point at a minimum for less than 1% damage done.
-				Floor the %, and convert to points.
-			]]
-			local points = 0
-
-			if actorCategory == "building" then
-				percentageDamageDealt = percentageDamageDealt / 2
-			else
-				percentageDamageDealt = percentageDamageDealt / 4
-			end
-
-			if percentageDamageDealt < 1 then
-				points = 1
-			else
-				points = percentageDamageDealt
-				points = math.floor(points + 0.5)
-			end
-
-			attackerpi.Player.Experience = attackerpi.Player.Experience + points
-			attackerpi.Player.Cash = attackerpi.Player.Cash + points
+		local buildingPointsModifier = 1.0
+		if buildingPointsModifierOption == "a" then
+			buildingPointsModifier = 2.0
+		elseif buildingPointsModifierOption == "c" then
+			buildingPointsModifier = 0.5
+		end
+		local unitPointsModifier = 0.5
+		if unitPointsModifierOption == "a" then
+			unitPointsModifier = 1.0
+		elseif unitPointsModifierOption == "c" then
+			unitPointsModifier = 0.25
 		end
 
+		--[[
+			Take % damage dealt of actor's max HP.
+			Multiply % damage dealt by modifiers. Floor the %, and convert to points.
+			Reward one point at a minimum for less than 1% damage done.
+		]]
+		damageTaken = math.abs(damageTaken) -- Heals are negative.
+
+		local percentageDamageDealt = (damageTaken / self.MaxHealth) * 100
+		local points = percentageDamageDealt
+		if actorCategory == "building" then
+			points = points * buildingPointsModifier
+		else
+			points = points * unitPointsModifier
+		end
+		points = math.floor(points)
+
+		attackerpi.Player.Experience = attackerpi.Player.Experience + points
+		attackerpi.Player.Cash = attackerpi.Player.Cash + points
 	end
 end
 

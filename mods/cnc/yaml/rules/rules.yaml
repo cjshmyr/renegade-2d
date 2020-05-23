@@ -38,14 +38,24 @@ World:
 		Blue: 1.0
 		Green: 1.0
 		Ambient: 1.0
-	ScriptLobbyDropdown@points:
-		ID: points
-		Label: Point / Credit Rewards
+	ScriptLobbyDropdown@buildingpointsmodifier:
+		ID: buildingpointsmodifier
+		Label: Bldg. Points
+		Description: Temporary option for balancing. Adjusts point/credit rewards for damaging buildings (less % is less credits).
 		Values:
-			old: Too much! (v1.00)
-			new: Less (v1.01)
-			new2: Way less! (v1.??)
-		Default: new
+			a: 200%
+			b: 100% (default)
+			c: 50%
+		Default: b
+	ScriptLobbyDropdown@unitpointsmodifier:
+		ID: unitpointsmodifier
+		Label: Unit Points
+		Description: Temporary option for balancing. Adjusts point/credit rewards for damaging units (less % is less credits).
+		Values:
+			a: 100%
+			b: 50% (default)
+			c: 25%
+		Default: b
 
 Player:
 	-ConquestVictoryConditions:
