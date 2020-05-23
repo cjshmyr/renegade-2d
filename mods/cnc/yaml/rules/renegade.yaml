@@ -324,7 +324,7 @@ buy.vehicle.htnk:
 		BuildPaletteOrder: 50
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
 		Queue: Vehicle
-		Description: \nAnti-armor vehicle.\n\nHolds 2 passengers.
+		Description: \nAnti-armor, anti-air vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
 		Image: htnk
 
@@ -434,7 +434,7 @@ buy.vehicle.stnk:
 		BuildPaletteOrder: 60
 		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~nod
 		Queue: Vehicle
-		Description: \nAnti-infantry, anti-armor vehicle.\n\nCloaked.\nLoses cloak when health is critical or vehicle is empty.\nAll enemy defenses and units can detect cloak if nearby.\n\nHolds 1 passenger.
+		Description: \nAnti-armor, anti-air vehicle.\n\nCloaked.\nLoses cloak when health is critical or vehicle is empty.\nAll enemy defenses and units can detect cloak if nearby.\n\nHolds 1 passenger.
 	RenderSprites:
 		Image: stnk
 
