@@ -45,7 +45,7 @@ MSAM:
 	Inherits@Passengers: ^OnePassenger
 	-GainsExperience:
 	Health:
-		HP: 20000
+		HP: 25000
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
@@ -150,7 +150,7 @@ ARTY:
 	Inherits@Passengers: ^OnePassenger
 	-GainsExperience:
 	Health:
-		HP: 20000
+		HP: 25000
 	Repairable:
 		HpPerStep: 2000
 	RevealsShroud:
