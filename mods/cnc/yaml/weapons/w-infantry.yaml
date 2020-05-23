@@ -133,9 +133,9 @@ R2D_Chemspray: #e5
 		InvalidTargets: Wall
 		Versus:
 			None: 160
-			Wood: 100
-			Light: 80
-			Heavy: 60
+			Wood: 120
+			Light: 120
+			Heavy: 100
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
@@ -153,8 +153,8 @@ R2D_Rambo: #rmbo
 		Damage: 4000
 		Versus:
 			None: 100
-			Wood: 60
-			Light: 60
+			Wood: 80
+			Light: 80
 			Heavy: 10
 
 R2D_RepairGun: #e6
