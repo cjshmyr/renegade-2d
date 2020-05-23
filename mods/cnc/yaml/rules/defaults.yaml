@@ -1,9 +1,7 @@
 # Nothing provides experience points to players. Player experience is handled entirely by Lua as score.
-# Nothing provides actor experience points. This is currently done because actor ownership loses it.
 ^ExistsInWorld:
 	GivesExperience:
 		PlayerExperienceModifier: 0
-		ActorExperienceModifier: 0
 
 # Buildings provide a proximity condition for being nearby.
 # Buildings have a condition when damaged.

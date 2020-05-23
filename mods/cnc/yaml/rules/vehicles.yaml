@@ -21,6 +21,7 @@
 
 JEEP:
 	Inherits@Passengers: ^TwoPassengers
+	-GainsExperience:
 	Health:
 		HP: 17500
 	Repairable:
@@ -42,6 +43,7 @@ JEEP:
 
 MSAM:
 	Inherits@Passengers: ^OnePassenger
+	-GainsExperience:
 	Health:
 		HP: 20000
 	Repairable:
@@ -67,6 +69,7 @@ MSAM:
 
 MTNK:
 	Inherits@Passengers: ^TwoPassengers
+	-GainsExperience:
 	Health:
 		HP: 45000
 	Repairable:
@@ -87,6 +90,7 @@ MTNK:
 
 HTNK:
 	Inherits@Passengers: ^TwoPassengers
+	-GainsExperience:
 	Health:
 		HP: 80000
 	Repairable:
@@ -123,6 +127,7 @@ HTNK:
 
 BGGY:
 	Inherits@Passengers: ^TwoPassengers
+	-GainsExperience:
 	Health:
 		HP: 15000
 	Repairable:
@@ -143,6 +148,7 @@ BGGY:
 
 ARTY:
 	Inherits@Passengers: ^OnePassenger
+	-GainsExperience:
 	Health:
 		HP: 20000
 	Repairable:
@@ -161,6 +167,7 @@ ARTY:
 
 LTNK:
 	Inherits@Passengers: ^TwoPassengers
+	-GainsExperience:
 	Health:
 		HP: 35000
 	Repairable:
@@ -181,6 +188,7 @@ LTNK:
 
 FTNK:
 	Inherits@Passengers: ^TwoPassengers
+	-GainsExperience:
 	Health:
 		HP: 45000
 	Repairable:
@@ -208,6 +216,7 @@ FTNK:
 
 STNK:
 	Inherits@Passengers: ^OnePassenger
+	-GainsExperience:
 	Health:
 		HP: 25000
 	Repairable:
@@ -226,10 +235,9 @@ STNK:
 	Armament:
 		Weapon: R2D_227mm.stnk
 
-# APC TODO: Mobile changes should be inherited at this level.
-# Other items should move up inheritance.
 APC:
 	Inherits@Passengers: ^FourPassengers
+	-GainsExperience:
 	Health:
 		HP: 25000
 	Repairable:

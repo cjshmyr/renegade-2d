@@ -28,6 +28,7 @@ TRAN:
 ORCA:
 	Inherits@Passengers: ^OnePassenger
 	Inherits@HeroAircraft: ^HeroAircraft
+	-GainsExperience:
 	Aircraft:
 		Speed: 150
 		TurnSpeed: 7
@@ -54,6 +55,7 @@ ORCA:
 HELI:
 	Inherits@Passengers: ^OnePassenger
 	Inherits@HeroAircraft: ^HeroAircraft
+	-GainsExperience:
 	Aircraft:
 		Speed: 150
 		TurnSpeed: 7
