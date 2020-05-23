@@ -332,33 +332,9 @@ Players:
 		Enemies: Creeps, GDI, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11
 
 Actors:
-	Actor25: hand
-		Location: 60,28
-		Owner: Nod
-	Actor27: fact
-		Location: 55,32
-		Owner: Nod
-	Actor29: obli
-		Location: 48,33
-		Owner: Nod
-	Actor32: afld
-		Location: 59,36
-		Owner: Nod
-	Actor33: proc
-		Location: 55,40
-		Owner: Nod
-	Actor34: nuk2
-		Location: 63,41
-		Owner: Nod
-	Actor42: hpad
-		Location: 63,32
-		Owner: Nod
 	Actor35: split2
 		Owner: Neutral
 		Location: 36,6
-	Actor45: obli
-		Location: 56,24
-		Owner: Nod
 	Actor46: split2
 		Owner: Neutral
 		Location: 63,4
@@ -371,43 +347,9 @@ Actors:
 	Actor50: waypoint
 		Owner: Nod
 		Location: 30,39
-	Actor49: proc
-		Owner: GDI
-		Location: 10,2
-	Actor51: nuk2
-		Owner: GDI
-		Location: 3,3
-	Actor36: weap
-		Owner: GDI
-		Location: 6,8
-	Actor53: atwr
-		TurretFacing: 92
-		Owner: GDI
-		Location: 18,13
-	Actor56: atwr
-		TurretFacing: 92
-		Owner: GDI
-		Location: 10,21
 	Actor48: waypoint
 		Owner: GDI
 		Location: 36,6
-	Actor38: fact
-		Owner: GDI
-		Location: 10,12
-	Actor55: pyle
-		Owner: GDI
-		Location: 6,16
-	Actor60: hpad
-		Owner: GDI
-		Location: 3,12
-	Actor61: gtwr
-		Owner: GDI
-		TurretFacing: 96
-		Location: 7,27
-	Actor62: gtwr
-		Owner: GDI
-		TurretFacing: 96
-		Location: 13,27
 	Actor57: gtwr
 		Owner: GDI
 		TurretFacing: 96
@@ -416,37 +358,95 @@ Actors:
 		Owner: GDI
 		TurretFacing: 96
 		Location: 25,9
-	Actor52: gun
-		Owner: Nod
-		TurretFacing: 96
-		Location: 53,18
-	Actor54: gun
-		Owner: Nod
-		TurretFacing: 96
-		Location: 59,18
-	Actor37: gun
-		Owner: Nod
-		TurretFacing: 96
-		Location: 42,30
-	Actor43: gun
-		Owner: Nod
-		TurretFacing: 96
-		Location: 42,36
 	Actor39: splitblue
 		Owner: Neutral
 		Location: 32,24
 	Actor40: splitblue
 		Owner: Neutral
 		Location: 34,21
-	Actor44: hq
+	Actor64: gtwr
 		Owner: GDI
-		Location: 14,16
-	Actor59: fix
+		TurretFacing: 96
+		Location: 13,28
+	Actor62: gtwr
 		Owner: GDI
-		Location: 14,7
-	Actor63: fix
+		TurretFacing: 96
+		Location: 7,28
+	Actor61: atwr
+		TurretFacing: 92
+		Owner: GDI
+		Location: 10,22
+	Actor56: atwr
+		TurretFacing: 92
+		Owner: GDI
+		Location: 19,13
+	Actor28: proc
+		Owner: GDI
+		Location: 10,3
+	Actor34: fact
 		Owner: Nod
-		Location: 51,36
-	Actor64: hq
+		Location: 55,31
+	Actor42: hpad
+		Owner: Nod
+		Location: 63,31
+	Actor53: fix
+		Owner: Nod
+		Location: 51,35
+	Actor55: afld
+		Owner: Nod
+		Location: 59,35
+	Actor59: proc
+		Owner: Nod
+		Location: 55,39
+	Actor60: nuk2
+		Owner: Nod
+		Location: 63,40
+	Actor63: obli
+		Owner: Nod
+		Location: 56,23
+	Actor65: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 53,17
+	Actor52: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 59,17
+	Actor54: obli
+		Owner: Nod
+		Location: 47,32
+	Actor67: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 41,36
+	Actor43: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 41,30
+	Actor37: hq
 		Owner: Nod
 		Location: 52,27
+	Actor45: hand
+		Owner: Nod
+		Location: 60,27
+	Actor66: nuk2
+		Owner: GDI
+		Location: 3,3
+	Actor36: fix
+		Owner: GDI
+		Location: 14,7
+	Actor38: hpad
+		Owner: GDI
+		Location: 3,12
+	Actor44: fact
+		Owner: GDI
+		Location: 10,12
+	Actor49: pyle
+		Owner: GDI
+		Location: 6,16
+	Actor51: hq
+		Owner: GDI
+		Location: 14,16
+	Actor69: weap
+		Owner: GDI
+		Location: 6,8

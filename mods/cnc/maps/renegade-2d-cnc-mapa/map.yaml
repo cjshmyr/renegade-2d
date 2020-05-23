@@ -513,10 +513,6 @@ Actors:
 		Owner: GDI
 		TurretFacing: 96
 		Location: 24,29
-	Actor105: gtwr
-		Owner: GDI
-		TurretFacing: 96
-		Location: 1,32
 	Actor107: obli
 		Owner: Nod
 		Location: 76,22
@@ -555,10 +551,6 @@ Actors:
 		Owner: Nod
 		TurretFacing: 96
 		Location: 88,38
-	Actor117: gun
-		Owner: Nod
-		TurretFacing: 96
-		Location: 96,32
 	Actor118: gun
 		Owner: Nod
 		TurretFacing: 96
@@ -600,25 +592,6 @@ Actors:
 	Actor121: obli
 		Owner: Nod
 		Location: 87,11
-	Actor123: gun
-		Owner: Nod
-		TurretFacing: 96
-		Location: 96,13
-	Actor126: brik
-		Owner: Nod
-		Location: 86,10
-	Actor129: brik
-		Owner: Nod
-		Location: 86,11
-	Actor130: brik
-		Owner: Nod
-		Location: 87,10
-	Actor131: brik
-		Owner: Nod
-		Location: 88,10
-	Actor132: brik
-		Owner: Nod
-		Location: 88,11
 	Actor133: brik
 		Owner: Nod
 		Location: 76,23
@@ -634,47 +607,10 @@ Actors:
 	Actor137: brik
 		Owner: Nod
 		Location: 76,21
-	Actor138: brik
-		Owner: Nod
-		Location: 83,33
-	Actor139: brik
-		Owner: Nod
-		Location: 83,34
-	Actor140: brik
-		Owner: Nod
-		Location: 83,34
-	Actor141: brik
-		Owner: Nod
-		Location: 84,34
-	Actor142: brik
-		Owner: Nod
-		Location: 85,34
-	Actor143: brik
-		Owner: Nod
-		Location: 85,33
-	Actor144: gtwr
-		Owner: GDI
-		TurretFacing: 96
-		Location: 1,13
 	Actor145: atwr
 		Owner: GDI
 		TurretFacing: 96
 		Location: 11,11
-	Actor146: brik
-		Owner: GDI
-		Location: 10,11
-	Actor147: brik
-		Owner: GDI
-		Location: 10,10
-	Actor148: brik
-		Owner: GDI
-		Location: 11,10
-	Actor149: brik
-		Owner: GDI
-		Location: 12,10
-	Actor150: brik
-		Owner: GDI
-		Location: 12,11
 	Actor151: brik
 		Owner: GDI
 		Location: 22,21
@@ -693,24 +629,55 @@ Actors:
 	Actor156: brik
 		Owner: GDI
 		Location: 22,23
-	Actor157: brik
-		Owner: GDI
-		Location: 15,33
-	Actor158: brik
-		Owner: GDI
-		Location: 15,34
-	Actor159: brik
-		Owner: GDI
-		Location: 14,34
-	Actor160: brik
-		Owner: GDI
-		Location: 13,34
-	Actor161: brik
-		Owner: GDI
-		Location: 13,33
 	Actor162: t10
 		Owner: Neutral
 		Location: 76,8
 	Actor163: t12
 		Owner: Neutral
 		Location: 78,7
+	Actor164: gtwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 2,13
+	Actor144: gtwr
+		Owner: GDI
+		TurretFacing: 96
+		Location: 2,32
+	Actor146: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 95,13
+	Actor123: gun
+		Owner: Nod
+		TurretFacing: 96
+		Location: 95,32
+	Actor105: t01
+		Owner: Neutral
+		Location: 84,41
+	Actor117: t05
+		Owner: Neutral
+		Location: 85,42
+	Actor126: t08
+		Owner: Neutral
+		Location: 94,36
+	Actor129: t05
+		Owner: Neutral
+		Location: 21,40
+	Actor130: t10
+		Owner: Neutral
+		Location: 22,41
+	Actor131: t02
+		Owner: Neutral
+		Location: 95,36
+	Actor132: t01
+		Owner: Neutral
+		Location: 92,40
+	Actor138: t07
+		Owner: Neutral
+		Location: 93,42
+	Actor139: t07
+		Owner: Neutral
+		Location: 2,36
+	Actor140: t01
+		Owner: Neutral
+		Location: 18,1
