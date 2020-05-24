@@ -29,6 +29,9 @@ ORCA:
 	Inherits@Passengers: ^OnePassenger
 	Inherits@HeroAircraft: ^HeroAircraft
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Aircraft:
 		Speed: 150
 		TurnSpeed: 7
@@ -56,6 +59,9 @@ HELI:
 	Inherits@Passengers: ^OnePassenger
 	Inherits@HeroAircraft: ^HeroAircraft
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Aircraft:
 		Speed: 150
 		TurnSpeed: 7

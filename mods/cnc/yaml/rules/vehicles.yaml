@@ -22,6 +22,9 @@
 JEEP:
 	Inherits@Passengers: ^TwoPassengers
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 17500
 	Repairable:
@@ -44,6 +47,9 @@ JEEP:
 MSAM:
 	Inherits@Passengers: ^OnePassenger
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 25000
 	Repairable:
@@ -70,6 +76,9 @@ MSAM:
 MTNK:
 	Inherits@Passengers: ^TwoPassengers
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 45000
 	Repairable:
@@ -91,6 +100,9 @@ MTNK:
 HTNK:
 	Inherits@Passengers: ^TwoPassengers
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 80000
 	Repairable:
@@ -128,6 +140,9 @@ HTNK:
 BGGY:
 	Inherits@Passengers: ^TwoPassengers
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 15000
 	Repairable:
@@ -149,6 +164,9 @@ BGGY:
 ARTY:
 	Inherits@Passengers: ^OnePassenger
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 25000
 	Repairable:
@@ -168,6 +186,9 @@ ARTY:
 LTNK:
 	Inherits@Passengers: ^TwoPassengers
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 35000
 	Repairable:
@@ -189,6 +210,9 @@ LTNK:
 FTNK:
 	Inherits@Passengers: ^TwoPassengers
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 45000
 	Repairable:
@@ -217,6 +241,9 @@ FTNK:
 STNK:
 	Inherits@Passengers: ^OnePassenger
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 25000
 	Repairable:
@@ -238,6 +265,9 @@ STNK:
 APC:
 	Inherits@Passengers: ^FourPassengers
 	-GainsExperience:
+	GrantConditionOnFaction@SatisfyLintCheck:
+		Condition: rank-veteran
+		Factions: satisfy-lint-check
 	Health:
 		HP: 25000
 	Repairable:
