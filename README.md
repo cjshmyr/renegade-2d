@@ -7,11 +7,12 @@ Git repository containing the Renegade 2D code and maps for OpenRA.
 The released maps are supported on OpenRA release-20200503.
 
 Tiberian Dawn:
-- Alpha (version 1.00): https://resource.openra.net/maps/35289/
-- Bravo (version 1.00): https://resource.openra.net/maps/35290/
-- Charlie (version 1.00): https://resource.openra.net/maps/35291/
+- Alpha (version 1.1.0): https://resource.openra.net/maps/35432/
+- Bravo (version 1.1.0): https://resource.openra.net/maps/35433/
+- Charlie (version 1.1.0): https://resource.openra.net/maps/35434/
 
-Red Alert - none yet playable, work is in progress.
+Red Alert:
+- Zulu: not yet playable/work in progress
 
 ## Features
 Gameplay is based on the first person shooter C&C Renegade, and is similar to its predecessor C&C Sole Survivor.
