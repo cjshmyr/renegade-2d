@@ -1,6 +1,6 @@
 --[[
 	Renegade 2D: Lua script by @hamb
-	Version: 1.01
+	Version: 1.1.0
 	Engine: OpenRA release-20200504
 ]]
 
@@ -111,7 +111,7 @@ NeutralPlayer = Player.GetPlayer(NeutralPlayerName)
 WorldLoaded = function()
 	Media.PlaySound(SoundMissionStarted)
 
-	DisplayMessage('Welcome to Renegade 2D (version 1.01)!')
+	DisplayMessage('Welcome to Renegade 2D (version 1.1.0)!')
 
 	SetPlayerInfo()
 	SetTeamInfo()
