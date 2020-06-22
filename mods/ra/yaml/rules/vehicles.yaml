@@ -1,99 +1,71 @@
-# # AI specific harvester
-# HARV-AI:
-# 	Inherits: HARV
-# 	-Cargo:
+^OnePassenger:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		# EjectOnDeath: true # HACK: Handled in Lua until this works.
 
-# HARV:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 1
-# 		PipCount: 1
-# 		EjectOnDeath: true
-# 	Harvester:
-# 		SearchOnCreation: false
+^TwoPassengers:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 2
+		PipCount: 2
+		# EjectOnDeath: true # HACK: Handled in Lua until this works.
 
-# MNLY:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 1
-# 		PipCount: 1
-# 		EjectOnDeath: true
+^FourPassengers:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		PipCount: 4
+		# EjectOnDeath: true # HACK: Handled in Lua until this works.
 
-# JEEP:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 2
-# 		PipCount: 2
-# 		EjectOnDeath: true
+# TODO: Experience removal, unit value (for scores), other stuff. Check TD's rules.
 
-# APC:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 4
-# 		PipCount: 4
-# 		EjectOnDeath: true
+MNLY:
+	Inherits@Passengers: ^OnePassenger
 
-# 1TNK:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 1
-# 		PipCount: 1
-# 		EjectOnDeath: true
+JEEP:
+	Inherits@Passengers: ^TwoPassengers
 
-# 2TNK:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 2
-# 		PipCount: 2
-# 		EjectOnDeath: true
+APC:
+	Inherits@Passengers: ^FourPassengers
 
-# ARTY:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 1
-# 		PipCount: 1
-# 		EjectOnDeath: true
+1TNK:
+	Inherits@Passengers: ^OnePassenger
 
-# CTNK:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 1
-# 		PipCount: 1
-# 		EjectOnDeath: true
-# 	PortableChrono:
-# 		KillCargo: false
+2TNK:
+	Inherits@Passengers: ^OnePassenger
 
-# V2RL:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 1
-# 		PipCount: 1
-# 		EjectOnDeath: true
+ARTY:
+	Inherits@Passengers: ^OnePassenger
 
-# FTRK:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 1
-# 		PipCount: 1
-# 		EjectOnDeath: true
+CTNK:
+	Inherits@Passengers: ^OnePassenger
 
-# 3TNK:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 2
-# 		PipCount: 2
-# 		EjectOnDeath: true
+V2RL:
+	Inherits@Passengers: ^OnePassenger
 
-# 4TNK:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 2
-# 		PipCount: 2
-# 		EjectOnDeath: true
+FTRK:
+	Inherits@Passengers: ^OnePassenger
 
-# TTNK:
-# 	Cargo:
-# 		Types: Infantry
-# 		MaxWeight: 1
-# 		PipCount: 1
-# 		EjectOnDeath: true
+3TNK:
+	Inherits@Passengers: ^OnePassenger
+
+4TNK:
+	Inherits@Passengers: ^OnePassenger
+
+TTNK:
+	Inherits@Passengers: ^OnePassenger
+
+HARV:
+	Inherits@Passengers: ^OnePassenger
+	Harvester:
+		SearchOnCreation: false
+
+# AI specific harvester
+HARV-AI:
+	Inherits: HARV
+	-Cargo:
+	-RevealsShroudMultiplier:
+	Mobile:
+		PauseOnCondition: brandnew && !brandnew # HACK: Satisfy lint

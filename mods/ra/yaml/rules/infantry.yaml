@@ -1,32 +1,20 @@
 E1:
 	Inherits@HeroUnit: ^HeroUnit
 
-# E6:
-# 	-EngineerRepair:
-# 	-RepairsBridges:
-# 	-CaptureManager:
-# 	-Captures:
-# 	-Captures@REUSABLE:
-# 	AttackFrontal:
-# 		Voice: Action
-# 	Armament:
-# 		Weapon: Repair
-# 		Cursor: repair
-# 		OutsideRangeCursor: repair
-# 		TargetStances: Ally
-# 		ForceTargetStances: None
-# 	AutoTarget:
-# 	AutoTargetPriority@DEFAULT:
-# 		ValidTargets: Building, Vehicle, Ship
-# 	WithInfantryBody:
-# 		DefaultAttackSequence: idle1
+E3:
+	Inherits@HeroUnit: ^HeroUnit
 
-# MECH:
-# 	-CaptureManager:
-# 	-Captures:
-# 	-Infiltrates:
-# 	-AutoTargetPriority@DEFAULT:
-# 	AttackFrontal:
-# 		Voice: Action
-# 	AutoTargetPriority@DEFAULT:
-# 		ValidTargets: Building, Vehicle, Ship
+E6:
+	Inherits@HeroUnit: ^HeroUnit
+
+MEDI:
+	Inherits@HeroUnit: ^HeroUnit
+
+MECH:
+	Inherits@HeroUnit: ^HeroUnit
+
+E2:
+	Inherits@HeroUnit: ^HeroUnit
+
+E4:
+	Inherits@HeroUnit: ^HeroUnit
