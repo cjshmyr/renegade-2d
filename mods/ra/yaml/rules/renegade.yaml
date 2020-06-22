@@ -611,20 +611,37 @@ buy.cameo.ftur:
 	RenderSprites:
 		Image: ftur
 
-# # These actors are always present in build queue, so get rid of them.
-# # TD doesn't have this problem.
-# # Changes to buildings/units are in other files.
-# POWR:
-# 	-Buildable:
-# HARV:
-# 	Buildable:
-# 		Prerequisites: ~notAI
-# TRUK:
-# 	Buildable:
-# 		Prerequisites: ~notAI
-# MCV:
-# 	Buildable:
-# 		Prerequisites: ~notAI
-# MNLY:
-# 	Buildable:
-# 		Prerequisites: ~notAI
+# These actors are always present in build queue, so hide them. (TD doesn't have this issue)
+# Changes to buildings/units are in other files.
+POWR:
+	-Buildable:
+PROC:
+	-Buildable:
+WEAP:
+	-Buildable:
+DOME:
+	-Buildable:
+FIX:
+	-Buildable:
+APWR:
+	-Buildable:
+
+BRIK:
+	-Buildable:
+SILO:
+	-Buildable:
+MSLO:
+	-Buildable:
+
+HARV:
+	Buildable:
+		Prerequisites: ~not-ai # This might not work?
+TRUK:
+	Buildable:
+		Prerequisites: ~not-ai
+MCV:
+	Buildable:
+		Prerequisites: ~not-ai
+MNLY:
+	Buildable:
+		Prerequisites: ~not-ai
