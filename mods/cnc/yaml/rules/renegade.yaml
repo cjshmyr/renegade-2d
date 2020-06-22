@@ -791,7 +791,7 @@ buy.cameo.gtwr:
 		BuildPaletteOrder: 100
 		Prerequisites: ~cameo, ~gdi
 		Queue: Defence
-		Description: \nWhen present:\n- Attacks ground and air units within range.\n\nOther information:\n- This defense does not require the power plant to be operational.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
+		Description: \nWhen present:\n- Attacks ground units within range.\n\nOther information:\n- This defense does not require the power plant to be operational.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
 	RenderSprites:
 		Image: gtwr
 
@@ -810,11 +810,11 @@ buy.cameo.obli:
 buy.cameo.gun:
 	Inherits: ^buy.default
 	Tooltip:
-		Name: Guard Tower
+		Name: Turret
 	Buildable:
 		BuildPaletteOrder: 100
 		Prerequisites: ~cameo, ~nod
 		Queue: Defence
-		Description: \nWhen present:\n- Attacks ground and air units within range.\n\nOther information:\n- This defense does not require the power plant to be operational.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
+		Description: \nWhen present:\n- Attacks ground units within range.\n\nOther information:\n- This defense does not require the power plant to be operational.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
 	RenderSprites:
 		Image: gun
