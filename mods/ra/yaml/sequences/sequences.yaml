@@ -35,3 +35,18 @@
 # 		Length: 7
 # 	icon: harvicon
 # 		Start: 0
+
+camera.beacon:
+	idle: camera
+		Length: *
+
+camera.respawn:
+	idle: camera
+		Length: *
+
+nuke-beacon:
+	idle: scrate
+		Start: 0
+		Length: 1
+		ZOffset: -511
+	icon: atomicon

@@ -1,10 +1,18 @@
-# Repair:
-# 	Range: 1c0
-
-# 25mm: # For debug purposes
-# 	Warhead@1Dam: SpreadDamage
-# 		Damage: 10000
-
-# Dragon:
-# 	Warhead@1Dam: SpreadDamage
-# 		Damage: 10000
+AtomicBeacon: #nuke-beacon
+	ValidTargets: Ground, Air, Trees
+	Warhead@1Dam_impact: SpreadDamage
+		Range: 0, 1c1, 2c1, 2c512
+		Damage: 50000
+		Falloff: 2000, 1000, 250, 100
+		ValidTargets: Ground, Air, Trees
+		AffectsParent: True
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Eff_impact: CreateEffect
+		Explosions: nuke_explosion
+		ImpactSounds: nukexplo.aud
+		ImpactActors: false
+	Warhead@3Smu_areanukea: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+		Size: 3
+		Delay: 3
