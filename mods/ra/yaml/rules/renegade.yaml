@@ -571,7 +571,7 @@ buy.cameo.gun:
 		BuildPaletteOrder: 90
 		Prerequisites: ~cameo, ~allies
 		Queue: Defense
-		Description: \nWhen present:\n- Attacks ground and air units within range.\n\nOther information:\n- This defense can be permanently disabled if the power plant is destroyed.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
+		Description: \nWhen present:\n- Attacks ground units within range.\n\nOther information:\n- This defense can be permanently disabled if the power plant is destroyed.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
 	RenderSprites:
 		Image: gun
 
@@ -595,7 +595,7 @@ buy.cameo.tsla:
 		BuildPaletteOrder: 90
 		Prerequisites: ~cameo, ~soviet
 		Queue: Defense
-		Description: \nWhen present:\n- Attacks ground and air units within range.\n\nOther information:\n- This defense can be permanently disabled if the power plant is destroyed.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
+		Description: \nWhen present:\n- Attacks ground units within range.\n\nOther information:\n- This defense can be permanently disabled if the power plant is destroyed.\n- Not required to be destroyed for victory conditions.\n\n(This is an informational tooltip, purchasing this has no effect.)
 	RenderSprites:
 		Image: tsla
 
