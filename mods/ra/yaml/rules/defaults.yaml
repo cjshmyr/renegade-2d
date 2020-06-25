@@ -20,6 +20,26 @@
 		RepairInterval: 100
 		RepairPercent: 0
 
+# Infantry can see cloaked units.
+# Infantry have a 50% chance to dodge crushes.
+# Allow infantry to auto-heal close enough to base buildings
+^Infantry:
+	DetectCloaked:
+		Range: 3c0
+	Crushable:
+		WarnProbability: 50
+	ExternalCondition@NEARALLYBUILDING:
+		Condition: nearallybuilding
+	GrantCondition@INBASE:
+		RequiresCondition: nearallybuilding
+		Condition: inbase
+	SelfHealing@DAMAGEDINBASE: # NOTE: We're lacking a hospital healing icon for now.
+		Step: 500
+		Delay: 25
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: damaged && inbase
+
 # Vehicles can see cloaked units.
 # AI's purchased vehicles cost nothing.
 # Vehicles have a condition when damaged.

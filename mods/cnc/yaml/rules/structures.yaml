@@ -7,6 +7,8 @@
 		Cost: 300
 
 ^RenegadeSmallBuilding:
+	ProximityExternalCondition@NEARALLYBUILDING:
+		Condition: bogus
 	Health:
 		HP: 100000
 	Armor:

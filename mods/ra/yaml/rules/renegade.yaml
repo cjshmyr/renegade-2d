@@ -87,13 +87,13 @@ PurchaseTerminal:
 		Type: Defense
 		Group: Defense
 	Exit:
-	ExternalCondition@canbuy:
-		Condition: canbuy
+	ExternalCondition@inbase:
+		Condition: inbase
 	ExternalCondition@hasbeacon:
 		Condition: hasbeacon
-	ProvidesPrerequisite@canbuy:
-		Prerequisite: canbuy
-		RequiresCondition: canbuy
+	ProvidesPrerequisite@inbase:
+		Prerequisite: inbase
+		RequiresCondition: inbase
 	ProvidesPrerequisite@hasbeacon:
 		Prerequisite: hasbeacon
 		RequiresCondition: hasbeacon
@@ -123,7 +123,7 @@ buy.infantry.e1:
 		Name: Rifleman
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown
 		Queue: Infantry
 		Description: TODO
 	RenderSprites:
@@ -135,7 +135,7 @@ buy.infantry.e3:
 		Name: Rocket Soldier
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown
 		Queue: Infantry
 		Description: TODO
 	RenderSprites:
@@ -147,7 +147,7 @@ buy.infantry.e6:
 		Name: Engineer
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown
 		Queue: Infantry
 		Description: TODO
 	RenderSprites:
@@ -161,7 +161,7 @@ buy.infantry.medi:
 		Name: Medic
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry, ~allies
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~allies
 		Queue: Infantry
 		Description: TODO
 	RenderSprites:
@@ -175,7 +175,7 @@ buy.infantry.mech:
 		Name: Mechanic
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry, ~allies
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~allies
 		Queue: Infantry
 		Description: TODO
 	RenderSprites:
@@ -189,7 +189,7 @@ buy.infantry.e2:
 		Name: Grenadier
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry, ~soviet
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~soviet
 		Queue: Infantry
 		Description: TODO
 	RenderSprites:
@@ -203,7 +203,7 @@ buy.infantry.e4:
 		Name: Flamethrower
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry, ~soviet
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~soviet
 		Queue: Infantry
 		Description: TODO
 	RenderSprites:
@@ -217,7 +217,7 @@ buy.vehicle.harv:
 		Name: Ore Truck
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -245,7 +245,7 @@ buy.vehicle.jeep:
 		Name: Ranger
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~allies
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -259,7 +259,7 @@ buy.vehicle.apc:
 		Name: Armored Personnel Carrier
 	Buildable:
 		BuildPaletteOrder: 35
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -273,7 +273,7 @@ buy.vehicle.arty:
 		Name: Light Tank
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~allies
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -287,7 +287,7 @@ buy.vehicle.1tnk:
 		Name: Light Tank
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~allies
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -301,7 +301,7 @@ buy.vehicle.2tnk:
 		Name: Medium Tank
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~allies
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -315,7 +315,7 @@ buy.vehicle.ctnk:
 		Name: Chrono Tank
 	Buildable:
 		BuildPaletteOrder: 70
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~allies
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -329,7 +329,7 @@ buy.vehicle.ftrk:
 		Name: Mobile Flak
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -343,7 +343,7 @@ buy.vehicle.3tnk:
 		Name: Heavy Tank
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -357,7 +357,7 @@ buy.vehicle.4tnk:
 		Name: Mammoth Tank
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -371,7 +371,7 @@ buy.vehicle.ttnk:
 		Name: Tesla Tank
 	Buildable:
 		BuildPaletteOrder: 70
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
@@ -385,7 +385,7 @@ buy.beacon.nuke-beacon:
 		Name: Nuclear Strike Beacon
 	Buildable:
 		BuildPaletteOrder: 999
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~!hasbeacon
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~!hasbeacon
 		Queue: Infantry
 		Description: \nPurchase a Nuclear Strike Beacon.\nWhen purchased, the beacon can be deployed from the Buildings tab.\n\nBeacons can only be disarmed by Engineers.
 	RenderSprites:

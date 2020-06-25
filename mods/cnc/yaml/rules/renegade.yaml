@@ -87,13 +87,11 @@ PurchaseTerminal:
 		Type: Defence
 		Group: Defence
 	Exit:
-	ExternalCondition@canbuy:
-		Condition: canbuy
 	ExternalCondition@hasbeacon:
 		Condition: hasbeacon
-	ProvidesPrerequisite@canbuy:
-		Prerequisite: canbuy
-		RequiresCondition: canbuy
+	ProvidesPrerequisite@inbase:
+		Prerequisite: inbase
+		RequiresCondition: inbase
 	ProvidesPrerequisite@hasbeacon:
 		Prerequisite: hasbeacon
 		RequiresCondition: hasbeacon
@@ -121,7 +119,7 @@ buy.infantry.e1:
 		Name: Minigunner
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown
 		Queue: Infantry
 		Description: \nAnti-infantry, anti-air unit.
 	RenderSprites:
@@ -133,7 +131,7 @@ buy.infantry.e2:
 		Name: Grenadier
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~gdi
 		Queue: Infantry
 		Description: \nAnti-armor unit.
 	RenderSprites:
@@ -145,7 +143,7 @@ buy.infantry.e4:
 		Name: Flamethrower
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~nod
 		Queue: Infantry
 		Description: \nAnti-infantry, anti-armor unit.
 	RenderSprites:
@@ -157,7 +155,7 @@ buy.infantry.e6:
 		Name: Engineer
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown
 		Queue: Infantry
 		Description: \nRepairs friendly vehicles and structures.\nDisarms ion and nuclear strike beacons.\n\nOther information:\n-If a vehicle is damaged, hold CTRL to force an enter vehicle command instead of repair.
 	RenderSprites:
@@ -171,7 +169,7 @@ buy.infantry.e3:
 		Name: Rocket Soldier
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry
 		Queue: Infantry
 		Description: \nAdvanced anti-armor, anti-air unit.
 	RenderSprites:
@@ -182,7 +180,7 @@ buy.infantry.penalty.e3:
 	Valued:
 		Cost: 450
 	Buildable:
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry-penalty
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry-penalty
 
 buy.infantry.rmbo:
 	Inherits: ^buy.default
@@ -192,7 +190,7 @@ buy.infantry.rmbo:
 		Name: Commando
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~gdi
 		Queue: Infantry
 		Description: \nAdvanced anti-infantry, anti-air unit.
 	RenderSprites:
@@ -203,7 +201,7 @@ buy.infantry.penalty.rmbo:
 	Valued:
 		Cost: 900
 	Buildable:
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry-penalty, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry-penalty, ~gdi
 
 buy.infantry.e5:
 	Inherits: ^buy.default
@@ -213,7 +211,7 @@ buy.infantry.e5:
 		Name: Chem Warrior
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~nod
 		Queue: Infantry
 		Description: \nAdvanced anti-infantry, anti-armor unit.\n\nImmune to tiberium.
 	RenderSprites:
@@ -224,7 +222,7 @@ buy.infantry.penalty.e5:
 	Valued:
 		Cost: 900
 	Buildable:
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~infantry-penalty, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry-penalty, ~nod
 
 buy.vehicle.jeep:
 	Inherits: ^buy.default
@@ -234,7 +232,7 @@ buy.vehicle.jeep:
 		Name: Hum-Vee
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
 		Queue: Vehicle
 		Description: \nAnti-infantry, anti-air vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
@@ -246,7 +244,7 @@ buy.vehicle.penalty.jeep:
 		Cost: 525
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~gdi
 
 buy.vehicle.apc:
 	Inherits: ^buy.default
@@ -256,7 +254,7 @@ buy.vehicle.apc:
 		Name: Armored Personnel Carrier
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle
 		Queue: Vehicle
 		Description: \nAnti-infantry, anti-air vehicle.\n\nHolds 4 passengers.
 	RenderSprites:
@@ -268,7 +266,7 @@ buy.vehicle.penalty.apc:
 		Cost: 750
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty
 
 buy.vehicle.msam:
 	Inherits: ^buy.default
@@ -278,7 +276,7 @@ buy.vehicle.msam:
 		Name: Multiple Launch Rocket System
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
 		Queue: Vehicle
 		Description: \nArtillery vehicle.\n\nHolds 1 passenger.
 	RenderSprites:
@@ -290,7 +288,7 @@ buy.vehicle.penalty.msam:
 		Cost: 675
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~gdi
 
 buy.vehicle.mtnk:
 	Inherits: ^buy.default
@@ -300,7 +298,7 @@ buy.vehicle.mtnk:
 		Name: Medium Tank
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
 		Queue: Vehicle
 		Description: \nAnti-armor vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
@@ -312,7 +310,7 @@ buy.vehicle.penalty.mtnk:
 		Cost: 1200
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~gdi
 
 buy.vehicle.htnk:
 	Inherits: ^buy.default
@@ -322,7 +320,7 @@ buy.vehicle.htnk:
 		Name: Mammoth Tank
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~gdi
 		Queue: Vehicle
 		Description: \nAnti-armor, anti-air vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
@@ -334,7 +332,7 @@ buy.vehicle.penalty.htnk:
 		Cost: 2250
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~gdi
 
 buy.vehicle.bggy:
 	Inherits: ^buy.default
@@ -344,7 +342,7 @@ buy.vehicle.bggy:
 		Name: Buggy
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~nod
 		Queue: Vehicle
 		Description: \nAnti-infantry, anti-air vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
@@ -356,7 +354,7 @@ buy.vehicle.penalty.bggy:
 		Cost: 450
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
 
 buy.vehicle.arty:
 	Inherits: ^buy.default
@@ -366,7 +364,7 @@ buy.vehicle.arty:
 		Name: Artillery
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~nod
 		Queue: Vehicle
 		Description: \nArtillery vehicle.\n\nHolds 1 passenger.
 	RenderSprites:
@@ -378,7 +376,7 @@ buy.vehicle.penalty.arty:
 		Cost: 675
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
 
 buy.vehicle.ltnk:
 	Inherits: ^buy.default
@@ -388,7 +386,7 @@ buy.vehicle.ltnk:
 		Name: Light Tank
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~nod
 		Queue: Vehicle
 		Description: \nAnti-armor vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
@@ -400,7 +398,7 @@ buy.vehicle.penalty.ltnk:
 		Cost: 900
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
 
 buy.vehicle.ftnk:
 	Inherits: ^buy.default
@@ -410,7 +408,7 @@ buy.vehicle.ftnk:
 		Name: Flame Tank
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~nod
 		Queue: Vehicle
 		Description: \nAnti-infantry, anti-armor vehicle.\n\nHolds 2 passengers.
 	RenderSprites:
@@ -422,7 +420,7 @@ buy.vehicle.penalty.ftnk:
 		Cost: 1200
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
 
 buy.vehicle.stnk:
 	Inherits: ^buy.default
@@ -432,7 +430,7 @@ buy.vehicle.stnk:
 		Name: Stealth Tank
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~nod
 		Queue: Vehicle
 		Description: \nAnti-armor, anti-air vehicle.\n\nCloaked.\nLoses cloak when health is critical or vehicle is empty.\nAll enemy defenses and units can detect cloak if nearby.\n\nHolds 1 passenger.
 	RenderSprites:
@@ -444,7 +442,7 @@ buy.vehicle.penalty.stnk:
 		Cost: 1350
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
 
 buy.vehicle.harv:
 	Inherits: ^buy.default
@@ -454,7 +452,7 @@ buy.vehicle.harv:
 		Name: Harvester
 	Buildable:
 		BuildPaletteOrder: 100
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle
 		Queue: Vehicle
 		Description: \nCollects Tiberium for processing.\nCredits earned by harvesting resources will be given to each team member.\nA full harvest of Green Tiberium is worth 300 credits.\nA full harvest of Blue Tiberium is worth 600 credits.\n\nHolds 1 passenger.
 	RenderSprites:
@@ -466,7 +464,7 @@ buy.vehicle.penalty.harv:
 		Cost: 2250
 	Buildable:
 		BuildPaletteOrder: 100
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~nod
 
 buy.aircraft.orca:
 	Inherits: ^buy.default
@@ -476,7 +474,7 @@ buy.aircraft.orca:
 		Name: Orca
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~aircraft, ~gdi
 		Queue: Aircraft
 		Description: \nAnti-armor, anti-air aircraft.\n\nHolds 1 passenger.
 	RenderSprites:
@@ -488,7 +486,7 @@ buy.aircraft.penalty.orca:
 		Cost: 1350
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft-penalty, ~gdi
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~aircraft-penalty, ~gdi
 
 buy.aircraft.heli:
 	Inherits: ^buy.default
@@ -498,7 +496,7 @@ buy.aircraft.heli:
 		Name: Apache
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~aircraft, ~nod
 		Queue: Aircraft
 		Description: \nAnti-armor, anti-air aircraft.\n\nHolds 1 passenger.
 	RenderSprites:
@@ -510,7 +508,7 @@ buy.aircraft.penalty.heli:
 		Cost: 1350
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft-penalty, ~nod
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~aircraft-penalty, ~nod
 
 buy.aircraft.tran:
 	Inherits: ^buy.default
@@ -520,7 +518,7 @@ buy.aircraft.tran:
 		Name: Transport Helicopter
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~aircraft
 		Queue: Aircraft
 		Description: \nUnarmed.\n\nHolds 4 passengers.
 	RenderSprites:
@@ -532,7 +530,7 @@ buy.aircraft.penalty.tran:
 		Cost: 1350
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~aircraft-penalty
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~aircraft-penalty
 
 buy.beacon.ion-beacon:
 	Inherits: ^buy.default
@@ -542,7 +540,7 @@ buy.beacon.ion-beacon:
 		Name: Ion Cannon Beacon
 	Buildable:
 		BuildPaletteOrder: 999
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~gdi, ~!hasbeacon
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~gdi, ~!hasbeacon
 		Queue: Infantry
 		Description: \nPurchase an Ion Cannon Beacon.\nWhen purchased, the beacon can be deployed from the Buildings tab.\n\nBeacons can only be disarmed by Engineers.
 	RenderSprites:
@@ -556,7 +554,7 @@ buy.beacon.nuke-beacon:
 		Name: Nuclear Strike Beacon
 	Buildable:
 		BuildPaletteOrder: 999
-		Prerequisites: ~canbuy, ~!purchase-terminal-cooldown, ~nod, ~!hasbeacon
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~nod, ~!hasbeacon
 		Queue: Infantry
 		Description: \nPurchase a Nuclear Strike Beacon.\nWhen purchased, the beacon can be deployed from the Buildings tab.\n\nBeacons can only be disarmed by Engineers.
 	RenderSprites:
