@@ -340,7 +340,7 @@ SetVictoryConditions = function()
 	DisplayMessage('Objective - ' .. objectiveText)
 
 	Utils.Do(PlayerInfo, function(pi)
-		local objectiveId = pi.Player.AddPrimaryObjective(objectiveText)
+		local objectiveId = pi.Player.AddObjective(objectiveText)
 		pi.VictoryMissionObjectiveId = objectiveId
 	end)
 end
