@@ -541,8 +541,7 @@ end
 
 CreateBuildingHusk = function(building)
 	local huskName = building.Type .. BuildingHuskSuffix
-	local husk = Actor.Create(huskName, true, { Owner = building.Owner, Location = building.Location })
-	local ti = TeamInfo[building.Owner.InternalName]
+	Actor.Create(huskName, true, { Owner = building.Owner, Location = building.Location })
 end
 
 NotifyBuildingDestroyed = function(self, killer)
