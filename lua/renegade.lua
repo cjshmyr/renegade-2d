@@ -168,7 +168,6 @@ SetPlayerInfo = function()
 			Team = nil, -- TeamInformation for this player
 			Hero = nil, -- Actor: Hero
 			PurchaseTerminal = nil, -- Actor: Purchase Terminal
-			CanBuyConditionToken = -1, -- Attached to a Hero actor
 			HasBeaconConditionToken = -1, -- Attached to a Hero actor
 			VehicleConditionToken = -1, -- Attached to a Purchase Terminal actor
 			InfantryConditionToken = -1, -- Attached to a Purchase Terminal actor
