@@ -21,44 +21,65 @@
 
 # TODO: Experience removal, unit value (for scores), other stuff. Check TD's rules.
 
-MNLY:
-	Inherits@Passengers: ^OnePassenger
-
 JEEP:
 	Inherits@Passengers: ^TwoPassengers
+	Valued:
+		Cost: 50
 
 APC:
 	Inherits@Passengers: ^FourPassengers
-
-1TNK:
-	Inherits@Passengers: ^OnePassenger
-
-2TNK:
-	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 80
 
 ARTY:
 	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 70
+
+1TNK:
+	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 70
+
+2TNK:
+	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 85
 
 CTNK:
 	Inherits@Passengers: ^OnePassenger
-
-V2RL:
-	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 135
 
 FTRK:
 	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 60
+
+V2RL:
+	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 70
 
 3TNK:
 	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 115
 
 4TNK:
 	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 200
 
 TTNK:
 	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 135
 
 HARV:
 	Inherits@Passengers: ^OnePassenger
+	Valued:
+		Cost: 150
 	Harvester:
 		SearchOnCreation: false
 

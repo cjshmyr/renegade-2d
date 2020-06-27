@@ -156,7 +156,7 @@ buy.infantry.e6:
 buy.infantry.medi:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 200
+		Cost: 250
 	Tooltip:
 		Name: Medic
 	Buildable:
@@ -166,6 +166,13 @@ buy.infantry.medi:
 		Description: TODO
 	RenderSprites:
 		Image: MEDI
+
+buy.infantry.penalty.medi:
+	Inherits: buy.infantry.medi
+	Valued:
+		Cost: 375
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry-penalty, ~allies
 
 buy.infantry.mech:
 	Inherits: ^buy.default
@@ -181,201 +188,306 @@ buy.infantry.mech:
 	RenderSprites:
 		Image: MECH
 
-buy.infantry.e2:
-	Inherits: ^buy.default
+buy.infantry.penalty.mech:
+	Inherits: buy.infantry.mech
 	Valued:
-		Cost: 200
-	Tooltip:
-		Name: Grenadier
+		Cost: 750
 	Buildable:
-		BuildPaletteOrder: 40
-		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~soviet
-		Queue: Infantry
-		Description: TODO
-	RenderSprites:
-		Image: E2
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry-penalty, ~allies
 
 buy.infantry.e4:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 500
+		Cost: 250
 	Tooltip:
 		Name: Flamethrower
 	Buildable:
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 40
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~soviet
 		Queue: Infantry
 		Description: TODO
 	RenderSprites:
 		Image: E4
 
-buy.vehicle.harv:
-	Inherits: ^buy.default
+buy.infantry.penalty.e4:
+	Inherits: buy.infantry.e4
 	Valued:
-		Cost: 1200
-	Tooltip:
-		Name: Ore Truck
+		Cost: 375
 	Buildable:
-		BuildPaletteOrder: 10
-		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle
-		Queue: Vehicle
-		Description: TODO
-	RenderSprites:
-		Image: harv
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry-penalty, ~soviet
 
-buy.vehicle.mnly:
+buy.infantry.shok:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 800
+		Cost: 500
 	Tooltip:
-		Name: Minelayer
+		Name: Shock Trooper
 	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~notimplemented # Currently disabled
-		Queue: Vehicle
+		BuildPaletteOrder: 50
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry, ~soviet
+		Queue: Infantry
 		Description: TODO
 	RenderSprites:
-		Image: mnly
+		Image: SHOK
+
+buy.infantry.penalty.shok:
+	Inherits: buy.infantry.shok
+	Valued:
+		Cost: 750
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~infantry-penalty, ~soviet
 
 buy.vehicle.jeep:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 350
+		Cost: 500
 	Tooltip:
 		Name: Ranger
 	Buildable:
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 10
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: jeep
 
+buy.vehicle.penalty.jeep:
+	Inherits: buy.vehicle.jeep
+	Valued:
+		Cost: 750
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~allies
+
 buy.vehicle.apc:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 500
+		Cost: 800
 	Tooltip:
 		Name: Armored Personnel Carrier
 	Buildable:
-		BuildPaletteOrder: 35
+		BuildPaletteOrder: 20
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: apc
 
+buy.vehicle.penalty.apc:
+	Inherits: buy.vehicle.apc
+	Valued:
+		Cost: 1200
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty
+
 buy.vehicle.arty:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
-		Name: Light Tank
+		Name: Artillery
 	Buildable:
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 30
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: arty
 
+buy.vehicle.penalty.arty:
+	Inherits: buy.vehicle.arty
+	Valued:
+		Cost: 1050
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~allies
+
 buy.vehicle.1tnk:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Light Tank
 	Buildable:
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 40
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: 1tnk
 
+buy.vehicle.penalty.1tnk:
+	Inherits: buy.vehicle.1tnk
+	Valued:
+		Cost: 1050
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~allies
+
 buy.vehicle.2tnk:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 800
+		Cost: 850
 	Tooltip:
 		Name: Medium Tank
 	Buildable:
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 50
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: 2tnk
 
+buy.vehicle.penalty.2tnk:
+	Inherits: buy.vehicle.2tnk
+	Valued:
+		Cost: 1275
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~allies
+
 buy.vehicle.ctnk:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 1500
+		Cost: 1350
 	Tooltip:
 		Name: Chrono Tank
 	Buildable:
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 60
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~allies
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: ctnk
 
+buy.vehicle.penalty.ctnk:
+	Inherits: buy.vehicle.ctnk
+	Valued:
+		Cost: 2025
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~allies
+
 buy.vehicle.ftrk:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
 		Name: Mobile Flak
 	Buildable:
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 10
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: ftrk
 
-buy.vehicle.3tnk:
+buy.vehicle.penalty.ftrk:
+	Inherits: buy.vehicle.ftrk
+	Valued:
+		Cost: 900
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~soviet
+
+buy.vehicle.v2rl:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 950
+		Cost: 700
 	Tooltip:
-		Name: Heavy Tank
+		Name: V2 Rocket Launcher
 	Buildable:
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 30
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: 3tnk
 
+buy.vehicle.penalty.v2rl:
+	Inherits: buy.vehicle.v2rl
+	Valued:
+		Cost: 1050
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~soviet
+
+buy.vehicle.3tnk:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 1150
+	Tooltip:
+		Name: Heavy Tank
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
+		Queue: Vehicle
+		Description: TODO
+	RenderSprites:
+		Image: 3tnk
+
+buy.vehicle.penalty.3tnk:
+	Inherits: buy.vehicle.3tnk
+	Valued:
+		Cost: 1725
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~soviet
+
 buy.vehicle.4tnk:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 1700
+		Cost: 2000
 	Tooltip:
 		Name: Mammoth Tank
 	Buildable:
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 50
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: 4tnk
 
+buy.vehicle.penalty.4tnk:
+	Inherits: buy.vehicle.4tnk
+	Valued:
+		Cost: 3000
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~soviet
+
 buy.vehicle.ttnk:
 	Inherits: ^buy.default
 	Valued:
-		Cost: 1500
+		Cost: 1350
 	Tooltip:
 		Name: Tesla Tank
 	Buildable:
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 60
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle, ~soviet
 		Queue: Vehicle
 		Description: TODO
 	RenderSprites:
 		Image: ttnk
+
+buy.vehicle.penalty.ttnk:
+	Inherits: buy.vehicle.ttnk
+	Valued:
+		Cost: 2025
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~soviet
+
+buy.vehicle.harv:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Ore Truck
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle
+		Queue: Vehicle
+		Description: TODO
+	RenderSprites:
+		Image: harv
+
+buy.vehicle.penalty.ttnk:
+	Inherits: buy.vehicle.ttnk
+	Valued:
+		Cost: 2250
+	Buildable:
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~soviet
 
 buy.beacon.nuke-beacon:
 	Inherits: ^buy.default
