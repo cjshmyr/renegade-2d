@@ -88,7 +88,7 @@ elseif Mod == "ra" then
 	DefenseActorTypes = {"pbox","hbox","gun","ftur","tsla"}
 	AiHarvesterActorType = "harv-ai"
 	PlayerHarvesterActorType = "harv"
-	SoundMissionStarted = "newopt1.aud"
+	SoundMissionStarted = "radaron2.aud"
 	SoundBaseUnderAttack = "baseatk1.aud"
 	SoundMissionAccomplished = "misnwon1.aud"
 	SoundMissionFailed = "misnlst1.aud"
