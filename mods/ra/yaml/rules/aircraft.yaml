@@ -1,0 +1,15 @@
+TRAN-AI:
+	Inherits: TRAN
+	Aircraft:
+		-PauseOnCondition: !occupied
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	WithFacingSpriteBody:
+
+TRAN:
+	Inherits@Passengers: ^FourPassengers
+	Inherits@HeroAircraft: ^HeroAircraft
+	Tooltip:
+		Name: Transport Helicopter
+	Valued:
+		Cost: 90

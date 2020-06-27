@@ -489,6 +489,28 @@ buy.vehicle.penalty.ttnk:
 	Buildable:
 		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~vehicle-penalty, ~soviet
 
+buy.aircraft.tran:
+	Inherits: ^buy.default
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Transport Helicopter
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~aircraft
+		Queue: Aircraft
+		Description: \nUnarmed.\n\nHolds 4 passengers.
+	RenderSprites:
+		Image: tran
+
+buy.aircraft.penalty.tran:
+	Inherits: buy.aircraft.tran
+	Valued:
+		Cost: 1350
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~inbase, ~!purchase-terminal-cooldown, ~aircraft-penalty
+
 buy.beacon.nuke-beacon:
 	Inherits: ^buy.default
 	Valued:
