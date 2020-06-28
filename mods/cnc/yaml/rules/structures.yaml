@@ -1,4 +1,5 @@
-^RenegadeBaseBuilding: # TODO: Consistent vision range.
+# TODO: Consistent vision range.
+^RenegadeBaseBuilding:
 	Health:
 		HP: 200000
 	Armor:
