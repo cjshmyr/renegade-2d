@@ -1,18 +1,211 @@
-# APWR:
-# 	Power: # "Unlimited" power for AI buildings.
-# 		Amount: 999999
+# TODO: Consistent vision range.
+^RenegadeBaseBuilding:
+	Health:
+		HP: 150000
+	Armor:
+		Type: Wood
+	Valued:
+		Cost: 300
 
-# PROC:
-# 	StoresResources: # "Unlimited" $ for AI buildings.
-# 		PipCount: 0
-# 		Capacity: 999999
-# 	FreeActor: # Use the AI specific harvester.
-# 		Actor: HARV-AI
+^RenegadeSmallBuilding:
+	ProximityExternalCondition@NEARALLYBUILDING:
+		Condition: bogus
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	Valued:
+		Cost: 300
 
-# GUN:
-# 	Power: # Powered defense
-# 		Amount: -1
+FACT:
+	Inherits@Renegade: ^RenegadeBaseBuilding
 
-# TSLA:
-# 	Power: # Powered defense
-# 		Amount: -1
+PROC:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	StoresResources: # "Unlimited" $ for AI buildings.
+		PipCount: 0
+		Capacity: 999999
+	FreeActor: # Use the AI specific harvester.
+		Actor: HARV-AI
+
+APWR:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	Power: # "Unlimited" power for AI buildings.
+		Amount: 999999
+
+DOME:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+WEAP:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+TENT:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+BARR:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+FIX:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+HPAD:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+
+GUN:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	Power: # Powered defense
+		Amount: -1
+
+PBOX:
+	Inherits@Renegade: ^RenegadeSmallBuilding
+
+HBOX:
+	Inherits@Renegade: ^RenegadeSmallBuilding
+
+TSLA:
+	Inherits@Renegade: ^RenegadeBaseBuilding
+	Power: # Powered defense
+		Amount: -1
+
+FTUR:
+	Inherits@Renegade: ^RenegadeSmallBuilding
+
+#Husks
+FACT.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xxX xxx XxX ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Construction Yard (Destroyed)
+	RenderSprites:
+		Image: fact.destroyed
+
+PROC.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: _X_ xxx X== ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Ore Refinery (Destroyed)
+	RenderSprites:
+		Image: proc.destroyed
+
+APWR.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xxx Xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Advanced Power Plant (Destroyed)
+	RenderSprites:
+		Image: apwr.destroyed
+
+DOME.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Radar Dome (Destroyed)
+	RenderSprites:
+		Image: dome.destroyed
+
+WEAP.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: War Factory (Destroyed)
+	RenderSprites:
+		Image: weap.destroyed
+
+TENT.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Barracks (Destroyed)
+	RenderSprites:
+		Image: tent.destroyed
+
+BARR.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Barracks (Destroyed)
+	RenderSprites:
+		Image: barr.destroyed
+
+FIX.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: _+_ +++ _+_
+		Dimensions: 3,3
+	Tooltip:
+		Name: Service Depot (Destroyed)
+	RenderSprites:
+		Image: tent.destroyed
+
+HPAD.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Tooltip:
+		Name: Helipad (Destroyed)
+	RenderSprites:
+		Image: hpad.destroyed
+
+GUN.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Tooltip:
+		Name: Turret (Destroyed)
+	RenderSprites:
+		Image: gun.destroyed
+
+PBOX.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	ProximityExternalCondition@NEARALLYBUILDING: # TODO: Don't do removal here.
+		Condition: bogus
+	Tooltip:
+		Name: Pillbox (Destroyed)
+	RenderSprites:
+		Image: pbox.destroyed
+
+HBOX.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	ProximityExternalCondition@NEARALLYBUILDING: # TODO: Don't do removal here.
+		Condition: bogus
+	Tooltip:
+		Name: Camo Pillbox (Destroyed)
+	RenderSprites:
+		Image: hbox.destroyed
+
+TSLA.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	Tooltip:
+		Name: Tesla Coil (Destroyed)
+	RenderSprites:
+		Image: gun.destroyed
+
+FTUR.Husk:
+	Inherits: ^RenegadeBuildingHusk
+	ProximityExternalCondition@NEARALLYBUILDING: # TODO: Don't do removal here.
+		Condition: bogus
+	Tooltip:
+		Name: Flame Tower (Destroyed)
+	RenderSprites:
+		Image: gun.destroyed

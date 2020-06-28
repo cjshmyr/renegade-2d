@@ -8,7 +8,7 @@
 # Buildings can be repaired by engineers.
 # Buildings (when being repaired by AI) repair rate is adjusted, and costs nothing.
 ^Building:
-	ProximityExternalCondition:
+	ProximityExternalCondition@NEARALLYBUILDING:
 		Condition: nearallybuilding
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
@@ -109,6 +109,8 @@
 	Building:
 		Dimensions: 1,1
 		Footprint: x
+	ProximityExternalCondition@NEARALLYBUILDING:
+		Condition: nearallybuilding
 	WithSpriteBody:
 	Tooltip:
 		GenericName: Destroyed Building

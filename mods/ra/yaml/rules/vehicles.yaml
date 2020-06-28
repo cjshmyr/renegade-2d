@@ -88,5 +88,7 @@ HARV-AI:
 	Inherits: HARV
 	-Cargo:
 	-RevealsShroudMultiplier:
+	WithHarvesterSpriteBody:
+		ImageByFullness: harv-aiempty, harv-aihalf, harv-ai
 	Mobile:
 		PauseOnCondition: brandnew && !brandnew # HACK: Satisfy lint
