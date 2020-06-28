@@ -1,4 +1,4 @@
-^RenegadeBaseBuilding:
+^RenegadeBaseBuilding: # TODO: Consistent vision range.
 	Health:
 		HP: 200000
 	Armor:
@@ -40,7 +40,7 @@ HQ:
 	Inherits@Renegade: ^RenegadeBaseBuilding
 	-DetectCloaked: # Only defenses should detect cloaked.
 	-RenderDetectionCircle:
-	-AirstrikePower: # No airstrike power
+	-AirstrikePower: # No airstrike power (TODO: Is this removal needed?)
 
 WEAP:
 	Inherits@Renegade: ^RenegadeBaseBuilding
@@ -191,7 +191,7 @@ HAND.Husk:
 		Dimensions: 2,3
 		LocalCenterOffset: 0,-512,0
 	Tooltip:
-		Name: hand of Nod (Destroyed)
+		Name: Hand of Nod (Destroyed)
 	RenderSprites:
 		Image: hand.destroyed
 
@@ -217,6 +217,8 @@ HPAD.Husk:
 
 GTWR.Husk:
 	Inherits: ^RenegadeBuildingHusk
+	ProximityExternalCondition@NEARALLYBUILDING: # TODO: Don't do removal here.
+		Condition: bogus
 	Tooltip:
 		Name: Guard Tower (Destroyed)
 	RenderSprites:
@@ -231,6 +233,8 @@ ATWR.Husk:
 
 GUN.Husk:
 	Inherits: ^RenegadeBuildingHusk
+	ProximityExternalCondition@NEARALLYBUILDING: # TODO: Don't do removal here.
+		Condition: bogus
 	Tooltip:
 		Name: Turret (Destroyed)
 	RenderSprites:
