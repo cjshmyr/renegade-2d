@@ -424,7 +424,7 @@ Actors:
 	Actor39: hpad
 		Owner: Allies
 		Location: 22,22
-	Actor40: hpad
+	Actor40: afld
 		Owner: Soviet
 		Location: 43,22
 	Actor41: fix

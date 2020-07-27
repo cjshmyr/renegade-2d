@@ -83,7 +83,7 @@ elseif Mod == "ra" then
 	RadarActorTypes = {"dome"}
 	WarFactoryActorTypes = {"weap"}
 	BarracksActorTypes = {"barr","tent"}
-	HelipadActorTypes = {"hpad"}
+	HelipadActorTypes = {"hpad","afld"}
 	ServiceDepotActorTypes = {"fix"}
 	DefenseActorTypes = {"pbox","hbox","gun","ftur","tsla"}
 	AiHarvesterActorType = "harv-ai"
