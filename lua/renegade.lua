@@ -4,6 +4,21 @@
 	Engine: OpenRA release-20200504
 ]]
 
+--[[
+	TODO:
+		Implement passenger logic with sidebar
+		Bleed: OnDamage callback update
+		Bleed: Cloak lua API update for nametags
+		Bleed: Actor experience API update (can carry it over with EjectOnDeath hack)
+		Disabling purchase terminal items should only disable, not hide, items in the list
+			- Potentially do the same for being out-of-range from a building, requring 'nearby building'
+		Replace chinook drop-offs with production from the destroyed building.
+			- Helicopters and planes may want to spawn adjacent to the building.
+		Refactor nametag drawing
+		Add support for not all buildings being present
+		Add support for locked vehicles
+]]
+
 --[[ Variables set by build script ]]
 Mod = "{BUILD_MOD}"
 
@@ -152,7 +167,7 @@ Tick = function()
 	-- Tick interval = 1
 	SetLighting()
 	IncrementUnderAttackNotificationTicks()
-	HackyDrawNameTags()
+	DrawNameTags()
 end
 
 --[[ World Loaded / Gameplay ]]
@@ -1357,52 +1372,38 @@ IncrementUnderAttackNotificationTicks = function()
 	end)
 end
 
-HackyDrawNameTags = function()
-	--[[
-		This is a hack until WithTextDecoration is used.
-
-		Units that can cloak will never show their nametag to enemies,
-		since we can't track that state in Lua.
-	]]
-
+DrawNameTags = function()
 	local isSpectating = LocalPlayerInfo == nil
 
 	Utils.Do(TeamInfo, function(ti)
 		local sameTeam = isSpectating or LocalPlayerInfo.Player.Faction == ti.AiPlayer.Faction
 
 		Utils.Do(ti.Players, function(pi)
-			if pi.Hero ~= nil and pi.Hero.IsInWorld then
-				-- HACK: Don't show nametags on enemy units with cloak
-				local showTag = sameTeam
-					or (not sameTeam and not ArrayContains(EnemyNametagsHiddenForTypes, pi.Hero.Type))
-					or GameOver
+			if pi.Hero ~= nil and (pi.Hero.IsInWorld or pi.IsPilot) then
+
+				local pilotOfAliveVehicle = pi.IsPilot and pi.PassengerOfVehicle.HasProperty('CenterPosition') -- Is a pilot, and not of a dead/falling aircraft
+
+				local showTag =
+					sameTeam -- On the same team (check required for cloak hack)
+					or (not sameTeam and not ArrayContains(EnemyNametagsHiddenForTypes, pi.Hero.Type)) -- HACK: Don't show nametags on enemy units with cloak
+					or pilotOfAliveVehicle -- Is a pilot of a not dead/falling aircraft
+					or GameOver -- Game is over
 
 				if showTag then
 					local name = GetDisplayNameForActor(pi.Hero)
-					name = name:sub(0, 14) -- truncate to 14 chars
+					name = name:sub(0, 14) -- truncate nametags to 14 chars
 
-					local pos = WPos.New(pi.Hero.CenterPosition.X, pi.Hero.CenterPosition.Y - 1250, 0)
-					Media.FloatingText(name, pos, 1, pi.Player.Color)
-				end
-			end
-
-			if pi.IsPilot then
-				-- HACK: Don't show nametags on enemy units with cloak
-				local showTag = (sameTeam
-					or (not sameTeam and not ArrayContains(EnemyNametagsHiddenForTypes, pi.PassengerOfVehicle.Type))
-					or GameOver
-					)
-					and pi.PassengerOfVehicle.HasProperty('CenterPosition') -- Handle dead/falling aircraft.
-
-				if showTag then
-					local extraOffset = Actor.CruiseAltitude(pi.PassengerOfVehicle.Type)
-					local pos = WPos.New(pi.PassengerOfVehicle.CenterPosition.X, pi.PassengerOfVehicle.CenterPosition.Y - 1250 - extraOffset, 0)
-					local passengerCount = pi.PassengerOfVehicle.PassengerCount
-					local name = GetDisplayNameForActor(pi.Hero)
-					name = name:sub(0, 14) -- truncate to 14 chars
-					if passengerCount > 1 then
-						name = name .. " (+" .. passengerCount - 1 .. ")"
+					local drawOverActor = pi.Hero
+					local extraOffset = 0
+					if pilotOfAliveVehicle then
+						drawOverActor = pi.PassengerOfVehicle
+						extraOffset = Actor.CruiseAltitude(pi.PassengerOfVehicle.Type)
+						if pi.PassengerOfVehicle.PassengerCount > 1 then
+							name = name .. " (+" .. passengerCount - 1 .. ")"
+						end
 					end
+
+					local pos = WPos.New(drawOverActor.CenterPosition.X, drawOverActor.CenterPosition.Y - 1250 - extraOffset, 0)
 					Media.FloatingText(name, pos, 1, pi.Player.Color)
 				end
 			end
